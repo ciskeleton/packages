@@ -48,124 +48,124 @@
 	url = https://github.com/ianhubnet/csk-plugin-oembed
 [submodule "packages/languages/arabic"]
 	path = packages/languages/arabic
-	url = https://github.com/ianhubnet/csk-lang-arabic.git
+	url = https://github.com/ciskeleton/lang-arabic.git
 [submodule "packages/languages/brazilian"]
 	path = packages/languages/brazilian
-	url = https://github.com/ianhubnet/csk-lang-brazilian.git
+	url = https://github.com/ciskeleton/lang-brazilian.git
 [submodule "packages/languages/bulgarian"]
 	path = packages/languages/bulgarian
-	url = https://github.com/ianhubnet/csk-lang-bulgarian.git
+	url = https://github.com/ciskeleton/lang-bulgarian.git
 [submodule "packages/languages/chinese"]
 	path = packages/languages/chinese
-	url = https://github.com/ianhubnet/csk-lang-chinese.git
+	url = https://github.com/ciskeleton/lang-chinese.git
 [submodule "packages/languages/czech"]
 	path = packages/languages/czech
-	url = https://github.com/ianhubnet/csk-lang-czech.git
+	url = https://github.com/ciskeleton/lang-czech.git
 [submodule "packages/languages/dutch"]
 	path = packages/languages/dutch
-	url = https://github.com/ianhubnet/csk-lang-dutch.git
+	url = https://github.com/ciskeleton/lang-dutch.git
 [submodule "packages/languages/english"]
 	path = packages/languages/english
-	url = https://github.com/ianhubnet/csk-lang-english.git
+	url = https://github.com/ciskeleton/lang-english.git
 [submodule "packages/languages/french"]
 	path = packages/languages/french
-	url = https://github.com/ianhubnet/csk-lang-french.git
+	url = https://github.com/ciskeleton/lang-french.git
 [submodule "packages/languages/german"]
 	path = packages/languages/german
-	url = https://github.com/ianhubnet/csk-lang-german.git
+	url = https://github.com/ciskeleton/lang-german.git
 [submodule "packages/languages/hindi"]
 	path = packages/languages/hindi
-	url = https://github.com/ianhubnet/csk-lang-hindi.git
+	url = https://github.com/ciskeleton/lang-hindi.git
 [submodule "packages/languages/indonesian"]
 	path = packages/languages/indonesian
-	url = https://github.com/ianhubnet/csk-lang-indonesian.git
+	url = https://github.com/ciskeleton/lang-indonesian.git
 [submodule "packages/languages/italian"]
 	path = packages/languages/italian
-	url = https://github.com/ianhubnet/csk-lang-italian.git
+	url = https://github.com/ciskeleton/lang-italian.git
 [submodule "packages/languages/japanese"]
 	path = packages/languages/japanese
-	url = https://github.com/ianhubnet/csk-lang-japanese.git
+	url = https://github.com/ciskeleton/lang-japanese.git
 [submodule "packages/languages/korean"]
 	path = packages/languages/korean
-	url = https://github.com/ianhubnet/csk-lang-korean.git
+	url = https://github.com/ciskeleton/lang-korean.git
 [submodule "packages/languages/persian"]
 	path = packages/languages/persian
-	url = https://github.com/ianhubnet/csk-lang-persian.git
+	url = https://github.com/ciskeleton/lang-persian.git
 [submodule "packages/languages/polish"]
 	path = packages/languages/polish
-	url = https://github.com/ianhubnet/csk-lang-polish.git
+	url = https://github.com/ciskeleton/lang-polish.git
 [submodule "packages/languages/portuguese"]
 	path = packages/languages/portuguese
-	url = https://github.com/ianhubnet/csk-lang-portuguese.git
+	url = https://github.com/ciskeleton/lang-portuguese.git
 [submodule "packages/languages/russian"]
 	path = packages/languages/russian
-	url = https://github.com/ianhubnet/csk-lang-russian.git
+	url = https://github.com/ciskeleton/lang-russian.git
 [submodule "packages/languages/spanish"]
 	path = packages/languages/spanish
-	url = https://github.com/ianhubnet/csk-lang-spanish.git
+	url = https://github.com/ciskeleton/lang-spanish.git
 [submodule "packages/languages/taiwanese"]
 	path = packages/languages/taiwanese
-	url = https://github.com/ianhubnet/csk-lang-taiwanese.git
+	url = https://github.com/ciskeleton/lang-taiwanese.git
 [submodule "packages/languages/thai"]
 	path = packages/languages/thai
-	url = https://github.com/ianhubnet/csk-lang-thai.git
+	url = https://github.com/ciskeleton/lang-thai.git
 [submodule "packages/languages/turkish"]
 	path = packages/languages/turkish
-	url = https://github.com/ianhubnet/csk-lang-turkish.git
+	url = https://github.com/ciskeleton/lang-turkish.git
 [submodule "packages/languages/vietnamese"]
 	path = packages/languages/vietnamese
-	url = https://github.com/ianhubnet/csk-lang-vietnamese.git
+	url = https://github.com/ciskeleton/lang-vietnamese.git
 [submodule "packages/languages/romanian"]
 	path = packages/languages/romanian
-	url = https://github.com/ianhubnet/csk-lang-romanian
+	url = https://github.com/ciskeleton/lang-romanian
 [submodule "packages/languages/hungarian"]
 	path = packages/languages/hungarian
-	url = https://github.com/ianhubnet/csk-lang-hungarian
+	url = https://github.com/ciskeleton/lang-hungarian
 [submodule "packages/languages/greek"]
 	path = packages/languages/greek
-	url = https://github.com/ianhubnet/csk-lang-greek
+	url = https://github.com/ciskeleton/lang-greek
 [submodule "packages/languages/serbian"]
 	path = packages/languages/serbian
-	url = https://github.com/ianhubnet/csk-lang-serbian
+	url = https://github.com/ciskeleton/lang-serbian
 [submodule "packages/languages/ukrainian"]
 	path = packages/languages/ukrainian
-	url = https://github.com/ianhubnet/csk-lang-ukrainian
+	url = https://github.com/ciskeleton/lang-ukrainian
 [submodule "packages/languages/croatian"]
 	path = packages/languages/croatian
-	url = https://github.com/ianhubnet/csk-lang-croatian
+	url = https://github.com/ciskeleton/lang-croatian
 [submodule "packages/languages/slovak"]
 	path = packages/languages/slovak
-	url = https://github.com/ianhubnet/csk-lang-slovak
+	url = https://github.com/ciskeleton/lang-slovak
 [submodule "packages/languages/danish"]
 	path = packages/languages/danish
-	url = https://github.com/ianhubnet/csk-lang-danish
+	url = https://github.com/ciskeleton/lang-danish
 [submodule "packages/languages/finnish"]
 	path = packages/languages/finnish
-	url = https://github.com/ianhubnet/csk-lang-finnish
+	url = https://github.com/ciskeleton/lang-finnish
 [submodule "packages/languages/latvian"]
 	path = packages/languages/latvian
-	url = https://github.com/ianhubnet/csk-lang-latvian
+	url = https://github.com/ciskeleton/lang-latvian
 [submodule "packages/languages/lithuanian"]
 	path = packages/languages/lithuanian
-	url = https://github.com/ianhubnet/csk-lang-lithuanian
+	url = https://github.com/ciskeleton/lang-lithuanian
 [submodule "packages/languages/norwegian"]
 	path = packages/languages/norwegian
-	url = https://github.com/ianhubnet/csk-lang-norwegian
+	url = https://github.com/ciskeleton/lang-norwegian
 [submodule "packages/languages/slovenian"]
 	path = packages/languages/slovenian
-	url = https://github.com/ianhubnet/csk-lang-slovenian
+	url = https://github.com/ciskeleton/lang-slovenian
 [submodule "packages/languages/catalan"]
 	path = packages/languages/catalan
-	url = https://github.com/ianhubnet/csk-lang-catalan
+	url = https://github.com/ciskeleton/lang-catalan
 [submodule "packages/languages/bengali"]
 	path = packages/languages/bengali
-	url = https://github.com/ianhubnet/csk-lang-bengali
+	url = https://github.com/ciskeleton/lang-bengali
 [submodule "packages/languages/filipino"]
 	path = packages/languages/filipino
-	url = https://github.com/ianhubnet/csk-lang-filipino
+	url = https://github.com/ciskeleton/lang-filipino
 [submodule "packages/languages/swedish"]
 	path = packages/languages/swedish
-	url = https://github.com/ianhubnet/csk-lang-swedish
+	url = https://github.com/ciskeleton/lang-swedish
 [submodule "packages/plugins/oauth"]
 	path = packages/plugins/oauth
 	url = https://github.com/ianhubnet/csk-plugin-oauth
