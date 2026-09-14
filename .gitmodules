@@ -1,51 +1,51 @@
 [submodule "packages/modules/showfolio"]
 	path = packages/modules/showfolio
-	url = https://github.com/ianhubnet/csk-module-showfolio.git
+	url = https://github.com/ciskeleton/module-showfolio.git
 [submodule "packages/modules/services"]
 	path = packages/modules/services
-	url = https://github.com/ianhubnet/csk-module-services.git
+	url = https://github.com/ciskeleton/module-services.git
 [submodule "packages/modules/chargily"]
 	path = packages/modules/chargily
-	url = https://github.com/ianhubnet/csk-module-chargily.git
+	url = https://github.com/ciskeleton/module-chargily.git
 [submodule "packages/modules/pages"]
 	path = packages/modules/pages
-	url = https://github.com/ianhubnet/csk-module-pages.git
+	url = https://github.com/ciskeleton/module-pages.git
 [submodule "packages/modules/menus"]
 	path = packages/modules/menus
-	url = https://github.com/ianhubnet/csk-module-menus.git
+	url = https://github.com/ciskeleton/module-menus.git
 [submodule "packages/modules/dummy"]
 	path = packages/modules/dummy
-	url = https://github.com/ianhubnet/csk-module-dummy.git
+	url = https://github.com/ciskeleton/module-dummy.git
 [submodule "packages/themes/ianhub"]
 	path = packages/themes/ianhub
 	url = https://github.com/ianhubnet/csk-theme-ianhub.git
 [submodule "packages/modules/contact"]
 	path = packages/modules/contact
-	url = https://github.com/ianhubnet/csk-module-contact.git
+	url = https://github.com/ciskeleton/module-contact.git
 [submodule "packages/modules/account"]
 	path = packages/modules/account
-	url = https://github.com/ianhubnet/csk-module-account.git
+	url = https://github.com/ciskeleton/module-account.git
 [submodule "packages/modules/blog"]
 	path = packages/modules/blog
-	url = https://github.com/ianhubnet/csk-module-blog.git
+	url = https://github.com/ciskeleton/module-blog.git
 [submodule "packages/themes/classic"]
 	path = packages/themes/classic
-	url = https://github.com/ianhubnet/csk-theme-classic.git
+	url = https://github.com/ciskeleton/theme-classic.git
 [submodule "packages/plugins/visitors"]
 	path = packages/plugins/visitors
-	url = https://github.com/ianhubnet/csk-plugin-visitors
+	url = https://github.com/ciskeleton/plugin-visitors
 [submodule "packages/plugins/jwt"]
 	path = packages/plugins/jwt
-	url = https://github.com/ianhubnet/csk-plugin-jwt
+	url = https://github.com/ciskeleton/plugin-jwt
 [submodule "packages/plugins/request-guard"]
 	path = packages/plugins/request-guard
-	url = https://github.com/ianhubnet/csk-plugin-request-guard
+	url = https://github.com/ciskeleton/plugin-request-guard
 [submodule "packages/plugins/exception-notifier"]
 	path = packages/plugins/exception-notifier
-	url = https://github.com/ianhubnet/csk-plugin-exception-notifier
+	url = https://github.com/ciskeleton/plugin-exception-notifier
 [submodule "packages/plugins/oembed"]
 	path = packages/plugins/oembed
-	url = https://github.com/ianhubnet/csk-plugin-oembed
+	url = https://github.com/ciskeleton/plugin-oembed
 [submodule "packages/languages/arabic"]
 	path = packages/languages/arabic
 	url = https://github.com/ciskeleton/lang-arabic.git
@@ -168,4 +168,4 @@
 	url = https://github.com/ciskeleton/lang-swedish
 [submodule "packages/plugins/oauth"]
 	path = packages/plugins/oauth
-	url = https://github.com/ianhubnet/csk-plugin-oauth
+	url = https://github.com/ciskeleton/plugin-oauth
