@@ -45,10 +45,10 @@ New packages register themselves automatically when they define:
 ## Example
 | Type | Example Repo | `CSK_NAME` | `CSK_TYPE` | `IANHUB_AGENT_*` | Added Under |
 | :--- | :----------: | :--------: | :--------: | :--------------: | :---------- |
-| Language | `csk-lang-english` | `english` | `language` | `<secrets>` | `packages/languages/english` |
-| Module | `csk-module-pages` | `pages` | `module` | `<secrets>` | `packages/modules/pages` |
-| Plugin | `csk-plugin-oauth` | `oauth` | `plugin` | `<secrets>` | `packages/plugins/oauth` |
-| Theme | `csk-theme-classic` | `classic` | `theme` | `<secrets>` | `packages/themes/classic` |
+| Language | `lang-english` | `english` | `language` | `<secrets>` | `packages/languages/english` |
+| Module | `module-pages` | `pages` | `module` | `<secrets>` | `packages/modules/pages` |
+| Plugin | `plugin-oauth` | `oauth` | `plugin` | `<secrets>` | `packages/plugins/oauth` |
+| Theme | `theme-classic` | `classic` | `theme` | `<secrets>` | `packages/themes/classic` |
 
 ---
 
@@ -57,9 +57,9 @@ New packages register themselves automatically when they define:
 
 ## 🔗 Related Repositories
 
-* [`csk-core`](https://github.com/ianhubnet) — Main CSK Framework *(Private)*
-* [`csk-common`](https://github.com/ianhubnet/csk-common) — CSK Shared Assets *(Public)*
-* [`csk-projects`](https://github.com/ianhubnet/csk-projects) — All CSK projects *(Public index)*
+* [`core`](https://github.com/ciskeleton/core) — Main CSK Framework *(Private)*
+* [`common`](https://github.com/ciskeleton/common) — CSK Shared Assets *(Public)*
+* [`projects`](https://github.com/ciskeleton/projects) — All CSK projects *(Public index)*
 
 ---
 
