@@ -175,7 +175,36 @@ jobs:
 
           git add "$ARCHIVE_DIR/${NAME}.zip"
 
-      - name: 7️⃣ Commit and Push Updates
+      - name: 7️⃣ Update Package Versions
+        shell: bash
+        run: |
+          TYPE_PLURAL="${{ steps.submodule.outputs.type_plural }}"
+          NAME="${{ steps.submodule.outputs.name }}"
+          VERSION="${{ env.VERSION }}"
+
+          echo "📋 Updating versions.json..."
+          echo "📦 Package: $TYPE_PLURAL/$NAME"
+          echo "🔢 Version: $VERSION"
+
+          if [ ! -f "versions.json" ]; then
+            echo "➕ versions.json doesn't exist. Creating it..."
+            echo '{}' > versions.json
+          fi
+
+          jq \
+            --arg type "$TYPE_PLURAL" \
+            --arg name "$NAME" \
+            --arg version "$VERSION" \
+            '.[$type] = ((.[$type] // {}) + {($name): $version})' \
+            versions.json > versions.json.tmp
+
+          mv versions.json.tmp versions.json
+
+          git add versions.json
+
+          echo "✅ versions.json updated."
+
+      - name: 8️⃣ Commit and Push Updates
         shell: bash
         run: |
           TYPE_PLURAL="${{ steps.submodule.outputs.type_plural }}"
@@ -184,7 +213,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "🟡 No changes to commit."
           else
-            echo "📝 Committing submodule and archive updates..."
+            echo "📝 Committing submodule, archive, and version updates..."
 
             git commit -m "Auto-update package: $TYPE_PLURAL/$NAME"
 
