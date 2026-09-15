@@ -123,6 +123,18 @@ jobs:
           REPO="${{ steps.submodule.outputs.repo }}"
           NAME="${{ steps.submodule.outputs.name }}"
 
+          API_URL="https://api.github.com/repos/$REPO"
+
+          echo "🔍 Fetching repository metadata..."
+
+          curl -fsSL \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "$API_URL" > repo.json
+
+          PRIVATE=$(jq -r '.private' repo.json)
+          echo "PRIVATE=$PRIVATE" >> "$GITHUB_ENV"
+
           API_URL="https://api.github.com/repos/$REPO/releases/latest"
 
           echo "🔍 Fetching latest release metadata..."
@@ -133,15 +145,24 @@ jobs:
             "$API_URL" > latest.json
 
           VERSION=$(jq -r '.tag_name' latest.json)
-          ZIP_URL=$(jq -r '.assets[] | select(.name | endswith(".zip")) | .browser_download_url' latest.json | head -n 1)
-
-          echo "📦 Version: $VERSION"
-          echo "📥 ZIP URL: $ZIP_URL"
 
           if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
             echo "❌ No latest release found. Aborting."
             exit 1
           fi
+
+          echo "📦 Version: $VERSION"
+
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+          if [ "$PRIVATE" = "true" ]; then
+            echo "🔒 Repository is private. Skipping ZIP download."
+            exit 0
+          fi
+
+          ZIP_URL=$(jq -r '.assets[] | select(.name | endswith(".zip")) | .browser_download_url' latest.json | head -n 1)
+
+          echo "📥 ZIP URL: $ZIP_URL"
 
           if [ -z "$ZIP_URL" ] || [ "$ZIP_URL" = "null" ]; then
             echo "❌ No release ZIP found. Aborting."
@@ -153,13 +174,16 @@ jobs:
             -o "${NAME}.zip" \
             "$ZIP_URL"
 
-          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
-
           echo "✅ Release ZIP downloaded."
 
       - name: 6️⃣ Store latest release ZIP
         shell: bash
         run: |
+          if [ "$PRIVATE" = "true" ]; then
+            echo "🔒 Private repository. Skipping ZIP storage."
+            exit 0
+          fi
+
           TYPE_PLURAL="${{ steps.submodule.outputs.type_plural }}"
           NAME="${{ steps.submodule.outputs.name }}"
 
