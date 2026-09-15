@@ -16,6 +16,7 @@ jobs:
   update:
     name: Update Package Submodule
     runs-on: ubuntu-latest
+
     outputs:
       type: ${{ steps.submodule.outputs.type }}
       type_plural: ${{ steps.submodule.outputs.type_plural }}
@@ -30,13 +31,13 @@ jobs:
           client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
           private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
           owner: ianhubnet
-      
+
       - name: 2️⃣ Checkout repo with submodules
         uses: actions/checkout@v5
         with:
           token: ${{ steps.app-token.outputs.token }}
           submodules: false
-      
+
       - name: 3️⃣ Configure GitHub auth and identity
         shell: bash
         run: |
@@ -60,22 +61,22 @@ jobs:
 
           REPO="${{ github.event.client_payload.repo }}"
           NAME="${{ github.event.client_payload.name }}"
+
           if [ -z "$REPO" ] || [ -z "$NAME" ]; then
             echo "❌ Missing required payload fields."
             exit 1
           fi
 
           SUB_PATH="packages/$TYPE_PLURAL/$NAME"
+
           echo "➡️ Type: $TYPE"
           echo "📦 Name: $NAME"
           echo "🔗 Repo: $REPO"
           echo "📂 Submodule path: $SUB_PATH"
 
-          # Check if submodule exists
           if git config -f .gitmodules --get submodule."$SUB_PATH".url >/dev/null; then
             echo "🔍 Submodule exists. Verifying repository URL..."
 
-            # Normalize existing and expected URLs
             EXISTING_URL=$(git config -f .gitmodules --get submodule."$SUB_PATH".url | sed -E 's|https://.*@github.com/|https://github.com/|' | sed 's|\.git$||')
             EXPECTED_URL=$(echo "https://github.com/$REPO" | sed 's|\.git$||')
 
@@ -90,16 +91,13 @@ jobs:
             echo "➕ Submodule doesn't exist. Adding it..."
             mkdir -p "$(dirname "$SUB_PATH")"
 
-            # Add using token for authentication, then normalize URL
             git submodule add "https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/$REPO" "$SUB_PATH"
             git config -f .gitmodules submodule."$SUB_PATH".url "https://github.com/$REPO"
             git submodule sync
           fi
 
-          # Stage submodule changes
           git add .gitmodules "$SUB_PATH"
 
-          # Pull latest main if nothing staged
           git fetch origin main --quiet
           if git diff --cached --quiet; then
             echo "🟢 No staged changes. Safe to pull..."
@@ -108,112 +106,98 @@ jobs:
             echo "⚠️ Skipping merge to avoid overwriting staged submodule updates."
           fi
 
-          # Commit if needed
-          if git diff --cached --quiet; then
-            echo "🟡 No changes to commit."
-          else
-            echo "📝 Committing changes..."
-            git commit -m "Auto-update/add submodule: $TYPE_PLURAL/${NAME:-unknown}"
-          fi
-
-          # Push with retry
-          echo "🚀 Pushing to origin (with retry)..."
-          for i in 1 2 3; do
-            git push && break || {
-              echo "❌ Push failed. Retry #$i in 3s..."
-              sleep 3
-            }
-          done
-
           git status -sb
 
-          echo "✅ Done."
           echo "type=$TYPE" >> $GITHUB_OUTPUT
           echo "type_plural=$TYPE_PLURAL" >> $GITHUB_OUTPUT
           echo "repo=$REPO" >> $GITHUB_OUTPUT
           echo "name=$NAME" >> $GITHUB_OUTPUT
 
-  post-update:
-    name: Upload Package Release to FTP
-    needs: update
-    runs-on: ubuntu-latest
+          echo "✅ Submodule update complete."
 
-    steps:
-      - name: 1️⃣ Create ianhub-agent token
-        id: app-token
-        uses: actions/create-github-app-token@v3
-        with:
-          client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
-          private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
-          owner: ianhubnet
-
-      - name: 2️⃣ Download latest release ZIP
+      - name: 5️⃣ Download latest release ZIP
+        shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          REPO="${{ needs.update.outputs.repo }}"
-          NAME="${{ needs.update.outputs.name }}"
-          API_URL="https://api.github.com/repos/$REPO/releases/tags/$VERSION"
+          REPO="${{ steps.submodule.outputs.repo }}"
+          NAME="${{ steps.submodule.outputs.name }}"
+
+          API_URL="https://api.github.com/repos/$REPO/releases/latest"
 
           echo "🔍 Fetching latest release metadata..."
-          curl -L -H "Authorization: Bearer ${{ steps.app-token.outputs.token }}" "$API_URL" > latest.json
 
-          ZIP_URL=$(jq -r '.assets[] | select(.name | endswith(".zip")) | .browser_download_url' latest.json | head -n 1)
+          curl -fsSL \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "$API_URL" > latest.json
+
           VERSION=$(jq -r '.tag_name' latest.json)
+          ZIP_URL=$(jq -r '.assets[] | select(.name | endswith(".zip")) | .browser_download_url' latest.json | head -n 1)
 
           echo "📦 Version: $VERSION"
           echo "📥 ZIP URL: $ZIP_URL"
 
-          if [ -z "$ZIP_URL" ] || [ "$ZIP_URL" == "null" ]; then
-            echo "❌ No release asset found. Aborting."
+          if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
+            echo "❌ No latest release found. Aborting."
             exit 1
           fi
 
-          curl -L -o "${NAME}.zip" "$ZIP_URL"
+          if [ -z "$ZIP_URL" ] || [ "$ZIP_URL" = "null" ]; then
+            echo "❌ No release ZIP found. Aborting."
+            exit 1
+          fi
 
-          echo "ZIP=${NAME}.zip" >> $GITHUB_ENV
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          curl -fsSL \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -o "${NAME}.zip" \
+            "$ZIP_URL"
 
-      - name: 3️⃣ Upload to FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          port: ${{ secrets.FTP_PORT }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          local-dir: ./
-          server-dir: ${{ secrets.FTP_PATH }}${{ needs.update.outputs.type_plural }}/
-          state-name: ".sync-${{ needs.update.outputs.name }}-state.json"
-          exclude: |
-            **/*
-            !${{ env.ZIP }}
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
 
-      - name: 4️⃣ Send JSON-RPC
+          echo "✅ Release ZIP downloaded."
+
+      - name: 6️⃣ Store latest release ZIP
         shell: bash
-        env:
-          RPC_URL: ${{ secrets.RPC_URL }}
-          RPC_KEY: ${{ secrets.RPC_KEY }}
-          RPC_VER: ${{ secrets.RPC_VER }}
         run: |
-          REPO="${{ needs.update.outputs.repo }}"
-          REPO_URL="https://github.com/$REPO"
-          TYPE="${{ needs.update.outputs.type }}"
-          PACKAGE="${{ needs.update.outputs.name }}"
-          OWNER="${REPO%%/*}"
-          NAME="${REPO##*/}"
-          ID=$(openssl rand -hex 8)
+          TYPE_PLURAL="${{ steps.submodule.outputs.type_plural }}"
+          NAME="${{ steps.submodule.outputs.name }}"
 
-          curl -s -X POST "$RPC_URL" \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer $RPC_KEY" \
-            -d "{
-              \"jsonrpc\": \"$RPC_VER\",
-              \"method\": \"update\",
-              \"params\": {
-                \"type\": \"$TYPE\",
-                \"package\": \"$PACKAGE\",
-                \"repo\": \"$REPO_URL\",
-                \"owner\": \"$OWNER\",
-                \"name\": \"$NAME\",
-                \"version\": \"${{ env.VERSION }}\"
-              },
-              \"id\": \"$ID\"
-            }"
+          ARCHIVE_DIR="dist/$TYPE_PLURAL"
+
+          echo "📂 Archive directory: $ARCHIVE_DIR"
+
+          mkdir -p "$ARCHIVE_DIR"
+
+          mv "${NAME}.zip" "$ARCHIVE_DIR/${NAME}.zip"
+
+          echo "📦 Stored: $ARCHIVE_DIR/${NAME}.zip"
+
+          git add "$ARCHIVE_DIR/${NAME}.zip"
+
+      - name: 7️⃣ Commit and Push Updates
+        shell: bash
+        run: |
+          TYPE_PLURAL="${{ steps.submodule.outputs.type_plural }}"
+          NAME="${{ steps.submodule.outputs.name }}"
+
+          if git diff --cached --quiet; then
+            echo "🟡 No changes to commit."
+          else
+            echo "📝 Committing submodule and archive updates..."
+
+            git commit -m "Auto-update package: $TYPE_PLURAL/$NAME"
+
+            echo "🚀 Pushing updates..."
+
+            for i in 1 2 3; do
+              git push && break || {
+                echo "❌ Push failed. Retry #$i in 3s..."
+                sleep 3
+              }
+            done
+          fi
+
+          git status -sb
+
+          echo "✅ Package update complete."
