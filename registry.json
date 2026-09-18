@@ -1,0 +1,9 @@
+{
+  "system": {
+    "common": {
+      "version": "1.0.0",
+      "sha256": "7a565b8813582a26cac5ddb61880f2906ea01a75dca2e96d564b72c673f7a59b",
+      "download_url": "https://raw.githubusercontent.com/ciskeleton/packages/main/dist/system/common.zip"
+    }
+  }
+}
