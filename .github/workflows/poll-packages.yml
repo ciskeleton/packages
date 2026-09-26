@@ -1,0 +1,165 @@
+name: Sync Packages
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: packages-write
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    name: Check for new releases
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1️⃣ Create ianhub-agent token (scoped to packages repo only)
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
+          private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
+          owner: ciskeleton
+          repositories: packages
+
+      - name: 2️⃣ Checkout
+        uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+
+      - name: 3️⃣ Configure git identity
+        run: |
+          git config --global user.name "ianhub-agent[bot]"
+          git config --global user.email "ianhub-agent[bot]@users.noreply.github.com"
+
+      - name: 4️⃣ Walk allowlist and update changed packages
+        env:
+          CSK_TYPES: ${{ vars.CSK_TYPES }}
+        run: |
+          set -euo pipefail
+          [ -f registry.json ] || echo '{}' > registry.json
+
+          jq -c 'to_entries[]' allowlist.json | while read -r entry; do
+            REPO=$(echo "$entry" | jq -r '.key')
+            TYPE=$(echo "$entry" | jq -r '.value.type')
+            NAME=$(echo "$entry" | jq -r '.value.name')
+            TYPE_PLURAL=$(echo "$CSK_TYPES" | jq -r --arg key "$TYPE" '.[$key]')
+
+            if [ "$TYPE_PLURAL" = "null" ]; then
+              echo "⚠️ Skipping $REPO: invalid type '$TYPE'"
+              continue
+            fi
+
+            echo "🔍 Checking $REPO ($TYPE_PLURAL/$NAME)..."
+
+            LATEST=$(curl -fsSL \
+              -H "Accept: application/vnd.github+json" \
+              "https://api.github.com/repos/$REPO/releases/latest" || echo '{}')
+
+            VERSION=$(echo "$LATEST" | jq -r '.tag_name // empty')
+            if [ -z "$VERSION" ]; then
+              echo "⚠️ No release found for $REPO, skipping."
+              continue
+            fi
+
+            CURRENT=$(jq -r --arg type "$TYPE_PLURAL" --arg name "$NAME" '.[$type][$name].version // empty' registry.json)
+
+            if [ "$CURRENT" = "$VERSION" ]; then
+              echo "🟢 $REPO already up to date ($VERSION)."
+              continue
+            fi
+
+            echo "🆕 New version for $REPO: ${CURRENT:-none} → $VERSION"
+
+            ZIP_NAME="${NAME}-${VERSION}.zip"
+            ASSET_ID=$(echo "$LATEST" | jq -r --arg z "$ZIP_NAME" '.assets[] | select(.name == $z) | .id')
+
+            if [ -z "$ASSET_ID" ] || [ "$ASSET_ID" = "null" ]; then
+              echo "❌ Asset $ZIP_NAME not found for $REPO, skipping."
+              continue
+            fi
+
+            curl -fsSL \
+              -H "Accept: application/octet-stream" \
+              -o "${NAME}.zip" \
+              "https://api.github.com/repos/$REPO/releases/assets/$ASSET_ID" \
+              || { echo "❌ Failed to download release asset for $REPO, skipping."; continue; }
+
+            unzip -tq "${NAME}.zip" > /dev/null 2>&1 || { echo "❌ Invalid ZIP for $REPO, skipping."; rm -f "${NAME}.zip"; continue; }
+
+            SHA256=$(sha256sum "${NAME}.zip" | cut -d ' ' -f 1)
+
+            mkdir -p "metadata/$TYPE_PLURAL"
+            METADATA_TMP=$(mktemp)
+
+            HTTP_STATUS=$(curl -sS \
+              -o "$METADATA_TMP" \
+              -w "%{http_code}" \
+              -H "Accept: application/vnd.github.raw+json" \
+              "https://api.github.com/repos/$REPO/contents/metadata.json?ref=main")
+
+            if [ "$HTTP_STATUS" != "200" ] || ! jq empty "$METADATA_TMP" > /dev/null 2>&1; then
+              echo "❌ $REPO has no valid metadata.json, skipping this release entirely."
+              rm -f "${NAME}.zip" "$METADATA_TMP"
+              continue
+            fi
+
+            mv "$METADATA_TMP" "metadata/$TYPE_PLURAL/${NAME}.json"
+            git add "metadata/$TYPE_PLURAL/${NAME}.json"
+
+            SUB_PATH="packages/$TYPE_PLURAL/$NAME"
+            if git config -f .gitmodules --get submodule."$SUB_PATH".url >/dev/null 2>&1; then
+              git submodule update --init --remote "$SUB_PATH" \
+                || { echo "❌ Failed to update submodule for $REPO, skipping."; continue; }
+            else
+              mkdir -p "$(dirname "$SUB_PATH")"
+              git submodule add "https://github.com/$REPO" "$SUB_PATH" \
+                || { echo "❌ Failed to add submodule for $REPO, skipping."; continue; }
+            fi
+            git add .gitmodules "$SUB_PATH"
+
+            mkdir -p "dist/$TYPE_PLURAL"
+            mv "${NAME}.zip" "dist/$TYPE_PLURAL/${NAME}.zip"
+            git add "dist/$TYPE_PLURAL/${NAME}.zip"
+
+            jq -c --arg type "$TYPE_PLURAL" --arg name "$NAME" \
+              --arg version "$VERSION" --arg sha256 "$SHA256" \
+              --arg last_updated "$(date +%s)" \
+              '.[$type] = ((.[$type] // {}) + {
+                ($name): { "version": $version, "sha256": $sha256, "last_updated": ($last_updated | tonumber) }
+              })' registry.json > registry.json.tmp
+            mv registry.json.tmp registry.json
+            git add registry.json
+
+            echo "✅ Updated $REPO to $VERSION."
+          done
+
+      - name: 5️⃣ Commit and push
+        run: |
+          if git diff --cached --quiet; then
+            echo "🟡 No changes to commit."
+          else
+            git commit -m "Auto-update packages ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+
+            for i in 1 2 3; do
+              if git push; then
+                git status -sb
+                echo "✅ Package update complete."
+                exit 0
+              fi
+
+              echo "❌ Push failed. Retry #$i in 3s — fetching and rebasing..."
+              git fetch origin main
+              git rebase origin/main
+              sleep 3
+            done
+
+            echo "❌ Failed to push after 3 attempts."
+            exit 1
+          fi
