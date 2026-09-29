@@ -1,0 +1,45 @@
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Composer and PHP stuff (in case you add tooling later)
+vendor/
+composer.lock
+
+# Node.js (if you ever use it for themes or build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+*.stTheme.cache
+*.sublime-*
+*.sublime-project
+*.sublime-workspace
+*.tmPreferences.cache
+*.tmlanguage.cache
+*_bak*.*
+.idea/
+.vscode/
+
+# Git submodule metadata (optional but safe)
+**/.git
+
+# Temporary files
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# Build output
+/build/
+
+# Logs
+*.log
+
+# macOS and Linux trash
+.trash/
+
+# keep all .htaccess and .gitkeep.
+!**/.htaccess
+!**/.gitkeep

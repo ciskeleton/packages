@@ -1,0 +1,160 @@
+name: Update System Package
+
+on:
+  repository_dispatch:
+    types: [update-package]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: packages-write
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Update System Package
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1️⃣ Validate payload
+        id: package
+        shell: bash
+        run: |
+          TYPE="${{ github.event.client_payload.type }}"
+          NAME="${{ github.event.client_payload.name }}"
+          REPO="${{ github.event.client_payload.repo }}"
+          SHA256="${{ github.event.client_payload.sha256 }}"
+
+          if [ "$TYPE" != "system" ]; then
+            echo "❌ This workflow only handles system packages. Got type: $TYPE"
+            exit 1
+          fi
+
+          if [ "$NAME" != "core" ] && [ "$NAME" != "common" ]; then
+            echo "❌ Unknown system package: $NAME"
+            exit 1
+          fi
+
+          if [ "$REPO" != "ciskeleton/$NAME" ]; then
+            echo "❌ Repository mismatch: expected ciskeleton/$NAME, got $REPO"
+            exit 1
+          fi
+
+          if ! [[ "$SHA256" =~ ^[a-fA-F0-9]{64}$ ]]; then
+            echo "❌ Invalid SHA256 checksum: $SHA256"
+            exit 1
+          fi
+
+          echo "repo=$REPO" >> "$GITHUB_OUTPUT"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
+
+      - name: 2️⃣ Create ianhub-agent token (scoped to packages repo only)
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
+          private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
+          owner: ciskeleton
+          repositories: packages
+
+      - name: 3️⃣ Checkout packages repo
+        uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+
+      - name: 4️⃣ Configure git identity
+        shell: bash
+        run: |
+          git config --global user.name "ianhub-agent[bot]"
+          git config --global user.email "ianhub-agent[bot]@users.noreply.github.com"
+
+      - name: 5️⃣ Download and verify release ZIP
+        shell: bash
+        run: |
+          REPO="${{ steps.package.outputs.repo }}"
+          NAME="${{ steps.package.outputs.name }}"
+          EXPECTED_SHA256="${{ steps.package.outputs.sha256 }}"
+
+          curl -fsSL \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/$REPO/releases/latest" > latest.json
+
+          VERSION=$(jq -r '.tag_name' latest.json)
+          [ -n "$VERSION" ] && [ "$VERSION" != "null" ] || { echo "❌ No release found."; exit 1; }
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+          ZIP_NAME="${NAME}-${VERSION}.zip"
+          ASSET_ID=$(jq -r --arg z "$ZIP_NAME" '.assets[] | select(.name == $z) | .id' latest.json)
+          [ -n "$ASSET_ID" ] && [ "$ASSET_ID" != "null" ] || { echo "❌ Asset not found: $ZIP_NAME"; exit 1; }
+
+          curl -fsSL \
+            -H "Accept: application/octet-stream" \
+            -o "${NAME}.zip" \
+            "https://api.github.com/repos/$REPO/releases/assets/$ASSET_ID" \
+            || { echo "❌ Failed to download release asset."; exit 1; }
+
+          unzip -tq "${NAME}.zip" > /dev/null 2>&1 || { echo "❌ Invalid ZIP archive."; exit 1; }
+
+          ACTUAL_SHA256=$(sha256sum "${NAME}.zip" | cut -d ' ' -f 1)
+          if [ "$ACTUAL_SHA256" != "$EXPECTED_SHA256" ]; then
+            echo "❌ SHA256 mismatch. Expected $EXPECTED_SHA256, got $ACTUAL_SHA256"
+            exit 1
+          fi
+
+          echo "✅ SHA256 verified: $ACTUAL_SHA256"
+
+      - name: 6️⃣ Store ZIP and update registry
+        shell: bash
+        run: |
+          NAME="${{ steps.package.outputs.name }}"
+          VERSION="${{ env.VERSION }}"
+          SHA256="${{ steps.package.outputs.sha256 }}"
+
+          mkdir -p dist/system
+          mv "${NAME}.zip" "dist/system/${NAME}.zip"
+          git add "dist/system/${NAME}.zip"
+
+          [ -f registry.json ] || echo '{}' > registry.json
+
+          jq -c \
+            --arg name "$NAME" \
+            --arg version "$VERSION" \
+            --arg sha256 "$SHA256" \
+            --arg last_updated "$(date +%s)" \
+            '.system = ((.system // {}) + {
+              ($name): { "version": $version, "sha256": $sha256, "last_updated": ($last_updated | tonumber) }
+            })' \
+            registry.json > registry.json.tmp
+          mv registry.json.tmp registry.json
+          git add registry.json
+
+      - name: 7️⃣ Commit and push
+        shell: bash
+        run: |
+          NAME="${{ steps.package.outputs.name }}"
+
+          if git diff --cached --quiet; then
+            echo "🟡 No changes to commit."
+          else
+            git commit -m "Auto-update system package: $NAME"
+
+            for i in 1 2 3; do
+              if git push; then
+                git status -sb
+                echo "✅ Package update complete."
+                exit 0
+              fi
+
+              echo "❌ Push failed. Retry #$i in 3s — fetching and rebasing..."
+              git fetch origin main
+              git rebase origin/main
+              sleep 3
+            done
+
+            echo "❌ Failed to push after 3 attempts."
+            exit 1
+          fi

@@ -1,0 +1,174 @@
+name: Cleanup Package History
+
+on:
+  # schedule:
+  #   - cron: '15 3 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: packages-write
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    name: Remove Old Package ZIPs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 0️⃣1️⃣ Create ianhub-agent token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
+          private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
+          owner: ciskeleton
+          repositories: packages
+
+      - name: 0️⃣2️⃣ Checkout complete repository
+        uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+
+      - name: 0️⃣3️⃣ Configure git identity
+        run: |
+          git config --global user.name "ianhub-agent[bot]"
+          git config --global user.email "ianhub-agent[bot]@users.noreply.github.com"
+
+      - name: 0️⃣4️⃣ Find updated ZIPs
+        id: find
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Count how many commits changed each ZIP path.
+          git log --all \
+            --format='' \
+            --name-only \
+            -- 'dist/' \
+            | grep -E '^dist/.+\.zip$' \
+            | sort \
+            | uniq -c \
+            | awk '$1 > 1 { $1=""; sub(/^ /, ""); print }' \
+            > /tmp/cleanup-paths.txt
+
+          if [ ! -s /tmp/cleanup-paths.txt ]; then
+            echo "🟢 No updated ZIPs found."
+            echo "cleanup=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "cleanup=true" >> "$GITHUB_OUTPUT"
+
+          echo "🧹 ZIPs with historical versions:"
+          cat /tmp/cleanup-paths.txt
+
+      - name: 0️⃣5️⃣ Backup current ZIPs
+        if: steps.find.outputs.cleanup == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          mkdir -p /tmp/current-zips
+
+          while IFS= read -r path; do
+            if [ ! -f "$path" ]; then
+              echo "❌ Current ZIP is missing: $path"
+              exit 1
+            fi
+
+            mkdir -p "/tmp/current-zips/$(dirname "$path")"
+            cp -- "$path" "/tmp/current-zips/$path"
+
+            echo "📦 Backed up current: $path"
+          done < /tmp/cleanup-paths.txt
+
+      - name: 0️⃣6️⃣ Install git-filter-repo
+        if: steps.find.outputs.cleanup == 'true'
+        run: |
+          python3 -m pip install --quiet git-filter-repo
+
+      - name: 0️⃣7️⃣ Remove old ZIP history
+        if: steps.find.outputs.cleanup == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          echo "🧹 Removing historical versions..."
+
+          git filter-repo \
+            --invert-paths \
+            --paths-from-file /tmp/cleanup-paths.txt \
+            --force
+
+      - name: 0️⃣8️⃣ Restore current ZIPs
+        if: steps.find.outputs.cleanup == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          while IFS= read -r path; do
+            mkdir -p "$(dirname "$path")"
+            cp -- "/tmp/current-zips/$path" "$path"
+
+            echo "📦 Restored current: $path"
+          done < /tmp/cleanup-paths.txt
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "❌ Current ZIPs were not restored."
+            exit 1
+          fi
+
+      - name: 0️⃣9️⃣ Verify current ZIPs
+        if: steps.find.outputs.cleanup == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          while IFS= read -r path; do
+            if [ ! -f "$path" ]; then
+              echo "❌ Current ZIP missing after cleanup: $path"
+              exit 1
+            fi
+
+            BEFORE=$(sha256sum "/tmp/current-zips/$path" | cut -d ' ' -f 1)
+            AFTER=$(sha256sum "$path" | cut -d ' ' -f 1)
+
+            if [ "$BEFORE" != "$AFTER" ]; then
+              echo "❌ SHA256 changed for $path"
+              echo "   Before: $BEFORE"
+              echo "   After:  $AFTER"
+              exit 1
+            fi
+
+            echo "✅ $path — SHA256 preserved: $AFTER"
+          done < /tmp/cleanup-paths.txt
+
+      - name: 1️⃣0️⃣ Commit restored current ZIPs
+        if: steps.find.outputs.cleanup == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git commit -m "chore: clean old package ZIP history"
+
+      - name: 1️⃣1️⃣ Force-push cleaned history
+        if: steps.find.outputs.cleanup == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git push --force origin main
+
+          echo "✅ Package history cleanup complete."
+
+      - name: 1️⃣2️⃣ Nothing to clean
+        if: steps.find.outputs.cleanup == 'false'
+        run: |
+          echo "🟢 No package ZIP history requires cleanup."

@@ -1,0 +1,218 @@
+{
+	"ciskeleton/plugin-exception-notifier": {
+		"type": "plugin",
+		"name": "exception-notifier"
+	},
+	"ciskeleton/plugin-jwt": {
+		"type": "plugin",
+		"name": "jwt"
+	},
+	"ciskeleton/plugin-oauth": {
+		"type": "plugin",
+		"name": "oauth"
+	},
+	"ciskeleton/plugin-oembed": {
+		"type": "plugin",
+		"name": "oembed"
+	},
+	"ciskeleton/plugin-request-guard": {
+		"type": "plugin",
+		"name": "request-guard"
+	},
+	"ciskeleton/plugin-visitors": {
+		"type": "plugin",
+		"name": "visitors"
+	},
+	"ciskeleton/theme-classic": {
+		"type": "theme",
+		"name": "classic"
+	},
+	"ciskeleton/lang-arabic": {
+		"type": "language",
+		"name": "arabic"
+	},
+	"ciskeleton/lang-armenian": {
+		"type": "language",
+		"name": "armenian"
+	},
+	"ciskeleton/lang-bengali": {
+		"type": "language",
+		"name": "bengali"
+	},
+	"ciskeleton/lang-brazilian": {
+		"type": "language",
+		"name": "brazilian"
+	},
+	"ciskeleton/lang-bulgarian": {
+		"type": "language",
+		"name": "bulgarian"
+	},
+	"ciskeleton/lang-catalan": {
+		"type": "language",
+		"name": "catalan"
+	},
+	"ciskeleton/lang-chinese": {
+		"type": "language",
+		"name": "chinese"
+	},
+	"ciskeleton/lang-croatian": {
+		"type": "language",
+		"name": "croatian"
+	},
+	"ciskeleton/lang-czech": {
+		"type": "language",
+		"name": "czech"
+	},
+	"ciskeleton/lang-danish": {
+		"type": "language",
+		"name": "danish"
+	},
+	"ciskeleton/lang-dutch": {
+		"type": "language",
+		"name": "dutch"
+	},
+	"ciskeleton/lang-english": {
+		"type": "language",
+		"name": "english"
+	},
+	"ciskeleton/lang-estonian": {
+		"type": "language",
+		"name": "estonian"
+	},
+	"ciskeleton/lang-filipino": {
+		"type": "language",
+		"name": "filipino"
+	},
+	"ciskeleton/lang-finnish": {
+		"type": "language",
+		"name": "finnish"
+	},
+	"ciskeleton/lang-french": {
+		"type": "language",
+		"name": "french"
+	},
+	"ciskeleton/lang-georgian": {
+		"type": "language",
+		"name": "georgian"
+	},
+	"ciskeleton/lang-german": {
+		"type": "language",
+		"name": "german"
+	},
+	"ciskeleton/lang-greek": {
+		"type": "language",
+		"name": "greek"
+	},
+	"ciskeleton/lang-hindi": {
+		"type": "language",
+		"name": "hindi"
+	},
+	"ciskeleton/lang-hungarian": {
+		"type": "language",
+		"name": "hungarian"
+	},
+	"ciskeleton/lang-indonesian": {
+		"type": "language",
+		"name": "indonesian"
+	},
+	"ciskeleton/lang-italian": {
+		"type": "language",
+		"name": "italian"
+	},
+	"ciskeleton/lang-japanese": {
+		"type": "language",
+		"name": "japanese"
+	},
+	"ciskeleton/lang-korean": {
+		"type": "language",
+		"name": "korean"
+	},
+	"ciskeleton/lang-latvian": {
+		"type": "language",
+		"name": "latvian"
+	},
+	"ciskeleton/lang-lithuanian": {
+		"type": "language",
+		"name": "lithuanian"
+	},
+	"ciskeleton/lang-malay": {
+		"type": "language",
+		"name": "malay"
+	},
+	"ciskeleton/lang-norwegian": {
+		"type": "language",
+		"name": "norwegian"
+	},
+	"ciskeleton/lang-persian": {
+		"type": "language",
+		"name": "persian"
+	},
+	"ciskeleton/lang-polish": {
+		"type": "language",
+		"name": "polish"
+	},
+	"ciskeleton/lang-portuguese": {
+		"type": "language",
+		"name": "portuguese"
+	},
+	"ciskeleton/lang-romanian": {
+		"type": "language",
+		"name": "romanian"
+	},
+	"ciskeleton/lang-russian": {
+		"type": "language",
+		"name": "russian"
+	},
+	"ciskeleton/lang-serbian": {
+		"type": "language",
+		"name": "serbian"
+	},
+	"ciskeleton/lang-slovak": {
+		"type": "language",
+		"name": "slovak"
+	},
+	"ciskeleton/lang-slovenian": {
+		"type": "language",
+		"name": "slovenian"
+	},
+	"ciskeleton/lang-spanish": {
+		"type": "language",
+		"name": "spanish"
+	},
+	"ciskeleton/lang-swahili": {
+		"type": "language",
+		"name": "swahili"
+	},
+	"ciskeleton/lang-swedish": {
+		"type": "language",
+		"name": "swedish"
+	},
+	"ciskeleton/lang-taiwanese": {
+		"type": "language",
+		"name": "taiwanese"
+	},
+	"ciskeleton/lang-tamil": {
+		"type": "language",
+		"name": "tamil"
+	},
+	"ciskeleton/lang-thai": {
+		"type": "language",
+		"name": "thai"
+	},
+	"ciskeleton/lang-turkish": {
+		"type": "language",
+		"name": "turkish"
+	},
+	"ciskeleton/lang-ukrainian": {
+		"type": "language",
+		"name": "ukrainian"
+	},
+	"ciskeleton/lang-urdu": {
+		"type": "language",
+		"name": "urdu"
+	},
+	"ciskeleton/lang-vietnamese": {
+		"type": "language",
+		"name": "vietnamese"
+	}
+}

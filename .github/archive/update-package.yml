@@ -1,0 +1,352 @@
+name: Update Package
+
+on:
+  repository_dispatch:
+    types: [update-package]
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: packages-write
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  update:
+    name: Update Package
+    runs-on: ubuntu-latest
+
+    outputs:
+      type: ${{ steps.package.outputs.type }}
+      type_plural: ${{ steps.package.outputs.type_plural }}
+      repo: ${{ steps.package.outputs.repo }}
+      name: ${{ steps.package.outputs.name }}
+      sha256: ${{ steps.package.outputs.sha256 }}
+
+    steps:
+      - name: 1️⃣ Create ianhub-agent token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
+          private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
+          owner: ciskeleton
+
+      - name: 2️⃣ Checkout repo with submodules
+        uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          ref: main
+          submodules: false
+
+      - name: 3️⃣ Configure GitHub auth and identity
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/".insteadOf "https://github.com/"
+          git config --global user.name "ianhub-agent[bot]"
+          git config --global user.email "ianhub-agent[bot]@users.noreply.github.com"
+
+      - name: 4️⃣ Add or Update Package
+        id: package
+        shell: bash
+        env:
+          CSK_TYPES: ${{ vars.CSK_TYPES }}
+        run: |
+          TYPE="${{ github.event.client_payload.type }}"
+          REPO="${{ github.event.client_payload.repo }}"
+          NAME="${{ github.event.client_payload.name }}"
+          SHA256="${{ github.event.client_payload.sha256 }}"
+
+          if [ -z "$TYPE" ] || [ -z "$REPO" ] || [ -z "$NAME" ] || [ -z "$SHA256" ]; then
+            echo "❌ Missing required payload fields."
+            exit 1
+          fi
+
+          if ! [[ "$SHA256" =~ ^[a-fA-F0-9]{64}$ ]]; then
+            echo "❌ Invalid SHA256 checksum: $SHA256"
+            exit 1
+          fi
+
+          if [ "$TYPE" = "system" ]; then
+            TYPE_PLURAL="system"
+
+            echo "➡️ Type: $TYPE"
+            echo "📦 Name: $NAME"
+            echo "🔗 Repo: $REPO"
+            echo "🔐 SHA256: $SHA256"
+            echo "⚙️ System package. No submodule required."
+          else
+            TYPE_PLURAL=$(echo "$CSK_TYPES" | jq -r --arg key "$TYPE" '.[$key]')
+
+            if [ "$TYPE_PLURAL" = "null" ]; then
+              echo "❌ Invalid TYPE: '$TYPE'. Must be one of: $(echo "$CSK_TYPES" | jq -r 'keys | join(", ")')"
+              exit 1
+            fi
+
+            SUB_PATH="packages/$TYPE_PLURAL/$NAME"
+
+            echo "➡️ Type: $TYPE"
+            echo "📦 Name: $NAME"
+            echo "🔗 Repo: $REPO"
+            echo "🔐 SHA256: $SHA256"
+            echo "📂 Submodule path: $SUB_PATH"
+
+            if git config -f .gitmodules --get submodule."$SUB_PATH".url >/dev/null; then
+              echo "🔍 Submodule exists. Verifying repository URL..."
+
+              EXISTING_URL=$(git config -f .gitmodules --get submodule."$SUB_PATH".url | sed -E 's|https://.*@github.com/|https://github.com/|' | sed 's|\.git$||')
+              EXPECTED_URL=$(echo "https://github.com/$REPO" | sed 's|\.git$||')
+
+              if [ "$EXISTING_URL" != "$EXPECTED_URL" ]; then
+                echo "❌ Repository mismatch detected!"
+                exit 1
+              fi
+
+              echo "✅ Repository verified. Updating..."
+              git submodule update --init --remote "$SUB_PATH"
+            else
+              echo "➕ Submodule doesn't exist. Adding it..."
+              mkdir -p "$(dirname "$SUB_PATH")"
+
+              git submodule add "https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/$REPO" "$SUB_PATH"
+              git config -f .gitmodules submodule."$SUB_PATH".url "https://github.com/$REPO"
+              git submodule sync
+            fi
+
+            git add .gitmodules "$SUB_PATH"
+
+            git fetch origin main --quiet
+
+            if git diff --cached --quiet; then
+              echo "🟢 No staged changes. Safe to pull..."
+              git merge --ff-only origin/main --quiet || true
+            else
+              echo "⚠️ Skipping merge to avoid overwriting staged submodule updates."
+            fi
+          fi
+
+          echo "type=$TYPE" >> "$GITHUB_OUTPUT"
+          echo "type_plural=$TYPE_PLURAL" >> "$GITHUB_OUTPUT"
+          echo "repo=$REPO" >> "$GITHUB_OUTPUT"
+          echo "name=$NAME" >> "$GITHUB_OUTPUT"
+          echo "sha256=$SHA256" >> "$GITHUB_OUTPUT"
+
+          echo "✅ Package update preparation complete."
+
+      - name: 5️⃣ Download latest release ZIP
+        shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          REPO="${{ steps.package.outputs.repo }}"
+          NAME="${{ steps.package.outputs.name }}"
+          EXPECTED_SHA256="${{ steps.package.outputs.sha256 }}"
+
+          API_URL="https://api.github.com/repos/$REPO/releases/latest"
+
+          echo "🔍 Fetching latest release metadata..."
+
+          curl -fsSL \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "$API_URL" > latest.json
+
+          VERSION=$(jq -r '.tag_name' latest.json)
+
+          if [ -z "$VERSION" ] || [ "$VERSION" = "null" ]; then
+            echo "❌ No latest release found. Aborting."
+            exit 1
+          fi
+
+          echo "📦 Version: $VERSION"
+
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+
+          ZIP_NAME="${NAME}-${VERSION}.zip"
+
+          echo "📦 Release ZIP: $ZIP_NAME"
+
+          ASSET_ID=$(jq -r --arg ZIP "$ZIP_NAME" \
+            '.assets[] | select(.name == $ZIP) | .id' \
+            latest.json)
+
+          if [ -z "$ASSET_ID" ] || [ "$ASSET_ID" = "null" ]; then
+            echo "❌ Release ZIP asset ID not found: $ZIP_NAME"
+            exit 1
+          fi
+
+          echo "📥 Asset ID: $ASSET_ID"
+
+          curl -fsSL \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/octet-stream" \
+            -o "${NAME}.zip" \
+            "https://api.github.com/repos/$REPO/releases/assets/$ASSET_ID"
+
+          echo "✅ Release ZIP downloaded."
+
+          if ! unzip -tq "${NAME}.zip" > /dev/null 2>&1; then
+            echo "❌ Downloaded file is not a valid ZIP archive."
+            exit 1
+          fi
+
+          echo "✅ ZIP integrity verified."
+
+          ACTUAL_SHA256=$(sha256sum "${NAME}.zip" | cut -d ' ' -f 1)
+
+          echo "🔐 Expected SHA256: $EXPECTED_SHA256"
+          echo "🔐 Actual SHA256:   $ACTUAL_SHA256"
+
+          if [ "$ACTUAL_SHA256" != "$EXPECTED_SHA256" ]; then
+            echo "❌ SHA256 mismatch. Downloaded ZIP does not match the checksum supplied by the package repository."
+            exit 1
+          fi
+
+          echo "✅ SHA256 verified."
+
+      - name: 6️⃣ Store latest release ZIP
+        shell: bash
+        run: |
+          TYPE_PLURAL="${{ steps.package.outputs.type_plural }}"
+          NAME="${{ steps.package.outputs.name }}"
+
+          ARCHIVE_DIR="dist/$TYPE_PLURAL"
+          ARCHIVE_PATH="$ARCHIVE_DIR/${NAME}.zip"
+
+          echo "📂 Archive directory: $ARCHIVE_DIR"
+
+          mkdir -p "$ARCHIVE_DIR"
+
+          mv "${NAME}.zip" "$ARCHIVE_PATH"
+
+          echo "📦 Stored: $ARCHIVE_PATH"
+
+          git add "$ARCHIVE_PATH"
+
+      - name: 7️⃣ Store package metadata
+        if: ${{ steps.package.outputs.type != 'system' }}
+        shell: bash
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          TYPE_PLURAL="${{ steps.package.outputs.type_plural }}"
+          NAME="${{ steps.package.outputs.name }}"
+          REPO="${{ steps.package.outputs.repo }}"
+
+          METADATA_DIR="metadata/$TYPE_PLURAL"
+          METADATA_PATH="$METADATA_DIR/${NAME}.json"
+
+          echo "📂 Metadata directory: $METADATA_DIR"
+          echo "📄 Metadata path: $METADATA_PATH"
+
+          mkdir -p "$METADATA_DIR"
+
+          METADATA_URL="https://api.github.com/repos/$REPO/contents/metadata.json?ref=main"
+
+          echo "🔍 Checking for metadata.json..."
+
+          HTTP_STATUS=$(curl -sS \
+            -o "$METADATA_PATH" \
+            -w "%{http_code}" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github.raw+json" \
+            "$METADATA_URL")
+
+          if [ "$HTTP_STATUS" != "200" ]; then
+            rm -f "$METADATA_PATH"
+
+            echo "❌ Required metadata.json not found in repository: $REPO"
+            echo "❌ HTTP status: $HTTP_STATUS"
+            exit 1
+          fi
+
+          if ! jq empty "$METADATA_PATH" > /dev/null 2>&1; then
+            rm -f "$METADATA_PATH"
+
+            echo "❌ metadata.json is not valid JSON: $REPO"
+            exit 1
+          fi
+
+          echo "✅ metadata.json downloaded and validated."
+
+          git add "$METADATA_PATH"
+
+      - name: 8️⃣ Update Package Registry
+        shell: bash
+        run: |
+          TYPE_PLURAL="${{ steps.package.outputs.type_plural }}"
+          NAME="${{ steps.package.outputs.name }}"
+          VERSION="${{ env.VERSION }}"
+          SHA256="${{ steps.package.outputs.sha256 }}"
+
+          echo "📋 Updating registry.json..."
+          echo "📦 Package: $NAME"
+          echo "🔢 Version: $VERSION"
+          echo "📂 Registry type: $TYPE_PLURAL"
+          echo "🔐 SHA256: $SHA256"
+
+          if [ ! -f "registry.json" ]; then
+            echo "➕ registry.json doesn't exist. Creating it..."
+            echo '{}' > registry.json
+          fi
+
+          LAST_UPDATED=$(date +%s)
+
+          echo "🕒 Last updated: $LAST_UPDATED"
+
+          jq -c \
+            --arg type "$TYPE_PLURAL" \
+            --arg name "$NAME" \
+            --arg version "$VERSION" \
+            --arg sha256 "$SHA256" \
+            --arg last_updated "$LAST_UPDATED" \
+            '.[$type] = ((.[$type] // {}) + {
+              ($name): {
+                "version": $version,
+                "sha256": $sha256,
+                "last_updated": ($last_updated | tonumber)
+              }
+            })' \
+            registry.json > registry.json.tmp
+
+          mv registry.json.tmp registry.json
+
+          git add registry.json
+
+          echo "✅ registry.json updated."
+
+      - name: 9️⃣ Commit and Push Updates
+        shell: bash
+        run: |
+          TYPE_PLURAL="${{ steps.package.outputs.type_plural }}"
+          NAME="${{ steps.package.outputs.name }}"
+
+          if git diff --cached --quiet; then
+            echo "🟡 No changes to commit."
+          else
+            COMMIT_NAME="$TYPE_PLURAL/$NAME"
+
+            echo "📝 Committing package, metadata, archive, and registry updates..."
+
+            git commit -m "Auto-update package: $COMMIT_NAME"
+
+            echo "🚀 Pushing updates..."
+
+            for i in 1 2 3; do
+              if git push; then
+                git status -sb
+                echo "✅ Package update complete."
+                exit 0
+              fi
+
+              echo "❌ Push failed. Retry #$i in 3s — fetching and rebasing..."
+              git fetch origin main
+              git rebase origin/main
+              sleep 3
+            done
+
+            echo "❌ Failed to push after 3 attempts."
+            exit 1
+          fi
