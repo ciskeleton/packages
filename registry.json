@@ -35,5 +35,12 @@
       "sha256": "091aebfb16aea88817be041173d562eb78d51984beb43953b174bfca3198f24b",
       "last_updated": 1793028988
     }
+  },
+  "modules": {
+    "pages": {
+      "version": "0.0.1",
+      "sha256": "857cef00dd73f33049f0127a6a01577ea95ba148691067c0e23bd4002d0d68a4",
+      "last_updated": 1793034891
+    }
   }
 }

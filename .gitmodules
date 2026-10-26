@@ -19,3 +19,6 @@
 [submodule "packages/plugins/discord-visitor-logger"]
 	path = packages/plugins/discord-visitor-logger
 	url = https://github.com/ciskeleton/plugin-discord-visitor-logger
+[submodule "packages/modules/pages"]
+	path = packages/modules/pages
+	url = https://github.com/ciskeleton/module-pages
