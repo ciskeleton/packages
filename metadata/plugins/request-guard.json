@@ -1,0 +1,221 @@
+{
+  "type": "plugin",
+  "name": "request-guard",
+  "title": "Request Guard",
+  "description": "Lightweight per-request limiter that prevents excessive bootstrapping or malicious request flooding during the `pre_system` phase.",
+  "tags": [
+    "security",
+    "request"
+  ],
+  "preview": "https://raw.githubusercontent.com/ciskeleton/plugin-request-guard/main/main/preview.jpg",
+  "icon": "shield-halved",
+  "icon_fg": "#ffffff",
+  "icon_bg": "#2e8540",
+  "author": {
+    "name": "CiSkeleton Team",
+    "url": "https://github.com/ciskeleton",
+    "email": "csk@ianhub.net"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/license/mit"
+  },
+  "translations": {
+    "arabic": {
+      "title": "حارس الطلبات",
+      "description": "نظام بسيط لتحديد عدد الطلبات يمنع التحميل الزائد أو الهجمات خلال مرحلة `pre_system`."
+    },
+    "armenian": {
+      "title": "Հարցումների պաշտպան",
+      "description": "Թեթև սահմանափակիչ յուրաքանչյուր հարցման համար, որը կանխում է չափազանց մեծ բեռնավորումը կամ վնասակար հարցումների հոսքը `pre_system"
+    },
+    "azerbaijani": {
+      "title": "Request Guard",
+      "description": "`pre_system` mərhələsində həddindən artıq ilkin yükləmənin və ya zərərli sorğu axınının qarşısını alan, sorğu səviyyəsində işləyən yüngü"
+    },
+    "bengali": {
+      "title": "অনুরোধ রক্ষী",
+      "description": "প্রতি অনুরোধের জন্য হালকা সীমাবদ্ধকারী, যা `pre_system` ধাপে অতিরিক্ত বুটস্ট্র্যাপিং বা ক্ষতিকর অনুরোধের বন্"
+    },
+    "brazilian": {
+      "title": "Guarda de Requisições",
+      "description": "Limitador leve por requisição que impede sobrecarga ou solicitações maliciosas durante a fase `pre_system`."
+    },
+    "bulgarian": {
+      "title": "Пазач на заявки",
+      "description": "Лек лимитер, който предотвратява прекомерни заявки или злонамерени атаки по време на фазата `pre_system`."
+    },
+    "catalan": {
+      "title": "Guarda de sol·licituds",
+      "description": "Limitador lleuger per sol·licitud que evita l’arrencada excessiva o l’allau de sol·licituds malicioses durant la fase `pre_system`."
+    },
+    "chinese": {
+      "title": "请求防护",
+      "description": "轻量级的请求限制器，可防止在 `pre_system` 阶段出现过多或恶意请求。"
+    },
+    "croatian": {
+      "title": "Čuvar zahtjeva",
+      "description": "Lagani limiter po zahtjevu koji sprječava pretjerano pokretanje ili zlonamjerno zatrpavanje zahtjevima tijekom faze `pre_system`."
+    },
+    "czech": {
+      "title": "Strážce požadavků",
+      "description": "Lehký limitovač požadavků zabraňuje nadměrnému zatížení nebo škodlivým požadavkům během fáze `pre_system`."
+    },
+    "danish": {
+      "title": "Anmodningsvagt",
+      "description": "Let begrænser pr. anmodning, der forhindrer overdreven bootstrapping eller ondsindet anmodningsoversvømmelse under `pre_system`-fasen."
+    },
+    "dutch": {
+      "title": "Verzoeksbewaker",
+      "description": "Lichtgewicht verzoekslimiet per aanvraag die buitensporige initialisatie of kwaadaardige verzoekoverbelasting voorkomt tijdens d"
+    },
+    "estonian": {
+      "title": "Päringukaitse",
+      "description": "Kerge päringupõhine piiraja, mis takistab liigset alglaadimist või pahatahtlikku päringute tulva `pre_system` etapis."
+    },
+    "filipino": {
+      "title": "Bantay ng Kahilingan",
+      "description": "Magaan na per-request limiter na pumipigil sa sobrang bootstrapping o mapaminsalang pagbaha ng kahilingan sa yugto ng `pre_system`."
+    },
+    "finnish": {
+      "title": "Pyyntövahti",
+      "description": "Kevyt pyyntökohtainen rajoitin, joka estää liiallisen alustuksen tai haitallisen pyyntötulvan `pre_system`-vaiheen aikana."
+    },
+    "french": {
+      "title": "Garde des requêtes",
+      "description": "Limiteur léger de requêtes empêchant la surcharge ou les requêtes malveillantes pendant la phase `pre_system`."
+    },
+    "georgian": {
+      "title": "მოთხოვნების მცველი",
+      "description": "მსუბუქი შეზღუდველი თითო მოთხოვნაზე, რომელიც `pre_system` ფაზაში ზედმეტ ჩატვირთვას ან მავნე მოთხოვნების ნაკადს აფერხებს."
+    },
+    "german": {
+      "title": "Anfragewächter",
+      "description": "Leichter Anfragenschutz, der übermäßige oder bösartige Anfragen in der `pre_system`-Phase verhindert."
+    },
+    "greek": {
+      "title": "Φύλακας αιτημάτων",
+      "description": "Ελαφρύς περιοριστής ανά αίτημα που αποτρέπει υπερβολική εκκίνηση ή κακόβουλη πλημμύρα αιτημάτων κατά τη φάση `pre_system`."
+    },
+    "hindi": {
+      "title": "रिक्वेस्ट गार्ड",
+      "description": "एक हल्का अनुरोध सीमक जो `pre_system` चरण के दौरान अत्यधिक या हानिकारक अनुरोधों को रोकता है।"
+    },
+    "hungarian": {
+      "title": "Kérésőr",
+      "description": "Könnyű kérésenkénti korlátozó, amely megakadályozza a túlzott betöltést vagy a rosszindulatú kérésáradatot a `pre_system` fázisban."
+    },
+    "indonesian": {
+      "title": "Penjaga Permintaan",
+      "description": "Pembatas permintaan ringan yang mencegah permintaan berlebihan atau berbahaya selama fase `pre_system`."
+    },
+    "italian": {
+      "title": "Guardia Richieste",
+      "description": "Limitatore leggero per richieste che previene sovraccarichi o richieste dannose nella fase `pre_system`."
+    },
+    "japanese": {
+      "title": "リクエストガード",
+      "description": "`pre_system` フェーズ中の過剰または悪意のあるリクエストを防ぐ軽量なリクエストリミッター。"
+    },
+    "khmer": {
+      "title": "Request Guard",
+      "description": "ជាឧបករណ៍កម្រិតចំនួនសំណើ (per-request limiter) ដែលមានទំហំតូច និងជួយការពារការដំណើរការចាប់ផ្តើមប្រព័ន្ធ (bootstrapping"
+    },
+    "korean": {
+      "title": "요청 가드",
+      "description": "`pre_system` 단계에서 과도하거나 악의적인 요청을 방지하는 가벼운 요청 제한기입니다."
+    },
+    "latvian": {
+      "title": "Pieprasījumu sargs",
+      "description": "Viegls ierobežotājs katram pieprasījumam, kas novērš pārmērīgu sāknēšanu vai ļaunprātīgu pieprasījumu plūdus `pre_system` fāzē."
+    },
+    "lithuanian": {
+      "title": "Užklausų sargas",
+      "description": "Lengvas ribotuvas kiekvienai užklausai, kuris neleidžia pertekliniam paleidimui ar kenkėjiškam užklausų antplūdžiui `pre_system` fazėje."
+    },
+    "malay": {
+      "title": "Pengawal Permintaan",
+      "description": "Pengehad ringan bagi setiap permintaan yang menghalang pemuatan berlebihan atau limpahan permintaan berniat jahat semasa fasa `pre_system`"
+    },
+    "marathi": {
+      "title": "रिक्वेस्ट गार्ड",
+      "description": "हलके प्रति-रिक्वेस्ट लिमिटर जे `pre_system` फेज दरम्यान अत्याधिक बूटस्ट्रॅपिंग किंवा दुर्भावनापूर्ण रिक्वेस्ट फ्लडिंग"
+    },
+    "norwegian": {
+      "title": "Forespørselsvakt",
+      "description": "Lett begrenser per forespørsel som hindrer overdreven oppstart eller ondsinnet forespørselsflom under `pre_system`-fasen."
+    },
+    "persian": {
+      "title": "محافظ درخواست",
+      "description": "یک محدودکننده سبک برای جلوگیری از درخواست‌های بیش از حد یا مخرب در مرحله `pre_system`."
+    },
+    "polish": {
+      "title": "Strażnik żądań",
+      "description": "Lekki ogranicznik żądań zapobiegający przeciążeniu lub złośliwym żądaniom podczas fazy `pre_system`."
+    },
+    "portuguese": {
+      "title": "Guarda de Requisições",
+      "description": "Limitador leve por requisição que impede sobrecarga ou solicitações maliciosas durante a fase `pre_system`."
+    },
+    "romanian": {
+      "title": "Gardianul cererilor",
+      "description": "Limitator ușor per cerere care previne inițializarea excesivă sau inundarea malițioasă cu cereri în timpul fazei `pre_system`."
+    },
+    "russian": {
+      "title": "Страж запросов",
+      "description": "Легковесный ограничитель запросов, предотвращающий перегрузку или вредоносные запросы во время этапа `pre_system`."
+    },
+    "serbian": {
+      "title": "Čuvar zahteva",
+      "description": "Lagani limiter po zahtevu koji sprečava prekomerno pokretanje ili zlonamerno zatrpavanje zahtevima tokom faze `pre_system`."
+    },
+    "slovak": {
+      "title": "Strážca požiadaviek",
+      "description": "Ľahký obmedzovač pre každú požiadavku, ktorý zabraňuje nadmernému spúšťaniu alebo škodlivému zahlcovaniu požiadavkami počas fáz"
+    },
+    "slovenian": {
+      "title": "Varuh zahtev",
+      "description": "Lahek omejevalnik za vsak zahtevek, ki preprečuje pretirano zaganjanje ali zlonamerno poplavo zahtev med fazo `pre_system`."
+    },
+    "spanish": {
+      "title": "Guardia de Solicitudes",
+      "description": "Limitador ligero que evita la sobrecarga o solicitudes maliciosas durante la fase `pre_system`."
+    },
+    "swahili": {
+      "title": "Mlinzi wa Maombi",
+      "description": "Kikomo chepesi kwa kila ombi kinachozuia uanzishaji kupita kiasi au mafuriko ya maombi hasidi wakati wa awamu ya `pre_system`."
+    },
+    "swedish": {
+      "title": "Förfrågningsvakt",
+      "description": "Lätt begränsare per förfrågan som förhindrar överdriven uppstart eller skadlig förfrågningsflod under `pre_system`-fasen."
+    },
+    "taiwanese": {
+      "title": "請求防衛",
+      "description": "輕量級的請求限制器，可防止在 `pre_system` 階段出現過多或惡意請求。"
+    },
+    "tamil": {
+      "title": "கோரிக்கை காவலர்",
+      "description": "`pre_system` கட்டத்தில் அதிகப்படியான பூட்ஸ்ட்ராப்பிங் அல்லது தீங்கிழைக்கும் கோரிக்"
+    },
+    "thai": {
+      "title": "การคุ้มครองคำขอ",
+      "description": "ตัวจำกัดคำขอต่อครั้งแบบน้ำหนักเบา ช่วยป้องกันการเรียกใช้งานเกินจำเป็นหรือการโจมตีด้วยคำขอจำนวนมากในระหว่างขั้นตอน `pre_system`."
+    },
+    "turkish": {
+      "title": "İstek Koruması",
+      "description": "`pre_system` aşamasında aşırı veya kötü niyetli istekleri önleyen hafif bir istek sınırlayıcıdır."
+    },
+    "ukrainian": {
+      "title": "Захисник запитів",
+      "description": "Легкий обмежувач для кожного запиту, який запобігає надмірному завантаженню або шкідливому потоку запитів під час фази `pre_system`."
+    },
+    "urdu": {
+      "title": "درخواست محافظ",
+      "description": "ہر درخواست کے لیے ہلکا محدود کنندہ جو `pre_system` مرحلے کے دوران حد سے زیادہ بوٹسٹریپنگ یا نقصان دہ درخواستوں کے سیلاب کو روکتا ہے۔"
+    },
+    "vietnamese": {
+      "title": "Trình bảo vệ yêu cầu",
+      "description": "Bộ giới hạn yêu cầu nhẹ giúp ngăn quá tải hoặc yêu cầu độc hại trong giai đoạn `pre_system`."
+    }
+  }
+}

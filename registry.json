@@ -1,1 +1,39 @@
-{}
+{
+  "plugins": {
+    "visitors": {
+      "version": "0.0.1",
+      "sha256": "9075cda71f84ae4fd2afef9f41c8237a60fbf0e74d2145b6d31aad9cce7b81dd",
+      "last_updated": 1793028978
+    },
+    "jwt": {
+      "version": "0.0.1",
+      "sha256": "fa02091378591297bfd8cf6720a02da018c1436410660b46bd7fecc4462a69e8",
+      "last_updated": 1793028979
+    },
+    "request-guard": {
+      "version": "0.0.1",
+      "sha256": "be50f4eb4f458ec8f0ddef441010330a3cc00bb7dc9569f41bdcf32ecbf44b4c",
+      "last_updated": 1793028981
+    },
+    "exception-notifier": {
+      "version": "0.0.1",
+      "sha256": "c254ef047904b27c1361491f42e4d79c228357def8a7713c43ac0c8e766d8252",
+      "last_updated": 1793028982
+    },
+    "oembed": {
+      "version": "0.0.1",
+      "sha256": "c5fc8de6eae35386e56add143eab056a05bf339e98464e40e9f18aa7dbb40531",
+      "last_updated": 1793028985
+    },
+    "oauth": {
+      "version": "0.0.1",
+      "sha256": "ebfcf3bcf90de1e28bf907cd3061646be83d384523ac2267dc10752450d7b526",
+      "last_updated": 1793028987
+    },
+    "discord-visitor-logger": {
+      "version": "0.0.1",
+      "sha256": "091aebfb16aea88817be041173d562eb78d51984beb43953b174bfca3198f24b",
+      "last_updated": 1793028988
+    }
+  }
+}

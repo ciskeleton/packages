@@ -1,0 +1,21 @@
+[submodule "packages/plugins/visitors"]
+	path = packages/plugins/visitors
+	url = https://github.com/ciskeleton/plugin-visitors
+[submodule "packages/plugins/jwt"]
+	path = packages/plugins/jwt
+	url = https://github.com/ciskeleton/plugin-jwt
+[submodule "packages/plugins/request-guard"]
+	path = packages/plugins/request-guard
+	url = https://github.com/ciskeleton/plugin-request-guard
+[submodule "packages/plugins/exception-notifier"]
+	path = packages/plugins/exception-notifier
+	url = https://github.com/ciskeleton/plugin-exception-notifier
+[submodule "packages/plugins/oembed"]
+	path = packages/plugins/oembed
+	url = https://github.com/ciskeleton/plugin-oembed
+[submodule "packages/plugins/oauth"]
+	path = packages/plugins/oauth
+	url = https://github.com/ciskeleton/plugin-oauth
+[submodule "packages/plugins/discord-visitor-logger"]
+	path = packages/plugins/discord-visitor-logger
+	url = https://github.com/ciskeleton/plugin-discord-visitor-logger
