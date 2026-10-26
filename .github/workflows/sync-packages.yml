@@ -1,0 +1,400 @@
+name: Sync Packages
+
+on:
+  schedule:
+    - cron: '7 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: packages-write
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    name: Check for new releases
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1️⃣ Create ianhub-agent token (scoped to packages repo only)
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
+          private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
+          owner: ciskeleton
+          repositories: packages
+
+      - name: 2️⃣ Checkout
+        uses: actions/checkout@v5
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+
+      - name: 3️⃣ Configure git identity
+        run: |
+          git config --global user.name "ianhub-agent[bot]"
+          git config --global user.email "ianhub-agent[bot]@users.noreply.github.com"
+
+      - name: 4️⃣ Walk allowlist and update changed packages
+        env:
+          CSK_TYPES: ${{ vars.CSK_TYPES }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          [ -f registry.json ] || echo '{}' > registry.json
+
+          # Resolve explicit entries and wildcard rules into one list.
+          RESOLVED=$(mktemp)
+          PAGE_FILE=$(mktemp)
+          trap 'rm -f "$RESOLVED" "$PAGE_FILE"' EXIT
+
+          echo '[]' > "$RESOLVED"
+
+          # Fetch a GitHub API endpoint and validate the response.
+          github_api() {
+            curl -fsSL \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$1"
+          }
+
+          # Add a repository to the resolved list.
+          # Explicit entries take precedence over wildcard discoveries.
+          add_package() {
+            local repo="$1"
+            local type="$2"
+            local name="$3"
+
+            if jq -e --arg repo "$repo" \
+              'any(.[]; .repo == $repo)' "$RESOLVED" > /dev/null; then
+              echo "ℹ️ Already resolved: $repo"
+              return 0
+            fi
+
+            jq --arg repo "$repo" \
+              --arg type "$type" \
+              --arg name "$name" \
+              '. += [{
+                "repo": $repo,
+                "type": $type,
+                "name": $name
+              }]' "$RESOLVED" > "${RESOLVED}.tmp"
+
+            mv "${RESOLVED}.tmp" "$RESOLVED"
+          }
+
+          # Read allowlist entries and expand wildcard rules.
+          while IFS= read -r entry; do
+            REPO=$(echo "$entry" | jq -r '.key')
+            TYPE=$(echo "$entry" | jq -r '.value.type')
+            NAME=$(echo "$entry" | jq -r '.value.name')
+
+            TYPE_PLURAL=$(echo "$CSK_TYPES" |
+              jq -r --arg key "$TYPE" '.[$key] // empty')
+
+            if [ -z "$TYPE_PLURAL" ]; then
+              echo "⚠️ Skipping $REPO: invalid type '$TYPE'"
+              continue
+            fi
+
+            # Exact repository entry: preserve existing behavior.
+            if [[ "$REPO" != *'*'* ]]; then
+              add_package "$REPO" "$TYPE" "$NAME"
+              continue
+            fi
+
+            # Wildcard rules must contain exactly one '*'.
+            if [[ "${REPO#*\*}" == *'*'* ]]; then
+              echo "❌ Invalid wildcard rule: $REPO"
+              exit 1
+            fi
+
+            OWNER="${REPO%%/*}"
+            PATTERN="${REPO#*/}"
+
+            if [ "$OWNER" = "$REPO" ] || [ -z "$PATTERN" ]; then
+              echo "❌ Invalid repository rule: $REPO"
+              exit 1
+            fi
+
+            PREFIX="${PATTERN%%\**}"
+            SUFFIX="${PATTERN#*\*}"
+
+            echo "🔎 Discovering public repositories matching $REPO..."
+
+            # Determine whether the owner is an organization or user.
+            OWNER_INFO=$(github_api \
+              "https://api.github.com/users/$OWNER") || {
+                echo "❌ Failed to resolve GitHub owner: $OWNER"
+                exit 1
+              }
+
+            OWNER_TYPE=$(echo "$OWNER_INFO" | jq -r '.type // empty')
+
+            case "$OWNER_TYPE" in
+              Organization)
+                ENDPOINT="https://api.github.com/orgs/$OWNER/repos"
+                QUERY="type=public&per_page=100&page="
+                ;;
+              User)
+                ENDPOINT="https://api.github.com/users/$OWNER/repos"
+                QUERY="per_page=100&page="
+                ;;
+              *)
+                echo "❌ Unsupported GitHub owner: $OWNER"
+                exit 1
+                ;;
+            esac
+
+            PAGE=1
+            MATCHES=0
+
+            while :; do
+              github_api \
+                "$ENDPOINT?$QUERY$PAGE" \
+                > "$PAGE_FILE" || {
+                  echo "❌ Failed to list repositories for $OWNER"
+                  exit 1
+                }
+
+              if ! jq -e 'type == "array"' "$PAGE_FILE" > /dev/null; then
+                echo "❌ Invalid repository API response for $OWNER"
+                exit 1
+              fi
+
+              COUNT=$(jq 'length' "$PAGE_FILE")
+
+              while IFS= read -r repository; do
+                REPO_NAME=$(echo "$repository" | jq -r '.name')
+                FULL_NAME=$(echo "$repository" | jq -r '.full_name')
+                PRIVATE=$(echo "$repository" | jq -r '.private')
+
+                # Only accept public repositories owned by this account.
+                [ "$PRIVATE" = "false" ] || continue
+
+                # Match the repository name against prefix*suffix.
+                [[ "$REPO_NAME" == "$PREFIX"*"$SUFFIX" ]] || continue
+
+                # Derive the package name when name is '*'.
+                if [ "$NAME" = "*" ]; then
+                  PACKAGE_NAME="${REPO_NAME#"$PREFIX"}"
+                  PACKAGE_NAME="${PACKAGE_NAME%"$SUFFIX"}"
+                else
+                  PACKAGE_NAME="$NAME"
+                fi
+
+                # Never derive an empty package name.
+                if [ -z "$PACKAGE_NAME" ]; then
+                  echo "⚠️ Skipping $FULL_NAME: empty package name"
+                  continue
+                fi
+
+                add_package "$FULL_NAME" "$TYPE" "$PACKAGE_NAME"
+                MATCHES=$((MATCHES + 1))
+              done < <(jq -c '.[]' "$PAGE_FILE")
+
+              # A short page means there are no further results.
+              [ "$COUNT" -eq 100 ] || break
+              PAGE=$((PAGE + 1))
+            done
+
+            echo "🔎 Discovery complete: $REPO ($MATCHES matches)."
+
+          done < <(jq -c 'to_entries[]' allowlist.json)
+
+          echo "📦 Resolved repositories: $(jq 'length' "$RESOLVED")"
+
+          # Process each resolved repository using the existing pipeline.
+          while IFS= read -r entry; do
+            REPO=$(echo "$entry" | jq -r '.repo')
+            TYPE=$(echo "$entry" | jq -r '.type')
+            NAME=$(echo "$entry" | jq -r '.name')
+
+            TYPE_PLURAL=$(echo "$CSK_TYPES" |
+              jq -r --arg key "$TYPE" '.[$key] // empty')
+
+            echo "🔍 Checking $REPO ($TYPE_PLURAL/$NAME)..."
+
+            LATEST_TMP=$(mktemp)
+
+            HTTP_STATUS=$(curl -sS \
+              -o "$LATEST_TMP" \
+              -w "%{http_code}" \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/$REPO/releases/latest") || {
+                echo "❌ Failed to contact GitHub API for $REPO."
+                rm -f "$LATEST_TMP"
+                exit 1
+              }
+
+            case "$HTTP_STATUS" in
+              200)
+                LATEST=$(cat "$LATEST_TMP")
+                ;;
+              404)
+                echo "ℹ️ No published release for $REPO, skipping."
+                rm -f "$LATEST_TMP"
+                continue
+                ;;
+              *)
+                echo "❌ GitHub API returned HTTP $HTTP_STATUS for $REPO:"
+                jq -r '.message // .' "$LATEST_TMP" 2>/dev/null || cat "$LATEST_TMP"
+                rm -f "$LATEST_TMP"
+                exit 1
+                ;;
+            esac
+
+            rm -f "$LATEST_TMP"
+
+            VERSION=$(echo "$LATEST" | jq -r '.tag_name // empty')
+
+            if [ -z "$VERSION" ]; then
+              echo "❌ Invalid release response for $REPO: missing tag_name."
+              exit 1
+            fi
+
+            CURRENT=$(jq -r \
+              --arg type "$TYPE_PLURAL" \
+              --arg name "$NAME" \
+              '.[$type][$name].version // empty' registry.json)
+
+            if [ "$CURRENT" = "$VERSION" ]; then
+              echo "🟢 $REPO already up to date ($VERSION)."
+              continue
+            fi
+
+            echo "🆕 New version for $REPO: ${CURRENT:-none} → $VERSION"
+
+            ZIP_NAME="${NAME}-${VERSION}.zip"
+
+            ASSET_ID=$(echo "$LATEST" |
+              jq -r --arg z "$ZIP_NAME" \
+              '[.assets[]? | select(.name == $z) | .id][0] // empty')
+
+            if [ -z "$ASSET_ID" ]; then
+              echo "❌ Asset $ZIP_NAME not found for $REPO, skipping."
+              continue
+            fi
+
+            curl -fsSL \
+              -H "Accept: application/octet-stream" \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              -o "${NAME}.zip" \
+              "https://api.github.com/repos/$REPO/releases/assets/$ASSET_ID" \
+              || {
+                echo "❌ Failed to download release asset for $REPO, skipping."
+                rm -f "${NAME}.zip"
+                continue
+              }
+
+            unzip -tq "${NAME}.zip" > /dev/null 2>&1 || {
+              echo "❌ Invalid ZIP for $REPO, skipping."
+              rm -f "${NAME}.zip"
+              continue
+            }
+
+            SHA256=$(sha256sum "${NAME}.zip" | cut -d ' ' -f 1)
+
+            mkdir -p "metadata/$TYPE_PLURAL"
+            METADATA_TMP=$(mktemp)
+
+            HTTP_STATUS=$(curl -sS \
+              -o "$METADATA_TMP" \
+              -w "%{http_code}" \
+              -H "Accept: application/vnd.github.raw+json" \
+              -H "Authorization: Bearer $GITHUB_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "https://api.github.com/repos/$REPO/contents/metadata.json?ref=main") || {
+                echo "❌ Failed to fetch metadata for $REPO."
+                rm -f "${NAME}.zip" "$METADATA_TMP"
+                exit 1
+              }
+
+            if [ "$HTTP_STATUS" != "200" ] ||
+              ! jq empty "$METADATA_TMP" > /dev/null 2>&1; then
+              echo "❌ $REPO has no valid metadata.json, skipping this release entirely."
+              rm -f "${NAME}.zip" "$METADATA_TMP"
+              continue
+            fi
+
+            mv "$METADATA_TMP" "metadata/$TYPE_PLURAL/${NAME}.json"
+            git add "metadata/$TYPE_PLURAL/${NAME}.json"
+
+            SUB_PATH="packages/$TYPE_PLURAL/$NAME"
+
+            if git config -f .gitmodules \
+              --get submodule."$SUB_PATH".url > /dev/null 2>&1; then
+              git submodule update --init --remote "$SUB_PATH" || {
+                echo "❌ Failed to update submodule for $REPO, skipping."
+                continue
+              }
+            else
+              mkdir -p "$(dirname "$SUB_PATH")"
+
+              git submodule add "https://github.com/$REPO" "$SUB_PATH" || {
+                echo "❌ Failed to add submodule for $REPO, skipping."
+                continue
+              }
+            fi
+
+            git add .gitmodules "$SUB_PATH"
+
+            mkdir -p "dist/$TYPE_PLURAL"
+            mv "${NAME}.zip" "dist/$TYPE_PLURAL/${NAME}.zip"
+            git add "dist/$TYPE_PLURAL/${NAME}.zip"
+
+            jq \
+              --arg type "$TYPE_PLURAL" \
+              --arg name "$NAME" \
+              --arg version "$VERSION" \
+              --arg sha256 "$SHA256" \
+              --arg last_updated "$(date +%s)" \
+              '.[$type] = ((.[$type] // {}) + {
+                ($name): {
+                  "version": $version,
+                  "sha256": $sha256,
+                  "last_updated": ($last_updated | tonumber)
+                }
+              })' registry.json > registry.json.tmp
+
+            mv registry.json.tmp registry.json
+            git add registry.json
+
+            echo "✅ Updated $REPO to $VERSION."
+
+          done < <(jq -c '.[]' "$RESOLVED")
+
+      - name: 5️⃣ Commit and push
+        run: |
+          if git diff --cached --quiet; then
+            echo "🟡 No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Auto-update packages ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+
+          for i in 1 2 3; do
+            if git push; then
+              git status -sb
+              echo "✅ Package update complete."
+              exit 0
+            fi
+
+            echo "❌ Push failed. Retry #$i in 3s — fetching and rebasing..."
+
+            git fetch origin main
+            git rebase origin/main
+
+            sleep 3
+          done
+
+          echo "❌ Failed to push after 3 attempts."
+          exit 1

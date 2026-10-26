@@ -1,0 +1,18 @@
+{
+	"ciskeleton/module-*": {
+		"type": "module",
+		"name": "*"
+	},
+	"ciskeleton/plugin-*": {
+		"type": "plugin",
+		"name": "*"
+	},
+	"ciskeleton/theme-*": {
+		"type": "theme",
+		"name": "*"
+	},
+	"ciskeleton/lang-*": {
+		"type": "language",
+		"name": "*"
+	}
+}
