@@ -270,12 +270,10 @@ jobs:
               --arg name "$NAME" \
               '.[$type][$name].version // empty' registry.json)
 
-            if [ "$CURRENT" = "$VERSION" ]; then
-              echo "🟢 $REPO already up to date ($VERSION)."
-              continue
-            fi
-
-            echo "🆕 New version for $REPO: ${CURRENT:-none} → $VERSION"
+            CURRENT_SHA=$(jq -r \
+              --arg type "$TYPE_PLURAL" \
+              --arg name "$NAME" \
+              '.[$type][$name].sha256 // empty' registry.json)
 
             ZIP_NAME="${NAME}-${VERSION}.zip"
 
@@ -307,6 +305,19 @@ jobs:
             }
 
             SHA256=$(sha256sum "${NAME}.zip" | cut -d ' ' -f 1)
+
+            # Skip only when both version and SHA-256 are unchanged.
+            if [ "$CURRENT" = "$VERSION" ] && [ "$CURRENT_SHA" = "$SHA256" ]; then
+              echo "🟢 $REPO already up to date ($VERSION)."
+              rm -f "${NAME}.zip"
+              continue
+            fi
+
+            if [ "$CURRENT" = "$VERSION" ]; then
+              echo "♻️ Re-published release detected for $REPO ($VERSION): SHA-256 changed."
+            else
+              echo "🆕 New version for $REPO: ${CURRENT:-none} → $VERSION"
+            fi
 
             mkdir -p "metadata/$TYPE_PLURAL"
             METADATA_TMP=$(mktemp)
