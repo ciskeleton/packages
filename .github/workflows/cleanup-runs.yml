@@ -1,0 +1,87 @@
+name: Cleanup Runs
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+
+jobs:
+  cleanup:
+    name: Delete old non-failed runs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Delete completed runs older than 24 hours
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          API_URL="https://api.github.com/repos/$GH_REPOSITORY/actions/runs"
+          CUTOFF=$(date -u -d '24 hours ago' +%s)
+
+          RUNS_FILE=$(mktemp)
+          PAGE_FILE=$(mktemp)
+
+          trap 'rm -f "$RUNS_FILE" "$PAGE_FILE"' EXIT
+
+          PAGE=1
+
+          echo "🔎 Looking for old completed runs..."
+
+          # Collect run IDs before deleting anything.
+          while :; do
+            curl -fsSL \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$API_URL?status=completed&per_page=100&page=$PAGE" \
+              -o "$PAGE_FILE"
+
+            jq -e '.workflow_runs | type == "array"' \
+              "$PAGE_FILE" > /dev/null
+
+            COUNT=$(jq '.workflow_runs | length' "$PAGE_FILE")
+
+            jq -r --argjson cutoff "$CUTOFF" '
+              .workflow_runs[]
+              | select(
+                  (.created_at | fromdateiso8601) < $cutoff and
+                  .conclusion != "failure" and
+                  .conclusion != "timed_out"
+                )
+              | .id
+            ' "$PAGE_FILE" >> "$RUNS_FILE"
+
+            [ "$COUNT" -eq 100 ] || break
+            PAGE=$((PAGE + 1))
+          done
+
+          TOTAL=$(wc -l < "$RUNS_FILE" | tr -d ' ')
+          echo "📦 Found $TOTAL runs to delete."
+
+          if [ "$TOTAL" -eq 0 ]; then
+            echo "🟢 Nothing to clean up."
+            exit 0
+          fi
+
+          # Delete the collected runs.
+          while IFS= read -r RUN_ID; do
+            [ -n "$RUN_ID" ] || continue
+
+            echo "🗑️ Deleting workflow run $RUN_ID..."
+
+            curl -fsSL -X DELETE \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer $GH_TOKEN" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              "$API_URL/$RUN_ID"
+
+          done < "$RUNS_FILE"
+
+          echo "✅ Cleanup complete. Deleted $TOTAL workflow runs."
