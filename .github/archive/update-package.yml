@@ -26,12 +26,12 @@ jobs:
       sha256: ${{ steps.package.outputs.sha256 }}
 
     steps:
-      - name: 1️⃣ Create ianhub-agent token
+      - name: 1️⃣ Create csk-agent token
         id: app-token
         uses: actions/create-github-app-token@v3
         with:
-          client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
-          private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
+          client-id: ${{ secrets.CSK_AGENT_CLIENT_ID }}
+          private-key: ${{ secrets.CSK_AGENT_PRIVATE_KEY }}
           owner: ciskeleton
 
       - name: 2️⃣ Checkout repo with submodules
@@ -45,8 +45,8 @@ jobs:
         shell: bash
         run: |
           git config --global url."https://x-access-token:${{ steps.app-token.outputs.token }}@github.com/".insteadOf "https://github.com/"
-          git config --global user.name "ianhub-agent[bot]"
-          git config --global user.email "ianhub-agent[bot]@users.noreply.github.com"
+          git config --global user.name "csk-agent[bot]"
+          git config --global user.email "csk-agent[bot]@users.noreply.github.com"
 
       - name: 4️⃣ Add or Update Package
         id: package

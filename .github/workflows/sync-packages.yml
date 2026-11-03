@@ -18,12 +18,12 @@ jobs:
     name: Check for new releases
     runs-on: ubuntu-latest
     steps:
-      - name: 1️⃣ Create ianhub-agent token (scoped to packages repo only)
+      - name: 1️⃣ Create csk-agent token (scoped to packages repo only)
         id: app-token
         uses: actions/create-github-app-token@v3
         with:
-          client-id: ${{ secrets.IANHUB_AGENT_CLIENT_ID }}
-          private-key: ${{ secrets.IANHUB_AGENT_PRIVATE_KEY }}
+          client-id: ${{ secrets.CSK_AGENT_CLIENT_ID }}
+          private-key: ${{ secrets.CSK_AGENT_PRIVATE_KEY }}
           owner: ciskeleton
           repositories: packages
 
@@ -35,8 +35,8 @@ jobs:
 
       - name: 3️⃣ Configure git identity
         run: |
-          git config --global user.name "ianhub-agent[bot]"
-          git config --global user.email "ianhub-agent[bot]@users.noreply.github.com"
+          git config --global user.name "csk-agent[bot]"
+          git config --global user.email "csk-agent[bot]@users.noreply.github.com"
 
       - name: 4️⃣ Walk allowlist and update changed packages
         env:
