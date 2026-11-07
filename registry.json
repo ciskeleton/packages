@@ -46,253 +46,253 @@
   "languages": {
     "arabic": {
       "version": "0.0.1",
-      "sha256": "34556022a966c7803ecd2e5319d124efc248c4b6b6133f09f8728cb45b5127d4",
-      "last_updated": 1793980849
+      "sha256": "9d1be7c334fcf2c624b2ec5a734b6957268e9654f5210e657d7fa2e6149bbb5b",
+      "last_updated": 1794010483
     },
     "armenian": {
       "version": "0.0.1",
-      "sha256": "955229a3cd2f51ae7dcb1491e91cee06de156b355c50e886e2b8274ef649e76c",
-      "last_updated": 1793980934
+      "sha256": "b020146d4553d8d3ae15b7b3090e37db2d9c3e6a815987eb799fb1296a6d65c7",
+      "last_updated": 1794010529
     },
     "azerbaijani": {
       "version": "0.0.1",
-      "sha256": "cb0ae6a22fbe8a54f416e3fa81fbe967f42dafe84ac5dca991e756593065694a",
-      "last_updated": 1793980940
+      "sha256": "6a1e077b84e345c7c8ee4b46a40b53078e8300a3f22dbd92fec383236e090ca5",
+      "last_updated": 1794010532
     },
     "bengali": {
       "version": "0.0.1",
-      "sha256": "3cc4989a5f2112787405bd9ebc8de6fc234710ee6bd04981781345b2edc192cc",
-      "last_updated": 1793980918
+      "sha256": "4c32bdb525896602aef167b136c6b3311b2d825d691b65ac60f50f9e8bf4fce5",
+      "last_updated": 1794010520
     },
     "brazilian": {
       "version": "0.0.1",
-      "sha256": "ff051ac1c63fbb9067a99b94c07cc98c6520956c68c3107d7ab596bc839891a0",
-      "last_updated": 1793980851
+      "sha256": "061fedfdd3823f77f0331a0e0b62f34e4a892953b72a6b737733365729bebbf4",
+      "last_updated": 1794010485
     },
     "bulgarian": {
       "version": "0.0.1",
-      "sha256": "ac32172176067329b01cde458958ddb235a6485f73638e7444a1758f1747e063",
-      "last_updated": 1793980853
+      "sha256": "c7ab62eb5d9a42d2a3c345c8f92331c7cec39c10f0e6d2a36081f2fd536d8ce2",
+      "last_updated": 1794010486
     },
     "catalan": {
       "version": "0.0.1",
-      "sha256": "9f4d4c92e99f503b829b24920165ab4e20ddb1e8b7256bed4d6e1e7becc1b15f",
-      "last_updated": 1793980916
+      "sha256": "1ff953b50ff50de06880e9c1e49ca87b28ac9284b6690aa360a44000b30e231e",
+      "last_updated": 1794010519
     },
     "chinese": {
       "version": "0.0.1",
-      "sha256": "99c6aa292ac77afb33086e011a3b78201ccb9b427b79dbb8ac3eb3d6b8e4dadb",
-      "last_updated": 1793980855
+      "sha256": "ea3e04bf81c69dec71bb861d77cede1478600dcb332fd29e4b73c01af6ed318c",
+      "last_updated": 1794010487
     },
     "croatian": {
       "version": "0.0.1",
-      "sha256": "5e5c7c86e974af1a24745e22b69f79e0e6c9c29859b1ddfa7bf7b8da58831660",
-      "last_updated": 1793980902
+      "sha256": "90cb08d3fe71916311462fc6fe63aa1ccb30ad827e1805aeec5e44af5fc934b7",
+      "last_updated": 1794010511
     },
     "czech": {
       "version": "0.0.1",
-      "sha256": "75a41df4ab932793cd01e3391289a8c251e86bf7e55368346b9c4d2978a57c8d",
-      "last_updated": 1793980857
+      "sha256": "ca2075edfb8125ef12f2c0ebe0ff7ccd8cb4d49d0c40b1d0efff2932fd80ae63",
+      "last_updated": 1794010488
     },
     "danish": {
       "version": "0.0.1",
-      "sha256": "843761c28ab1607925ab002be9ee1ffbed49d82c344d208a6926d15f2181bddf",
-      "last_updated": 1793980905
+      "sha256": "e510615dd7e92b4f682507fdc874c794a3ee8d8aa974a1f4c5a1134273249de7",
+      "last_updated": 1794010513
     },
     "dutch": {
       "version": "0.0.1",
-      "sha256": "cd55a6ece367aeda4a654b58ca80c53888a94abcf8d4b0c11089beb3eb54e9c4",
-      "last_updated": 1793980888
+      "sha256": "b609165eaba340ff88343b76b62ab04774f2d04c8a989ad97ab10ca8e0e836c3",
+      "last_updated": 1794010504
     },
     "english": {
       "version": "0.0.1",
-      "sha256": "b4dc4baa94220f91cae5f05b113e0b18c3b41d30d3c1904306c165f4d6ae531e",
-      "last_updated": 1793980858
+      "sha256": "68993878308779b1905b4a2fbe293b3dfcbd296d344da73bdbe041663dfb6e3b",
+      "last_updated": 1794010488
     },
     "estonian": {
       "version": "0.0.1",
-      "sha256": "ef6fb8e9a04f9c89ac0d4644604f9b5547bcf77b1a0d9e0a34f37ab6ebfb9084",
-      "last_updated": 1793980930
+      "sha256": "3aec4e6601583e853846b9855175141939b95ea9bf92ac85dc52d762b98dded2",
+      "last_updated": 1794010527
     },
     "filipino": {
       "version": "0.0.1",
-      "sha256": "ab3990420f337e7e4c0a0dabd5071ee7200267d2eba6ffe3bad2b0869e840006",
-      "last_updated": 1794000417
+      "sha256": "dd346a9d58d0d99fd0ee6ac9506d6fe6f8eeb3c3afddeac51cafc5807b35b552",
+      "last_updated": 1794010521
     },
     "finnish": {
       "version": "0.0.1",
-      "sha256": "6e856b97f3c1323c398e5a1e239c05b9aa67173002b584afbdbd18356e03b1f3",
-      "last_updated": 1793980907
+      "sha256": "f09a9a2c0c9c07ffbba8fd512b42198a139976ab3b2aba6f9b15a573be3d42d8",
+      "last_updated": 1794010514
     },
     "french": {
       "version": "0.0.1",
-      "sha256": "6c5dc86abcc06977fc0d51b45f9c3e0d24062553680017192c102e4935d13acc",
-      "last_updated": 1793980860
+      "sha256": "105f2409ce7ffcdfb1a891289712f0274bb26633d2ffbf87cf75aadf579cbc8e",
+      "last_updated": 1794010489
     },
     "georgian": {
       "version": "0.0.1",
-      "sha256": "7f4fa562e76c6f678e74ce0a7d996b9d081efd3660db5e21c437611d7bf6ef9a",
-      "last_updated": 1793980932
+      "sha256": "8cce634a5986bc4390d67e5f9921c23eef8be19ac968859349bcd4a1549356dc",
+      "last_updated": 1794010528
     },
     "german": {
       "version": "0.0.1",
-      "sha256": "6425abaead58eae6b6811f04d4beec3dd4ae6807e871fd505fff761123892f7e",
-      "last_updated": 1793980862
+      "sha256": "6c476f40099b97eebb5a30dfdb92a40b81243b5883ec7cd766c49274563e1585",
+      "last_updated": 1794010490
     },
     "greek": {
       "version": "0.0.1",
-      "sha256": "175145d1091cec1e0a5efd9e0a687febd57da603e0b07adf22d70a0eafd41de4",
-      "last_updated": 1793980895
+      "sha256": "dc11340154f9b269c377b33a9e979f840dd84f798545cf343ecad04aaa3d83b2",
+      "last_updated": 1794010508
     },
     "hindi": {
       "version": "0.0.1",
-      "sha256": "526c61f52832a384748e09299458d900a724ab1c3dfe31f44ddc34f5921ca1f9",
-      "last_updated": 1793980864
+      "sha256": "2c757d5677bdb5eb0e91dc2c1bbb396ecf2e392e8f0dbd04179b23b3f3f56d95",
+      "last_updated": 1794010491
     },
     "hungarian": {
       "version": "0.0.1",
-      "sha256": "13c51c5be59778e950c4b441e902bd948d148887b1e31411e3b5442fb110f070",
-      "last_updated": 1793980893
+      "sha256": "11d6ecda35196c20c18be64bf86c658a0ad81be1b32d62992326edee97131be9",
+      "last_updated": 1794010507
     },
     "indonesian": {
       "version": "0.0.1",
-      "sha256": "26348009e09c05b0af2e3355915498645056e116c55c518ea43187418ddeac17",
-      "last_updated": 1793980865
+      "sha256": "1944eab4f7059a865f49d42f1b7adb63f977bd423f7e69a2d80a440a798f35d3",
+      "last_updated": 1794010492
     },
     "italian": {
       "version": "0.0.1",
-      "sha256": "5db59efadb54ba6f858b00c13ef3b6e44abe509067713657b46f5e2b96027e10",
-      "last_updated": 1793980867
+      "sha256": "f12fdb4bdb877c5678974c0bab3de738a5ef58161afc91f29d113b2c5452a565",
+      "last_updated": 1794010493
     },
     "japanese": {
       "version": "0.0.1",
-      "sha256": "8b4380e854d64da100d6e56ae3c134fbade7efd3b3ed5ec0e6c617f4418f7706",
-      "last_updated": 1793980869
+      "sha256": "9cba16fca4aa361aa6d499c34918966c80386483b1f6f644b31c3550847579b8",
+      "last_updated": 1794010494
     },
     "khmer": {
       "version": "0.0.1",
-      "sha256": "ba4b4615f35b9b627a60243a544fd3c735c4e5878c6403e9c5812f56bfcb8852",
-      "last_updated": 1793980938
+      "sha256": "d806eda258928f1d3f9164cf2932aabb7a5529fc3121da7cfe55e51db915032b",
+      "last_updated": 1794010531
     },
     "korean": {
       "version": "0.0.1",
-      "sha256": "cb8db5df3e53005388e622e16063ed626953fc6bdacb1b57223f5eaf2c0d8029",
-      "last_updated": 1793980871
+      "sha256": "9bfa8b36c51e34dd32a232fe0b243e950dfaf259a394f64befb8ca37bd66d91e",
+      "last_updated": 1794010495
     },
     "latvian": {
       "version": "0.0.1",
-      "sha256": "a40e6407a1f65d85573f49c5229b5bb42c010fc6e5055c8158b87c071ef3dee0",
-      "last_updated": 1793980909
+      "sha256": "b88bd426d036a0cfb75320638fbb7d8e18b535963bf6e4cb4583b02181859430",
+      "last_updated": 1794010515
     },
     "lithuanian": {
       "version": "0.0.1",
-      "sha256": "8e1ff269643dff31fca759813d16f10526b7b37c978561a2fded52eab9c4d243",
-      "last_updated": 1793980911
+      "sha256": "c7bb44954551a20d095693f09295d7d8b5e48e2470b8e5cbfb1fc937784b8d91",
+      "last_updated": 1794010516
     },
     "malay": {
       "version": "0.0.1",
-      "sha256": "6ea415a76571b307b64d43c440a7729f1cacc1645f9744c2d4553dd8aef90008",
-      "last_updated": 1793980922
+      "sha256": "5c50907c78ae39e3709a1b70b6d60993ee72f523fc5ad9ede58a6b6e7269e719",
+      "last_updated": 1794010523
     },
     "marathi": {
       "version": "0.0.1",
-      "sha256": "f070681b7c699f31157756d8ea89008114ff2502dcffc4f015b3a860db5b757f",
-      "last_updated": 1793980936
+      "sha256": "180a8145f0d7fecd773e2640ce2f58578d28584e2aa691812365c38d6f7c2df2",
+      "last_updated": 1794010530
     },
     "norwegian": {
       "version": "0.0.1",
-      "sha256": "6fbe4d94a51a9ca5b3f00c82189b00bce06e76c089d92c78aac174a3cdc7e50c",
-      "last_updated": 1793980913
+      "sha256": "4fc4d56bdfeb794d692dfd75108804c248af95c491f9877d283c65932d83610c",
+      "last_updated": 1794010517
     },
     "persian": {
       "version": "0.0.1",
-      "sha256": "ad2fdedc1f90eb9cc256ea2639c7f44785a293c33fcb7c5248a905910f5dc4da",
-      "last_updated": 1793980872
+      "sha256": "7f9ccf1e699830a33447975a8fdbdfaf410669c6a0de0b5a6938b626d0a2e6c5",
+      "last_updated": 1794010496
     },
     "polish": {
       "version": "0.0.1",
-      "sha256": "88a9e997329165bbcfb20d43ac9f90bccbf34736b4688d2b0cf3e017b1018116",
-      "last_updated": 1793980874
+      "sha256": "46192fa537e78a6c5f275c4cc7805b0e61f8936e17e735db559bbd9c22cd75d9",
+      "last_updated": 1794010497
     },
     "portuguese": {
       "version": "0.0.1",
-      "sha256": "0b0b0f8625ec5d3f4580ce6f9cd4c969a2f8dbbd7a4e5093d0f3c21759c8a4f6",
-      "last_updated": 1793980877
+      "sha256": "450d37264d183c3db782a9aa4c2c8cdcc0101e4cd0ea20bbf405b099c212b75b",
+      "last_updated": 1794010498
     },
     "romanian": {
       "version": "0.0.1",
-      "sha256": "0e9f2da0c078889cd0cd1900ffc7821a3c061d027fe2a30739e85580ad816049",
-      "last_updated": 1793980891
+      "sha256": "8354d2e5b846695289b2d4739ab28001cb7d4a5abe1217b275a6c42c2e0d3aa4",
+      "last_updated": 1794010506
     },
     "russian": {
       "version": "0.0.1",
-      "sha256": "1e9686ab1d8059d7fc2d8924dd07e1579e0b2ca698bcae1264c9a84d63c396df",
-      "last_updated": 1793980879
+      "sha256": "47a630f278a7b7299c9836b6be49203b641a8afa111f53ccec22916278f25006",
+      "last_updated": 1794010499
     },
     "serbian": {
       "version": "0.0.1",
-      "sha256": "91ec722d0eb3c43c1802b91a8654cf54dfcc8a4fc142dd8096fefd87aa506930",
-      "last_updated": 1793980897
+      "sha256": "501b97255e0e91dcd8bbb468547537488139b3ff2a9330bfef8b8f6b4363f2a9",
+      "last_updated": 1794010509
     },
     "slovak": {
       "version": "0.0.1",
-      "sha256": "26d515bab93e7fdecea36774b770aba11f586763f431b4c8b05af15f268319cb",
-      "last_updated": 1793980904
+      "sha256": "07c972bd0ba9efeafe84562f1c841b8d4fae33d943f91c6c66d5db0eab529ea9",
+      "last_updated": 1794010512
     },
     "slovenian": {
       "version": "0.0.1",
-      "sha256": "54c520e9fe6f200b194f9fe252d3a4b3cf5a7c41c318fcc29896c36e7e362095",
-      "last_updated": 1793980915
+      "sha256": "19c9436d8c759f190cd412bc45a2bd54d311a2a96fe9ccea25c580e3989c8bf6",
+      "last_updated": 1794010518
     },
     "spanish": {
       "version": "0.0.1",
-      "sha256": "a8c0a893443e96177423407c0baea053feea1e2364e88b3481688ace36010a97",
-      "last_updated": 1793980881
+      "sha256": "32ca57a281c429cf21e24163470e9f78629c48282dae16746d647d03a9c717f7",
+      "last_updated": 1794010500
     },
     "swahili": {
       "version": "0.0.1",
-      "sha256": "2be8b081a2bde283518537afa3d3ee2479732c27af8ad631809786da774f9dd2",
-      "last_updated": 1793980928
+      "sha256": "5241d95ba5bf6bb03494122a90c78ac7bb85c20164ef46b1409c3c457be4c49b",
+      "last_updated": 1794010526
     },
     "swedish": {
       "version": "0.0.1",
-      "sha256": "9f4d8599bd84c653285408afd7b0a08c9ec5eb054231dc843538a70c71bcd4f5",
-      "last_updated": 1793980921
+      "sha256": "e8650c1c755ce7d271de944f03127d8c006845770750f5026fbc157ceebbf2d5",
+      "last_updated": 1794010522
     },
     "taiwanese": {
       "version": "0.0.1",
-      "sha256": "955b7f40f9181d04d6459112b1a2eaf0dfb221d0f2a2caa6ac1bf773fd51e95b",
-      "last_updated": 1793980883
+      "sha256": "a787b632b568949b68264c7ceaf7d065dc7a698949afdf0e2d30fdf5af4fa70b",
+      "last_updated": 1794010501
     },
     "tamil": {
       "version": "0.0.1",
-      "sha256": "9ab1df427e8a26e183cc2bafeeeae66f2da70ab82b6ea1ff45b94c780c4260d0",
-      "last_updated": 1793980924
+      "sha256": "0eaf4824ddd795e5d9eca48c575767f86f129ecc203fff5eaa3ee49507522387",
+      "last_updated": 1794010524
     },
     "thai": {
       "version": "0.0.1",
-      "sha256": "f86110364c5995c414fecfbfffa214d90b108488da4b2412848ad8f078b516b0",
-      "last_updated": 1793980890
+      "sha256": "c77828363b6f46d12fe307d6f6cb31a622286742b521dda09c57153330f0c1e5",
+      "last_updated": 1794010505
     },
     "turkish": {
       "version": "0.0.1",
-      "sha256": "dbc4fb1e06f1b04cb48aebc80c2b3011258eece676931b97d80f9fad8abacf01",
-      "last_updated": 1793980884
+      "sha256": "03cde48f7a7ca4f3a0c13704e19851f62708f46adeac3da71c7c79a71daeb38b",
+      "last_updated": 1794010502
     },
     "ukrainian": {
       "version": "0.0.1",
-      "sha256": "9e2bb8721e18a0449ab43ed0c29c5a152fcae3839fda554558cb48b90126441a",
-      "last_updated": 1793980900
+      "sha256": "b22e5aab1cd09100193949d61bfec343fa9d132028cb4790a84a54ac4af12922",
+      "last_updated": 1794010510
     },
     "urdu": {
       "version": "0.0.1",
-      "sha256": "5608448f7249e2dbda9ed8442fd815e4ea9a55f479046631ba527a0bee1e8b63",
-      "last_updated": 1793980926
+      "sha256": "a8374f406cd789a0d9f49765f4bf62ddc356cd9716054779a1b568ab90888e29",
+      "last_updated": 1794010525
     },
     "vietnamese": {
       "version": "0.0.1",
-      "sha256": "86fb28502f6088db34edca66defcb75fff022e73af146f44304d9fd4babb60b1",
-      "last_updated": 1793980886
+      "sha256": "4749739dcfb2cb4661374e280e4037a211a901a9b809ec9954aa79df8cf53051",
+      "last_updated": 1794010503
     }
   }
 }
