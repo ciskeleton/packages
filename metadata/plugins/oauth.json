@@ -1,0 +1,284 @@
+{
+  "type": "plugin",
+  "name": "oauth",
+  "title": "OAuth Authentication",
+  "description": "Enables third-party authentication using OAuth providers such as Google, Facebook, GitHub, Discord, and LinkedIn.",
+  "details": "The OAuth plugin enables users to authenticate with your {platform_name} application using supported third-party identity providers, including Google, Facebook, GitHub, Discord, and LinkedIn.",
+  "tags": [
+    "oauth",
+    "authentication",
+    "login",
+    "social-login",
+    "security"
+  ],
+  "preview": "https://raw.githubusercontent.com/ciskeleton/plugin-oauth/main/main/preview.jpg",
+  "screenshots": [
+    "https://raw.githubusercontent.com/ciskeleton/plugin-oauth/main/main/screenshots/integration.png",
+    "https://raw.githubusercontent.com/ciskeleton/plugin-oauth/main/main/screenshots/settings-discord.png",
+    "https://raw.githubusercontent.com/ciskeleton/plugin-oauth/main/main/screenshots/settings-facebook.png",
+    "https://raw.githubusercontent.com/ciskeleton/plugin-oauth/main/main/screenshots/settings-github.png",
+    "https://raw.githubusercontent.com/ciskeleton/plugin-oauth/main/main/screenshots/settings-google.png",
+    "https://raw.githubusercontent.com/ciskeleton/plugin-oauth/main/main/screenshots/settings-linkedin.png",
+    "https://raw.githubusercontent.com/ciskeleton/plugin-oauth/main/main/screenshots/settings-microsoft.png"
+  ],
+  "icon": "fab:openid",
+  "icon_fg": "#ffffff",
+  "icon_bg": "#2185d0",
+  "author": {
+    "name": "CiSkeleton Team",
+    "url": "https://github.com/ciskeleton",
+    "email": "csk@ianhub.net"
+  },
+  "license": {
+    "name": "Apache 2.0",
+    "url": "https://www.apache.org/licenses/LICENSE-2.0"
+  },
+  "repository": "https://github.com/ciskeleton/plugin-oauth",
+  "translations": {
+    "arabic": {
+      "title": "مصادقة OAuth",
+      "description": "تمكّن المصادقة عبر جهات خارجية باستخدام موفّري OAuth مثل جوجل وفيسبوك وجيت هاب وديسكورد ولينكدإن.",
+      "details": "تتيح إضافة OAuth للمستخدمين تسجيل الدخول إلى تطبيق {platform_name} باستخدام موفّري الهوية الخارجيين المدعومين، بما في ذلك Google وFacebook وGitHub وDiscord وLinkedIn."
+    },
+    "armenian": {
+      "title": "OAuth նույնականացում",
+      "description": "Միացնում է երրորդ կողմի նույնականացումը՝ օգտագործելով OAuth մատակարարներ, ինչպիսիք են Google, Facebook, GitHub, Discord և LinkedIn։",
+      "details": "OAuth հավելումը թույլ է տալիս օգտատերերին մուտք գործել ձեր {platform_name} հավելված՝ օգտագործելով աջակցվող արտաքին ինքնության մատակարարներ, ներառյալ Google, Facebook, GitHub, Discord և LinkedIn։"
+    },
+    "azerbaijani": {
+      "title": "OAuth ilə autentifikasiya",
+      "description": "Google, Facebook, GitHub, Discord və LinkedIn kimi OAuth provayderlərindən istifadə etməklə üçüncü tərəf autentifikasiyasını təmin edir.",
+      "details": "OAuth plagini istifadəçilərə Google, Facebook, GitHub, Discord və LinkedIn daxil olmaqla, dəstəklənən üçüncü tərəf identifikasiya provayderləri vasitəsilə {platform_name} tətbiqinizdə autentifikasiyadan keçməyə imkan verir."
+    },
+    "bengali": {
+      "title": "OAuth প্রমাণীকরণ",
+      "description": "Google, Facebook, GitHub, Discord এবং LinkedIn-এর মতো OAuth প্রদানকারীদের ব্যবহার করে তৃতীয় পক্ষের প্রমাণীকরণ সক্রিয় করে।",
+      "details": "OAuth প্লাগইন ব্যবহারকারীদের Google, Facebook, GitHub, Discord এবং LinkedIn-সহ সমর্থিত তৃতীয় পক্ষের পরিচয় প্রদানকারীদের মাধ্যমে আপনার {platform_name} অ্যাপ্লিকেশনে সাইন ইন করতে দেয়।"
+    },
+    "brazilian": {
+      "title": "Autenticação OAuth",
+      "description": "Ativa a autenticação de terceiros usando provedores OAuth como Google, Facebook, GitHub, Discord e LinkedIn.",
+      "details": "O plugin OAuth permite que os usuários entrem na sua aplicação {platform_name} usando provedores de identidade de terceiros compatíveis, incluindo Google, Facebook, GitHub, Discord e LinkedIn."
+    },
+    "bulgarian": {
+      "title": "OAuth удостоверяване",
+      "description": "Позволява удостоверяване чрез трети страни, използвайки OAuth доставчици като Google, Facebook, GitHub, Discord и LinkedIn.",
+      "details": "Плъгинът OAuth позволява на потребителите да влизат във вашето приложение {platform_name} чрез поддържани външни доставчици на идентичност, включително Google, Facebook, GitHub, Discord и LinkedIn."
+    },
+    "catalan": {
+      "title": "Autenticació OAuth",
+      "description": "Permet l’autenticació de tercers mitjançant proveïdors OAuth com Google, Facebook, GitHub, Discord i LinkedIn.",
+      "details": "El connector OAuth permet als usuaris iniciar sessió a l’aplicació {platform_name} mitjançant proveïdors d’identitat externs compatibles, com ara Google, Facebook, GitHub, Discord i LinkedIn."
+    },
+    "chinese": {
+      "title": "OAuth 身份验证",
+      "description": "通过 Google、Facebook、GitHub、Discord 和 LinkedIn 等 OAuth 提供商启用第三方身份验证。",
+      "details": "OAuth 插件允许用户通过 Google、Facebook、GitHub、Discord 和 LinkedIn 等受支持的第三方身份提供商登录您的 {platform_name} 应用程序。"
+    },
+    "croatian": {
+      "title": "OAuth autentifikacija",
+      "description": "Omogućuje autentifikaciju trećih strana putem OAuth pružatelja kao što su Google, Facebook, GitHub, Discord i LinkedIn.",
+      "details": "OAuth dodatak omogućuje korisnicima prijavu u vašu aplikaciju {platform_name} putem podržanih vanjskih pružatelja identiteta, uključujući Google, Facebook, GitHub, Discord i LinkedIn."
+    },
+    "czech": {
+      "title": "Ověřování OAuth",
+      "description": "Umožňuje ověřování třetích stran pomocí poskytovatelů OAuth, jako jsou Google, Facebook, GitHub, Discord a LinkedIn.",
+      "details": "Plugin OAuth umožňuje uživatelům přihlásit se do aplikace {platform_name} prostřednictvím podporovaných externích poskytovatelů identity, včetně Google, Facebooku, GitHubu, Discordu a LinkedInu."
+    },
+    "danish": {
+      "title": "OAuth-godkendelse",
+      "description": "Muliggør tredjepartsautentificering ved hjælp af OAuth-udbydere som Google, Facebook, GitHub, Discord og LinkedIn.",
+      "details": "OAuth-pluginnet giver brugerne mulighed for at logge ind på din {platform_name}-applikation via understøttede eksterne identitetsudbydere, herunder Google, Facebook, GitHub, Discord og LinkedIn."
+    },
+    "dutch": {
+      "title": "OAuth-authenticatie",
+      "description": "Maakt authenticatie via derden mogelijk met OAuth-providers zoals Google, Facebook, GitHub, Discord en LinkedIn.",
+      "details": "De OAuth-plugin stelt gebruikers in staat om in te loggen op uw {platform_name}-applicatie via ondersteunde externe identiteitsproviders, waaronder Google, Facebook, GitHub, Discord en LinkedIn."
+    },
+    "estonian": {
+      "title": "OAuth autentimine",
+      "description": "Võimaldab kolmanda osapoole autentimist OAuth teenusepakkujate abil, nagu Google, Facebook, GitHub, Discord ja LinkedIn.",
+      "details": "OAuthi plugin võimaldab kasutajatel logida teie {platform_name} rakendusse toetatud väliste identiteedipakkujate kaudu, sealhulgas Google, Facebook, GitHub, Discord ja LinkedIn."
+    },
+    "filipino": {
+      "title": "Pagpapatotoo ng OAuth",
+      "description": "Pinapagana ang pagpapatunay ng third-party gamit ang mga OAuth provider tulad ng Google, Facebook, GitHub, Discord, at LinkedIn.",
+      "details": "Pinapayagan ng OAuth plugin ang mga user na mag-sign in sa iyong {platform_name} application gamit ang mga sinusuportahang third-party identity provider, kabilang ang Google, Facebook, GitHub, Discord, at LinkedIn."
+    },
+    "finnish": {
+      "title": "OAuth-todennus",
+      "description": "Mahdollistaa kolmannen osapuolen todennuksen OAuth-palveluntarjoajien, kuten Googlen, Facebookin, GitHubin, Discordin ja LinkedInin, avulla.",
+      "details": "OAuth-laajennuksen avulla käyttäjät voivat kirjautua {platform_name}-sovellukseesi tuettujen ulkoisten identiteetintarjoajien, kuten Googlen, Facebookin, GitHubin, Discordin ja LinkedInin, kautta."
+    },
+    "french": {
+      "title": "Authentification OAuth",
+      "description": "Permet l’authentification via des services tiers utilisant des fournisseurs OAuth tels que Google, Facebook, GitHub, Discord et LinkedIn.",
+      "details": "Le plugin OAuth permet aux utilisateurs de se connecter à votre application {platform_name} à l’aide de fournisseurs d’identité tiers compatibles, notamment Google, Facebook, GitHub, Discord et LinkedIn."
+    },
+    "georgian": {
+      "title": "OAuth ავთენტიფიკაცია",
+      "description": "რთავს მესამე მხარის ავთენტიფიკაციას OAuth პროვაიდერების გამოყენებით, როგორიცაა Google, Facebook, GitHub, Discord და LinkedIn.",
+      "details": "OAuth მოდული მომხმარებლებს საშუალებას აძლევს შევიდნენ თქვენს {platform_name} აპლიკაციაში მხარდაჭერილი გარე იდენტობის პროვაიდერების მეშვეობით, მათ შორის Google, Facebook, GitHub, Discord და LinkedIn."
+    },
+    "german": {
+      "title": "OAuth-Authentifizierung",
+      "description": "Ermöglicht die Authentifizierung über Drittanbieter mithilfe von OAuth-Anbietern wie Google, Facebook, GitHub, Discord und LinkedIn.",
+      "details": "Das OAuth-Plugin ermöglicht es Benutzern, sich über unterstützte externe Identitätsanbieter wie Google, Facebook, GitHub, Discord und LinkedIn bei Ihrer {platform_name}-Anwendung anzumelden."
+    },
+    "greek": {
+      "title": "Έλεγχος ταυτότητας OAuth",
+      "description": "Ενεργοποιεί την αυθεντικοποίηση μέσω τρίτων χρησιμοποιώντας παρόχους OAuth όπως το Google, το Facebook, το GitHub, το Discord και το LinkedIn.",
+      "details": "Το πρόσθετο OAuth επιτρέπει στους χρήστες να συνδέονται στην εφαρμογή {platform_name} μέσω υποστηριζόμενων εξωτερικών παρόχων ταυτότητας, όπως το Google, το Facebook, το GitHub, το Discord και το LinkedIn."
+    },
+    "hindi": {
+      "title": "OAuth प्रमाणीकरण",
+      "description": "Google, Facebook, GitHub, Discord और LinkedIn जैसे OAuth प्रदाताओं का उपयोग करके तृतीय-पक्ष प्रमाणीकरण सक्षम करता है।",
+      "details": "OAuth प्लगइन उपयोगकर्ताओं को Google, Facebook, GitHub, Discord और LinkedIn सहित समर्थित तृतीय-पक्ष पहचान प्रदाताओं के माध्यम से आपके {platform_name} एप्लिकेशन में साइन इन करने की सुविधा देता है।"
+    },
+    "hungarian": {
+      "title": "OAuth hitelesítés",
+      "description": "Lehetővé teszi a harmadik fél általi hitelesítést olyan OAuth-szolgáltatókon keresztül, mint a Google, a Facebook, a GitHub, a Discord és a LinkedIn.",
+      "details": "Az OAuth-bővítmény lehetővé teszi a felhasználók számára, hogy a támogatott külső identitásszolgáltatókon, például a Google, a Facebook, a GitHub, a Discord és a LinkedIn szolgáltatásain keresztül jelentkezzenek be a {platform_name} alkalmazásba."
+    },
+    "indonesian": {
+      "title": "Otentikasi OAuth",
+      "description": "Mengaktifkan autentikasi pihak ketiga menggunakan penyedia OAuth seperti Google, Facebook, GitHub, Discord, dan LinkedIn.",
+      "details": "Plugin OAuth memungkinkan pengguna masuk ke aplikasi {platform_name} Anda menggunakan penyedia identitas pihak ketiga yang didukung, termasuk Google, Facebook, GitHub, Discord, dan LinkedIn."
+    },
+    "italian": {
+      "title": "Autenticazione OAuth",
+      "description": "Abilita l’autenticazione tramite terze parti utilizzando provider OAuth come Google, Facebook, GitHub, Discord e LinkedIn.",
+      "details": "Il plugin OAuth consente agli utenti di accedere alla tua applicazione {platform_name} tramite provider di identità esterni supportati, tra cui Google, Facebook, GitHub, Discord e LinkedIn."
+    },
+    "japanese": {
+      "title": "OAuth認証",
+      "description": "Google、Facebook、GitHub、Discord、LinkedIn などの OAuth プロバイダーを使用したサードパーティ認証を有効にします。",
+      "details": "OAuth プラグインを使用すると、ユーザーは Google、Facebook、GitHub、Discord、LinkedIn などの対応する外部 ID プロバイダーを通じて {platform_name} アプリケーションにログインできます。"
+    },
+    "khmer": {
+      "title": "ការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវតាមរយៈ OAuth",
+      "description": "អនុញ្ញាតឱ្យមានការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវដោយភាគីទីបី ដោយប្រើប្រាស់អ្នកផ្តល់សេវា OAuth ដូចជា Google, Facebook, GitHub, Discord និង LinkedIn។",
+      "details": "កម្មវិធីជំនួយ (plugin) OAuth អនុញ្ញាតឱ្យអ្នកប្រើប្រាស់ធ្វើការផ្ទៀងផ្ទាត់ភាពត្រឹមត្រូវជាមួយកម្មវិធី {platform_name} របស់អ្នក ដោយប្រើប្រាស់អ្នកផ្តល់សេវាអត្តសញ្ញាណភាគីទីបីដែលត្រូវបានគាំទ្រ រួមមាន Google, Facebook, GitHub, Discord និង LinkedIn។"
+    },
+    "korean": {
+      "title": "OAuth 인증",
+      "description": "Google, Facebook, GitHub, Discord 및 LinkedIn과 같은 OAuth 제공자를 사용하여 타사 인증을 활성화합니다.",
+      "details": "OAuth 플러그인을 사용하면 사용자가 Google, Facebook, GitHub, Discord, LinkedIn 등 지원되는 외부 ID 제공자를 통해 {platform_name} 애플리케이션에 로그인할 수 있습니다."
+    },
+    "latvian": {
+      "title": "OAuth autentifikācija",
+      "description": "Iespējo trešo pušu autentifikāciju, izmantojot OAuth nodrošinātājus, piemēram, Google, Facebook, GitHub, Discord un LinkedIn.",
+      "details": "OAuth spraudnis ļauj lietotājiem pieteikties jūsu {platform_name} lietotnē, izmantojot atbalstītus ārējos identitātes nodrošinātājus, tostarp Google, Facebook, GitHub, Discord un LinkedIn."
+    },
+    "lithuanian": {
+      "title": "OAuth autentifikavimas",
+      "description": "Leidžia trečiųjų šalių autentifikavimą naudojant OAuth teikėjus, tokius kaip Google, Facebook, GitHub, Discord ir LinkedIn.",
+      "details": "OAuth papildinys leidžia naudotojams prisijungti prie jūsų {platform_name} programos naudojant palaikomus išorinius tapatybės teikėjus, įskaitant Google, Facebook, GitHub, Discord ir LinkedIn."
+    },
+    "malay": {
+      "title": "Pengesahan OAuth",
+      "description": "Mendayakan pengesahan pihak ketiga menggunakan penyedia OAuth seperti Google, Facebook, GitHub, Discord dan LinkedIn.",
+      "details": "Plugin OAuth membolehkan pengguna log masuk ke aplikasi {platform_name} anda menggunakan penyedia identiti pihak ketiga yang disokong, termasuk Google, Facebook, GitHub, Discord dan LinkedIn."
+    },
+    "marathi": {
+      "title": "OAuth प्रमाणीकरण",
+      "description": "Google, Facebook, GitHub, Discord आणि LinkedIn सारख्या OAuth प्रदात्यांचा वापर करून तृतीय-पक्ष प्रमाणीकरण सक्षम करते.",
+      "details": "OAuth प्लगइन वापरकर्त्यांना Google, Facebook, GitHub, Discord आणि LinkedIn यांसारख्या समर्थित बाह्य ओळख प्रदात्यांद्वारे तुमच्या {platform_name} अनुप्रयोगात साइन इन करण्याची सुविधा देते."
+    },
+    "norwegian": {
+      "title": "OAuth-autentisering",
+      "description": "Aktiverer tredjepartsautentisering ved bruk av OAuth-leverandører som Google, Facebook, GitHub, Discord og LinkedIn.",
+      "details": "OAuth-pluginen lar brukere logge inn i {platform_name}-applikasjonen din via støttede eksterne identitetsleverandører, inkludert Google, Facebook, GitHub, Discord og LinkedIn."
+    },
+    "persian": {
+      "title": "احراز هویت OAuth",
+      "description": "امکان احراز هویت از طریق سرویس‌های شخص ثالث با استفاده از ارائه‌دهندگان OAuth مانند Google، Facebook، GitHub، Discord و LinkedIn را فراهم می‌کند.",
+      "details": "افزونه OAuth به کاربران امکان می‌دهد از طریق ارائه‌دهندگان هویت خارجی پشتیبانی‌شده، از جمله Google، Facebook، GitHub، Discord و LinkedIn، وارد برنامه {platform_name} شما شوند."
+    },
+    "polish": {
+      "title": "Uwierzytelnianie OAuth",
+      "description": "Umożliwia uwierzytelnianie za pomocą zewnętrznych dostawców OAuth, takich jak Google, Facebook, GitHub, Discord i LinkedIn.",
+      "details": "Wtyczka OAuth umożliwia użytkownikom logowanie się do aplikacji {platform_name} za pomocą obsługiwanych zewnętrznych dostawców tożsamości, w tym Google, Facebook, GitHub, Discord i LinkedIn."
+    },
+    "portuguese": {
+      "title": "Autenticação OAuth",
+      "description": "Permite a autenticação de terceiros através de fornecedores OAuth como o Google, Facebook, GitHub, Discord e LinkedIn.",
+      "details": "O plugin OAuth permite que os utilizadores iniciem sessão na sua aplicação {platform_name} através de fornecedores de identidade externos suportados, incluindo Google, Facebook, GitHub, Discord e LinkedIn."
+    },
+    "romanian": {
+      "title": "Autentificare OAuth",
+      "description": "Permite autentificarea prin terți folosind furnizori OAuth precum Google, Facebook, GitHub, Discord și LinkedIn.",
+      "details": "Pluginul OAuth permite utilizatorilor să se autentifice în aplicația {platform_name} prin furnizori externi de identitate compatibili, inclusiv Google, Facebook, GitHub, Discord și LinkedIn."
+    },
+    "russian": {
+      "title": "Аутентификация OAuth",
+      "description": "Обеспечивает аутентификацию через сторонние сервисы с использованием провайдеров OAuth, таких как Google, Facebook, GitHub, Discord и LinkedIn.",
+      "details": "Плагин OAuth позволяет пользователям входить в приложение {platform_name} через поддерживаемых внешних поставщиков идентификации, включая Google, Facebook, GitHub, Discord и LinkedIn."
+    },
+    "serbian": {
+      "title": "OAuth autentifikacija",
+      "description": "Omogućava autentifikaciju putem trećih strana korišćenjem OAuth provajdera kao što su Google, Facebook, GitHub, Discord i LinkedIn.",
+      "details": "OAuth dodatak omogućava korisnicima prijavu u vašu {platform_name} aplikaciju putem podržanih eksternih pružalaca identiteta, uključujući Google, Facebook, GitHub, Discord i LinkedIn."
+    },
+    "slovak": {
+      "title": "Overovanie OAuth",
+      "description": "Umožňuje overovanie tretími stranami pomocou OAuth poskytovateľov, ako sú Google, Facebook, GitHub, Discord a LinkedIn.",
+      "details": "Plugin OAuth umožňuje používateľom prihlásiť sa do aplikácie {platform_name} prostredníctvom podporovaných externých poskytovateľov identity vrátane Google, Facebooku, GitHubu, Discordu a LinkedInu."
+    },
+    "slovenian": {
+      "title": "OAuth overenie",
+      "description": "Omogoča avtentikacijo tretjih oseb z uporabo ponudnikov OAuth, kot so Google, Facebook, GitHub, Discord in LinkedIn.",
+      "details": "Vtičnik OAuth uporabnikom omogoča prijavo v aplikacijo {platform_name} prek podprtih zunanjih ponudnikov identitete, vključno z Google, Facebook, GitHub, Discord in LinkedIn."
+    },
+    "spanish": {
+      "title": "Autenticación OAuth",
+      "description": "Permite la autenticación de terceros mediante proveedores OAuth como Google, Facebook, GitHub, Discord y LinkedIn.",
+      "details": "El plugin OAuth permite a los usuarios iniciar sesión en tu aplicación {platform_name} mediante proveedores de identidad externos compatibles, como Google, Facebook, GitHub, Discord y LinkedIn."
+    },
+    "swahili": {
+      "title": "Uthibitishaji wa OAuth",
+      "description": "Huwezesha uthibitishaji wa wahusika wengine kwa kutumia watoa huduma wa OAuth kama Google, Facebook, GitHub, Discord na LinkedIn.",
+      "details": "Plugin ya OAuth huwawezesha watumiaji kuingia katika programu yako ya {platform_name} kupitia watoa huduma wa utambulisho wa nje wanaoungwa mkono, wakiwemo Google, Facebook, GitHub, Discord na LinkedIn."
+    },
+    "swedish": {
+      "title": "OAuth-autentisering",
+      "description": "Möjliggör autentisering via tredje part med hjälp av OAuth-leverantörer som Google, Facebook, GitHub, Discord och LinkedIn.",
+      "details": "OAuth-pluginen gör det möjligt för användare att logga in i din {platform_name}-applikation via externa identitetsleverantörer som stöds, däribland Google, Facebook, GitHub, Discord och LinkedIn."
+    },
+    "taiwanese": {
+      "title": "OAuth 身份驗證",
+      "description": "透過 Google、Facebook、GitHub、Discord 和 LinkedIn 等 OAuth 提供者啟用第三方驗證。",
+      "details": "OAuth 外掛可讓使用者透過 Google、Facebook、GitHub、Discord 和 LinkedIn 等支援的第三方身分識別提供者登入您的 {platform_name} 應用程式。"
+    },
+    "tamil": {
+      "title": "OAuth அங்கீகாரம்",
+      "description": "Google, Facebook, GitHub, Discord மற்றும் LinkedIn போன்ற OAuth வழங்குநர்களைப் பயன்படுத்தி மூன்றாம் தரப்பு அங்கீகாரத்தை இயக்கு.",
+      "details": "OAuth செருகுநிரல், Google, Facebook, GitHub, Discord மற்றும் LinkedIn உள்ளிட்ட ஆதரிக்கப்படும் வெளிப்புற அடையாள வழங்குநர்கள் மூலம் பயனர்கள் உங்கள் {platform_name} பயன்பாட்டில் உள்நுழைய அனுமதிக்கிறது."
+    },
+    "thai": {
+      "title": "การตรวจสอบสิทธิ์ OAuth",
+      "description": "เปิดใช้งานการยืนยันตัวตนผ่านบุคคลที่สามโดยใช้ผู้ให้บริการ OAuth เช่น Google, Facebook, GitHub, Discord และ LinkedIn",
+      "details": "ปลั๊กอิน OAuth ช่วยให้ผู้ใช้เข้าสู่ระบบแอปพลิเคชัน {platform_name} ของคุณผ่านผู้ให้บริการข้อมูลประจำตัวภายนอกที่รองรับ เช่น Google, Facebook, GitHub, Discord และ LinkedIn"
+    },
+    "turkish": {
+      "title": "OAuth kimlik doğrulaması",
+      "description": "Google, Facebook, GitHub, Discord ve LinkedIn gibi OAuth sağlayıcılarını kullanarak üçüncü taraf kimlik doğrulamasını etkinleştirir.",
+      "details": "OAuth eklentisi, kullanıcıların Google, Facebook, GitHub, Discord ve LinkedIn dahil desteklenen harici kimlik sağlayıcıları aracılığıyla {platform_name} uygulamanıza giriş yapmasını sağlar."
+    },
+    "ukrainian": {
+      "title": "Автентифікація OAuth",
+      "description": "Забезпечує автентифікацію через сторонні сервіси з використанням постачальників OAuth, таких як Google, Facebook, GitHub, Discord та LinkedIn.",
+      "details": "Плагін OAuth дозволяє користувачам входити до вашого застосунку {platform_name} через підтримуваних зовнішніх постачальників ідентифікації, зокрема Google, Facebook, GitHub, Discord і LinkedIn."
+    },
+    "urdu": {
+      "title": "OAuth تصدیق",
+      "description": "Google، Facebook، GitHub، Discord اور LinkedIn جیسے OAuth فراہم کنندگان کے ذریعے تیسرے فریق کی تصدیق فعال کرتا ہے۔",
+      "details": "OAuth پلگ ان صارفین کو Google، Facebook، GitHub، Discord اور LinkedIn سمیت معاون بیرونی شناخت فراہم کنندگان کے ذریعے آپ کی {platform_name} ایپلیکیشن میں سائن اِن کرنے کی سہولت دیتا ہے۔"
+    },
+    "vietnamese": {
+      "title": "Xác thực OAuth",
+      "description": "Kích hoạt xác thực bên thứ ba bằng cách sử dụng các nhà cung cấp OAuth như Google, Facebook, GitHub, Discord và LinkedIn.",
+      "details": "Plugin OAuth cho phép người dùng đăng nhập vào ứng dụng {platform_name} của bạn thông qua các nhà cung cấp danh tính bên ngoài được hỗ trợ, bao gồm Google, Facebook, GitHub, Discord và LinkedIn."
+    }
+  }
+}
