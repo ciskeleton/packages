@@ -1,0 +1,268 @@
+{
+  "type": "plugin",
+  "name": "exception-notifier",
+  "title": "Exception Notifier",
+  "description": "Listens for uncaught PHP exceptions and automatically emails detailed reports to the site administrator.",
+  "details": "Listens for uncaught PHP exceptions and automatically emails detailed reports to the site administrator. This plugin helps maintain visibility into runtime issues that might otherwise go unnoticed in production.",
+  "preview": "https://raw.githubusercontent.com/ciskeleton/plugin-exception-notifier/main/main/preview.jpg",
+  "icon": "triangle-exclamation",
+  "icon_fg": "#ffffff",
+  "icon_bg": "#c23b22",
+  "author": {
+    "name": "CiSkeleton Team",
+    "url": "https://github.com/ciskeleton",
+    "email": "csk@ianhub.net"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/license/mit"
+  },
+  "repository": "https://github.com/ciskeleton/plugin-exception-notifier",
+  "translations": {
+    "arabic": {
+      "title": "مُخطِر الاستثناءات",
+      "description": "يراقب استثناءات PHP غير الملتقطة ويرسل تلقائيًا تقارير مفصلة عبر البريد الإلكتروني إلى مسؤول الموقع.",
+      "details": "يراقب استثناءات PHP غير الملتقطة ويرسل تلقائيًا تقارير مفصلة عبر البريد الإلكتروني إلى مسؤول الموقع. تساعد هذه الإضافة في الحفاظ على الرؤية حول مشكلات وقت التشغيل التي قد تمر دون ملاحظة في بيئة الإنتاج."
+    },
+    "armenian": {
+      "title": "Բացառությունների ծանուցիչ",
+      "description": "Հետևում է չբռնված PHP բացառություններին և ավտոմատ կերպով մանրամասն հաշվետվություններ է ուղարկում կայքի ադմինիստրատորին։",
+      "details": "Հետևում է չբռնված PHP բացառություններին և ավտոմատ կերպով մանրամասն հաշվետվություններ է ուղարկում կայքի ադմինիստրատորին։ Այս պլագինը օգնում է պահպանել տեսանելիությունը runtime խնդիրների նկատմամբ, որոնք հակառակ դեպքում կարող են աննկատ մնալ արտադրական միջավայրում։"
+    },
+    "azerbaijani": {
+      "title": "İstisna Bildiricisi",
+      "description": "Tutulmamış PHP istisnalarını izləyir və ətraflı hesabatları avtomatik olaraq sayt administratoruna e-poçtla göndərir.",
+      "details": "Tutulmamış PHP istisnalarını izləyir və ətraflı hesabatları avtomatik olaraq sayt administratoruna e-poçtla göndərir. Bu plagin istehsalat mühitində diqqətdən yayına biləcək işləmə vaxtı problemlərinin görünürlüyünü qorumağa kömək edir."
+    },
+    "bengali": {
+      "title": "এক্সেপশন নোটিফায়ার",
+      "description": "ধরা না পড়া PHP এক্সেপশনগুলোর জন্য নজর রাখে এবং স্বয়ংক্রিয়ভাবে সাইট অ্যাডমিনিস্ট্রেটরকে বিস্তারিত রিপোর্ট ইমেইল করে।",
+      "details": "ধরা না পড়া PHP এক্সেপশনগুলোর জন্য নজর রাখে এবং স্বয়ংক্রিয়ভাবে সাইট অ্যাডমিনিস্ট্রেটরকে বিস্তারিত রিপোর্ট ইমেইল করে। এই প্লাগইনটি প্রোডাকশন পরিবেশে অলক্ষিত থেকে যেতে পারে এমন রানটাইম সমস্যাগুলোর উপর দৃশ্যমানতা বজায় রাখতে সহায়তা করে।"
+    },
+    "brazilian": {
+      "title": "Notificador de Exceções",
+      "description": "Monitora exceções PHP não tratadas e envia automaticamente relatórios detalhados por e-mail ao administrador do site.",
+      "details": "Monitora exceções PHP não tratadas e envia automaticamente relatórios detalhados por e-mail ao administrador do site. Este plugin ajuda a manter a visibilidade sobre problemas em tempo de execução que, de outra forma, poderiam passar despercebidos em produção."
+    },
+    "bulgarian": {
+      "title": "Известяване за изключения",
+      "description": "Проследява неуловени PHP изключения и автоматично изпраща подробни отчети по имейл на администратора на сайта.",
+      "details": "Проследява неуловени PHP изключения и автоматично изпраща подробни отчети по имейл на администратора на сайта. Тази приставка помага за поддържане на видимост за проблеми по време на изпълнение, които иначе биха могли да останат незабелязани в продукционната среда."
+    },
+    "catalan": {
+      "title": "Notificador d’excepcions",
+      "description": "Vigila les excepcions de PHP no capturades i envia automàticament informes detallats per correu electrònic a l’administrador del lloc.",
+      "details": "Vigila les excepcions de PHP no capturades i envia automàticament informes detallats per correu electrònic a l’administrador del lloc. Aquest connector ajuda a mantenir la visibilitat sobre problemes en temps d’execució que, altrament, podrien passar desapercebuts en producció."
+    },
+    "chinese": {
+      "title": "异常通知器",
+      "description": "监听未捕获的 PHP 异常，并自动将详细报告通过电子邮件发送给网站管理员。",
+      "details": "监听未捕获的 PHP 异常，并自动将详细报告通过电子邮件发送给网站管理员。该插件有助于保持对运行时问题的可见性，这些问题在生产环境中可能原本会被忽视。"
+    },
+    "croatian": {
+      "title": "Obavještavatelj o iznimkama",
+      "description": "Prati neuhvaćene PHP iznimke i automatski šalje detaljna izvješća e-poštom administratoru stranice.",
+      "details": "Prati neuhvaćene PHP iznimke i automatski šalje detaljna izvješća e-poštom administratoru stranice. Ovaj dodatak pomaže u održavanju vidljivosti problema tijekom izvođenja koji bi inače mogli proći nezapaženo u produkciji."
+    },
+    "czech": {
+      "title": "Upozornění na výjimky",
+      "description": "Sleduje nezachycené PHP výjimky a automaticky zasílá podrobné zprávy e-mailem správci webu.",
+      "details": "Sleduje nezachycené PHP výjimky a automaticky zasílá podrobné zprávy e-mailem správci webu. Tento plugin pomáhá udržovat přehled o problémech za běhu, které by jinak mohly v produkčním prostředí zůstat bez povšimnutí."
+    },
+    "danish": {
+      "title": "Undtagelsesmelder",
+      "description": "Overvåger ufangede PHP-undtagelser og sender automatisk detaljerede rapporter via e-mail til webstedets administrator.",
+      "details": "Overvåger ufangede PHP-undtagelser og sender automatisk detaljerede rapporter via e-mail til webstedets administrator. Dette plugin hjælper med at bevare indsigt i runtime-problemer, som ellers kunne gå ubemærket hen i produktionsmiljøet."
+    },
+    "dutch": {
+      "title": "Uitzonderingsmelder",
+      "description": "Houdt onopgevangen PHP-uitzonderingen in de gaten en e-mailt automatisch gedetailleerde rapporten naar de sitebeheerder.",
+      "details": "Houdt onopgevangen PHP-uitzonderingen in de gaten en e-mailt automatisch gedetailleerde rapporten naar de sitebeheerder. Deze plug-in helpt het overzicht te behouden over runtime-problemen die anders onopgemerkt zouden kunnen blijven in productie."
+    },
+    "estonian": {
+      "title": "Erindite teavitaja",
+      "description": "Jälgib püüdmata PHP erindeid ja saadab automaatselt üksikasjalikud aruanded e-posti teel saidi administraatorile.",
+      "details": "Jälgib püüdmata PHP erindeid ja saadab automaatselt üksikasjalikud aruanded e-posti teel saidi administraatorile. See lisandmoodul aitab säilitada ülevaadet tööaja probleemidest, mis muidu võiksid tootmiskeskkonnas tähelepanuta jääda."
+    },
+    "filipino": {
+      "title": "Tagapag-abiso ng Exception",
+      "description": "Sinusubaybayan ang mga hindi nahuling PHP exception at awtomatikong nag-e-email ng detalyadong ulat sa administrador ng site.",
+      "details": "Sinusubaybayan ang mga hindi nahuling PHP exception at awtomatikong nag-e-email ng detalyadong ulat sa administrador ng site. Tumutulong ang plugin na ito na mapanatili ang visibility sa mga isyu sa runtime na maaaring hindi mapansin sa production."
+    },
+    "finnish": {
+      "title": "Poikkeusilmoittaja",
+      "description": "Seuraa kiinniottamattomia PHP-poikkeuksia ja lähettää automaattisesti yksityiskohtaiset raportit sähköpostitse sivuston ylläpitäjälle.",
+      "details": "Seuraa kiinniottamattomia PHP-poikkeuksia ja lähettää automaattisesti yksityiskohtaiset raportit sähköpostitse sivuston ylläpitäjälle. Tämä laajennus auttaa säilyttämään näkyvyyden ajonaikaisiin ongelmiin, jotka saattaisivat muuten jäädä huomaamatta tuotantoympäristössä."
+    },
+    "french": {
+      "title": "Notificateur d’exceptions",
+      "description": "Surveille les exceptions PHP non interceptées et envoie automatiquement des rapports détaillés par e-mail à l’administrateur du site.",
+      "details": "Surveille les exceptions PHP non interceptées et envoie automatiquement des rapports détaillés par e-mail à l’administrateur du site. Ce plugin aide à conserver une visibilité sur les problèmes d’exécution qui pourraient autrement passer inaperçus en production."
+    },
+    "georgian": {
+      "title": "გამონაკლისების შემტყობინებელი",
+      "description": "აკვირდება დაუჭერელ PHP გამონაკლისებს და ავტომატურად აგზავნის დეტალურ ანგარიშებს ელფოსტით საიტის ადმინისტრატორთან.",
+      "details": "აკვირდება დაუჭერელ PHP გამონაკლისებს და ავტომატურად აგზავნის დეტალურ ანგარიშებს ელფოსტით საიტის ადმინისტრატორთან. ეს დანამატი ეხმარება შეუნარჩუნოს ხილვადობა გაშვების დროის პრობლემებზე, რომლებიც სხვა შემთხვევაში შეუმჩნეველი დარჩებოდა საწარმოო გარემოში."
+    },
+    "german": {
+      "title": "Ausnahme-Benachrichtiger",
+      "description": "Überwacht nicht abgefangene PHP-Ausnahmen und sendet automatisch detaillierte Berichte per E-Mail an den Website-Administrator.",
+      "details": "Überwacht nicht abgefangene PHP-Ausnahmen und sendet automatisch detaillierte Berichte per E-Mail an den Website-Administrator. Dieses Plugin hilft dabei, die Sichtbarkeit von Laufzeitproblemen zu bewahren, die sonst in der Produktionsumgebung unbemerkt bleiben könnten."
+    },
+    "greek": {
+      "title": "Ειδοποιητής εξαιρέσεων",
+      "description": "Παρακολουθεί μη καταγεγραμμένες εξαιρέσεις PHP και στέλνει αυτόματα λεπτομερείς αναφορές μέσω e-mail στον διαχειριστή του ιστότοπου.",
+      "details": "Παρακολουθεί μη καταγεγραμμένες εξαιρέσεις PHP και στέλνει αυτόματα λεπτομερείς αναφορές μέσω e-mail στον διαχειριστή του ιστότοπου. Αυτό το πρόσθετο βοηθά στη διατήρηση της ορατότητας σε προβλήματα χρόνου εκτέλεσης που διαφορετικά θα μπορούσαν να περάσουν απαρατήρητα στην παραγωγή."
+    },
+    "hindi": {
+      "title": "एक्सेप्शन नोटिफायर",
+      "description": "अनपकड़े गए PHP एक्सेप्शन पर नज़र रखता है और स्वचालित रूप से साइट एडमिनिस्ट्रेटर को विस्तृत रिपोर्ट ईमेल करता है।",
+      "details": "अनपकड़े गए PHP एक्सेप्शन पर नज़र रखता है और स्वचालित रूप से साइट एडमिनिस्ट्रेटर को विस्तृत रिपोर्ट ईमेल करता है। यह प्लगइन रनटाइम समस्याओं पर दृश्यता बनाए रखने में मदद करता है जो अन्यथा प्रोडक्शन में ध्यान में नहीं आ पातीं।"
+    },
+    "hungarian": {
+      "title": "Kivétel-értesítő",
+      "description": "Figyeli az el nem kapott PHP kivételeket, és automatikusan részletes jelentéseket küld e-mailben az oldal adminisztrátorának.",
+      "details": "Figyeli az el nem kapott PHP kivételeket, és automatikusan részletes jelentéseket küld e-mailben az oldal adminisztrátorának. Ez a bővítmény segít fenntartani a láthatóságot azokról a futásidejű problémákról, amelyek egyébként észrevétlenek maradhatnának az éles környezetben."
+    },
+    "indonesian": {
+      "title": "Pemberitahu Pengecualian",
+      "description": "Memantau pengecualian PHP yang tidak tertangkap dan secara otomatis mengirim laporan terperinci melalui email kepada administrator situs.",
+      "details": "Memantau pengecualian PHP yang tidak tertangkap dan secara otomatis mengirim laporan terperinci melalui email kepada administrator situs. Plugin ini membantu menjaga visibilitas terhadap masalah runtime yang mungkin tidak disadari pada lingkungan produksi."
+    },
+    "italian": {
+      "title": "Notificatore di Eccezioni",
+      "description": "Monitora le eccezioni PHP non gestite e invia automaticamente report dettagliati via e-mail all’amministratore del sito.",
+      "details": "Monitora le eccezioni PHP non gestite e invia automaticamente report dettagliati via e-mail all’amministratore del sito. Questo plugin aiuta a mantenere visibilità sui problemi di runtime che altrimenti potrebbero passare inosservati in produzione."
+    },
+    "japanese": {
+      "title": "例外通知ツール",
+      "description": "キャッチされていない PHP の例外を監視し、詳細なレポートを自動的にサイト管理者にメールで送信します。",
+      "details": "キャッチされていない PHP の例外を監視し、詳細なレポートを自動的にサイト管理者にメールで送信します。このプラグインは、本番環境で見過ごされがちな実行時の問題を可視化するのに役立ちます。"
+    },
+    "khmer": {
+      "title": "ឧបករណ៍ជូនដំណឹងកំហុសលើកលែង",
+      "description": "តាមដានករណីលើកលែង (exceptions) របស់ PHP ដែលមិនបានចាប់ និងផ្ញើរបាយការណ៍លម្អិតដោយស្វ័យប្រវត្តិទៅកាន់អ្នកគ្រប់គ្រងគេហទំព័រតាមអ៊ីមែល។",
+      "details": "តាមដានករណីលើកលែង (exceptions) របស់ PHP ដែលមិនបានចាប់ និងផ្ញើរបាយការណ៍លម្អិតដោយស្វ័យប្រវត្តិទៅកាន់អ្នកគ្រប់គ្រងគេហទំព័រតាមអ៊ីមែល។ កម្មវិធីជំនួយនេះជួយរក្សានូវភាពមើលឃើញចំពោះបញ្ហាដែលកើតឡើងនៅពេលដំណើរការ ដែលអាចនឹងមិនត្រូវបានកត់សម្គាល់នៅក្នុងបរិយាកាសផលិតកម្ម។"
+    },
+    "korean": {
+      "title": "예외 알림기",
+      "description": "처리되지 않은 PHP 예외를 감지하고 상세한 보고서를 사이트 관리자에게 자동으로 이메일로 보냅니다.",
+      "details": "처리되지 않은 PHP 예외를 감지하고 상세한 보고서를 사이트 관리자에게 자동으로 이메일로 보냅니다. 이 플러그인은 프로덕션 환경에서 자칫 눈에 띄지 않을 수 있는 런타임 문제에 대한 가시성을 유지하는 데 도움을 줍니다."
+    },
+    "latvian": {
+      "title": "Izņēmumu paziņotājs",
+      "description": "Uzrauga neuztvertus PHP izņēmumus un automātiski nosūta detalizētus pārskatus pa e-pastu vietnes administratoram.",
+      "details": "Uzrauga neuztvertus PHP izņēmumus un automātiski nosūta detalizētus pārskatus pa e-pastu vietnes administratoram. Šis spraudnis palīdz saglabāt redzamību par izpildlaika problēmām, kuras citādi varētu palikt nepamanītas produkcijas vidē."
+    },
+    "lithuanian": {
+      "title": "Išimčių pranešėjas",
+      "description": "Stebi nesugautas PHP išimtis ir automatiškai siunčia išsamias ataskaitas el. paštu svetainės administratoriui.",
+      "details": "Stebi nesugautas PHP išimtis ir automatiškai siunčia išsamias ataskaitas el. paštu svetainės administratoriui. Šis papildinys padeda išlaikyti matomumą apie vykdymo laiko problemas, kurios kitu atveju galėtų likti nepastebėtos produkcinėje aplinkoje."
+    },
+    "malay": {
+      "title": "Pemberitahu Pengecualian",
+      "description": "Memantau pengecualian PHP yang tidak ditangkap dan secara automatik menghantar e-mel laporan terperinci kepada pentadbir laman.",
+      "details": "Memantau pengecualian PHP yang tidak ditangkap dan secara automatik menghantar e-mel laporan terperinci kepada pentadbir laman. Plugin ini membantu mengekalkan keterlihatan terhadap isu masa jalan yang mungkin tidak disedari dalam persekitaran produksi."
+    },
+    "marathi": {
+      "title": "अपवाद सूचक",
+      "description": "न पकडलेल्या PHP अपवादांवर लक्ष ठेवतो आणि साइट प्रशासकाला आपोआप तपशीलवार अहवाल ईमेल करतो.",
+      "details": "न पकडलेल्या PHP अपवादांवर लक्ष ठेवतो आणि साइट प्रशासकाला आपोआप तपशीलवार अहवाल ईमेल करतो. हे प्लगइन प्रॉडक्शनमध्ये दुर्लक्षित राहू शकणाऱ्या रनटाइम समस्यांबद्दल दृश्यमानता राखण्यास मदत करते."
+    },
+    "norwegian": {
+      "title": "Unntaksvarsler",
+      "description": "Overvåker ufangede PHP-unntak og sender automatisk detaljerte rapporter på e-post til nettstedets administrator.",
+      "details": "Overvåker ufangede PHP-unntak og sender automatisk detaljerte rapporter på e-post til nettstedets administrator. Denne utvidelsen bidrar til å opprettholde innsyn i kjøretidsproblemer som ellers kunne gått upåaktet hen i produksjon."
+    },
+    "persian": {
+      "title": "اعلام‌کننده استثنا",
+      "description": "استثناهای شناسایی‌نشده PHP را رصد می‌کند و به‌طور خودکار گزارش‌های دقیق را از طریق ایمیل برای مدیر سایت ارسال می‌کند.",
+      "details": "استثناهای شناسایی‌نشده PHP را رصد می‌کند و به‌طور خودکار گزارش‌های دقیق را از طریق ایمیل برای مدیر سایت ارسال می‌کند. این افزونه به حفظ دید نسبت به مشکلات زمان اجرا که ممکن است در محیط تولید نادیده گرفته شوند کمک می‌کند."
+    },
+    "polish": {
+      "title": "Powiadamiacz o wyjątkach",
+      "description": "Monitoruje nieobsłużone wyjątki PHP i automatycznie wysyła szczegółowe raporty e-mailem do administratora witryny.",
+      "details": "Monitoruje nieobsłużone wyjątki PHP i automatycznie wysyła szczegółowe raporty e-mailem do administratora witryny. Ta wtyczka pomaga zachować widoczność problemów czasu wykonania, które w przeciwnym razie mogłyby pozostać niezauważone w środowisku produkcyjnym."
+    },
+    "portuguese": {
+      "title": "Notificador de Exceções",
+      "description": "Monitoriza exceções PHP não tratadas e envia automaticamente relatórios detalhados por e-mail ao administrador do site.",
+      "details": "Monitoriza exceções PHP não tratadas e envia automaticamente relatórios detalhados por e-mail ao administrador do site. Este plugin ajuda a manter a visibilidade sobre problemas em tempo de execução que, de outra forma, poderiam passar despercebidos em produção."
+    },
+    "romanian": {
+      "title": "Notificator de excepții",
+      "description": "Monitorizează excepțiile PHP necapturate și trimite automat prin e-mail rapoarte detaliate administratorului site-ului.",
+      "details": "Monitorizează excepțiile PHP necapturate și trimite automat prin e-mail rapoarte detaliate administratorului site-ului. Acest plugin ajută la menținerea vizibilității asupra problemelor de la rulare care altfel ar putea trece neobservate în producție."
+    },
+    "russian": {
+      "title": "Уведомитель об исключениях",
+      "description": "Отслеживает необработанные исключения PHP и автоматически отправляет подробные отчёты по электронной почте администратору сайта.",
+      "details": "Отслеживает необработанные исключения PHP и автоматически отправляет подробные отчёты по электронной почте администратору сайта. Этот плагин помогает сохранять видимость проблем времени выполнения, которые иначе могли бы остаться незамеченными в рабочей среде."
+    },
+    "serbian": {
+      "title": "Obaveštavač o izuzecima",
+      "description": "Prati neuhvaćene PHP izuzetke i automatski šalje detaljne izveštaje putem e-pošte administratoru sajta.",
+      "details": "Prati neuhvaćene PHP izuzetke i automatski šalje detaljne izveštaje putem e-pošte administratoru sajta. Ovaj dodatak pomaže u održavanju vidljivosti problema tokom izvršavanja koji bi inače mogli proći neopaženo u produkciji."
+    },
+    "slovak": {
+      "title": "Oznamovač výnimiek",
+      "description": "Sleduje nezachytené PHP výnimky a automaticky zasiela podrobné správy e-mailom správcovi webu.",
+      "details": "Sleduje nezachytené PHP výnimky a automaticky zasiela podrobné správy e-mailom správcovi webu. Tento plugin pomáha udržiavať prehľad o problémoch počas behu, ktoré by inak mohli v produkčnom prostredí zostať bez povšimnutia."
+    },
+    "slovenian": {
+      "title": "Obveščevalnik o izjemah",
+      "description": "Spremlja neujete PHP izjeme in samodejno pošilja podrobna poročila po e-pošti skrbniku spletnega mesta.",
+      "details": "Spremlja neujete PHP izjeme in samodejno pošilja podrobna poročila po e-pošti skrbniku spletnega mesta. Ta vtičnik pomaga ohranjati vidnost težav med izvajanjem, ki bi sicer lahko ostale neopažene v produkcijskem okolju."
+    },
+    "spanish": {
+      "title": "Notificador de Excepciones",
+      "description": "Supervisa las excepciones de PHP no capturadas y envía automáticamente informes detallados por correo electrónico al administrador del sitio.",
+      "details": "Supervisa las excepciones de PHP no capturadas y envía automáticamente informes detallados por correo electrónico al administrador del sitio. Este plugin ayuda a mantener visibilidad sobre problemas en tiempo de ejecución que, de otro modo, podrían pasar desapercibidos en producción."
+    },
+    "swahili": {
+      "title": "Kijulishi cha Hitilafu",
+      "description": "Hufuatilia hitilafu za PHP ambazo hazijashughulikiwa na kutuma kiotomatiki ripoti za kina kwa barua pepe kwa msimamizi wa tovuti.",
+      "details": "Hufuatilia hitilafu za PHP ambazo hazijashughulikiwa na kutuma kiotomatiki ripoti za kina kwa barua pepe kwa msimamizi wa tovuti. Programu-jalizi hii husaidia kudumisha uonekano wa matatizo ya wakati wa utekelezaji ambayo vinginevyo yangeweza kutogunduliwa katika mazingira ya uzalishaji."
+    },
+    "swedish": {
+      "title": "Undantagsavisering",
+      "description": "Övervakar ofångade PHP-undantag och skickar automatiskt detaljerade rapporter via e-post till webbplatsens administratör.",
+      "details": "Övervakar ofångade PHP-undantag och skickar automatiskt detaljerade rapporter via e-post till webbplatsens administratör. Detta tillägg hjälper till att bevara insynen i runtime-problem som annars kan gå obemärkt förbi i produktion."
+    },
+    "taiwanese": {
+      "title": "例外通知工具",
+      "description": "監聽未被捕捉的 PHP 例外，並自動將詳細報告以電子郵件寄送給網站管理員。",
+      "details": "監聽未被捕捉的 PHP 例外，並自動將詳細報告以電子郵件寄送給網站管理員。此外掛程式有助於保持對執行階段問題的可見性，這些問題在正式環境中原本可能會被忽略。"
+    },
+    "tamil": {
+      "title": "விதிவிலக்கு அறிவிப்பாளர்",
+      "description": "பிடிக்கப்படாத PHP விதிவிலக்குகளைக் கண்காணித்து, விரிவான அறிக்கைகளை தானாகவே தள நிர்வாகிக்கு மின்னஞ்சல் செய்கிறது.",
+      "details": "பிடிக்கப்படாத PHP விதிவிலக்குகளைக் கண்காணித்து, விரிவான அறிக்கைகளை தானாகவே தள நிர்வாகிக்கு மின்னஞ்சல் செய்கிறது. இந்த செருகுநிரல் உற்பத்தி சூழலில் கவனிக்கப்படாமல் போகக்கூடிய இயக்க நேர சிக்கல்களைக் குறித்த தெரிவுநிலையை பராமரிக்க உதவுகிறது."
+    },
+    "thai": {
+      "title": "ตัวแจ้งเตือนข้อยกเว้น",
+      "description": "คอยตรวจจับข้อยกเว้น (exception) ของ PHP ที่ไม่ได้ถูกจัดการ และส่งรายงานโดยละเอียดทางอีเมลไปยังผู้ดูแลเว็บไซต์โดยอัตโนมัติ",
+      "details": "คอยตรวจจับข้อยกเว้น (exception) ของ PHP ที่ไม่ได้ถูกจัดการ และส่งรายงานโดยละเอียดทางอีเมลไปยังผู้ดูแลเว็บไซต์โดยอัตโนมัติ ปลั๊กอินนี้ช่วยให้มองเห็นปัญหาที่เกิดขึ้นระหว่างการทำงานซึ่งอาจถูกมองข้ามไปในสภาพแวดล้อมจริง"
+    },
+    "turkish": {
+      "title": "İstisna Bildiricisi",
+      "description": "Yakalanmamış PHP istisnalarını izler ve ayrıntılı raporları otomatik olarak site yöneticisine e-posta ile gönderir.",
+      "details": "Yakalanmamış PHP istisnalarını izler ve ayrıntılı raporları otomatik olarak site yöneticisine e-posta ile gönderir. Bu eklenti, üretim ortamında fark edilmeden geçebilecek çalışma zamanı sorunlarına karşı görünürlüğü korumaya yardımcı olur."
+    },
+    "ukrainian": {
+      "title": "Сповіщувач про винятки",
+      "description": "Відстежує необроблені винятки PHP і автоматично надсилає детальні звіти електронною поштою адміністратору сайту.",
+      "details": "Відстежує необроблені винятки PHP і автоматично надсилає детальні звіти електронною поштою адміністратору сайту. Цей плагін допомагає зберігати видимість проблем часу виконання, які інакше могли б залишитися непоміченими в робочому середовищі."
+    },
+    "urdu": {
+      "title": "ایکسیپشن نوٹیفائر",
+      "description": "نظر انداز شدہ PHP ایکسیپشنز پر نظر رکھتا ہے اور خودکار طور پر تفصیلی رپورٹس سائٹ ایڈمنسٹریٹر کو ای میل کرتا ہے۔",
+      "details": "نظر انداز شدہ PHP ایکسیپشنز پر نظر رکھتا ہے اور خودکار طور پر تفصیلی رپورٹس سائٹ ایڈمنسٹریٹر کو ای میل کرتا ہے۔ یہ پلگ ان پروڈکشن میں نظر انداز ہو سکنے والے رن ٹائم مسائل پر نظر رکھنے میں مدد کرتا ہے۔"
+    },
+    "vietnamese": {
+      "title": "Trình thông báo ngoại lệ",
+      "description": "Theo dõi các ngoại lệ PHP chưa được xử lý và tự động gửi email báo cáo chi tiết cho quản trị viên trang web.",
+      "details": "Theo dõi các ngoại lệ PHP chưa được xử lý và tự động gửi email báo cáo chi tiết cho quản trị viên trang web. Plugin này giúp duy trì khả năng theo dõi các sự cố thời gian chạy mà nếu không có thể bị bỏ sót trong môi trường thực tế."
+    }
+  }
+}

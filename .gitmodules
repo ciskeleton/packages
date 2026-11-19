@@ -1,0 +1,174 @@
+[submodule "packages/modules/pages"]
+	path = packages/modules/pages
+	url = https://github.com/ciskeleton/module-pages
+[submodule "packages/plugins/visitors"]
+	path = packages/plugins/visitors
+	url = https://github.com/ciskeleton/plugin-visitors
+[submodule "packages/plugins/jwt"]
+	path = packages/plugins/jwt
+	url = https://github.com/ciskeleton/plugin-jwt
+[submodule "packages/plugins/request-guard"]
+	path = packages/plugins/request-guard
+	url = https://github.com/ciskeleton/plugin-request-guard
+[submodule "packages/plugins/exception-notifier"]
+	path = packages/plugins/exception-notifier
+	url = https://github.com/ciskeleton/plugin-exception-notifier
+[submodule "packages/plugins/oembed"]
+	path = packages/plugins/oembed
+	url = https://github.com/ciskeleton/plugin-oembed
+[submodule "packages/plugins/oauth"]
+	path = packages/plugins/oauth
+	url = https://github.com/ciskeleton/plugin-oauth
+[submodule "packages/plugins/discord-visitor-logger"]
+	path = packages/plugins/discord-visitor-logger
+	url = https://github.com/ciskeleton/plugin-discord-visitor-logger
+[submodule "packages/languages/arabic"]
+	path = packages/languages/arabic
+	url = https://github.com/ciskeleton/lang-arabic
+[submodule "packages/languages/brazilian"]
+	path = packages/languages/brazilian
+	url = https://github.com/ciskeleton/lang-brazilian
+[submodule "packages/languages/bulgarian"]
+	path = packages/languages/bulgarian
+	url = https://github.com/ciskeleton/lang-bulgarian
+[submodule "packages/languages/chinese"]
+	path = packages/languages/chinese
+	url = https://github.com/ciskeleton/lang-chinese
+[submodule "packages/languages/czech"]
+	path = packages/languages/czech
+	url = https://github.com/ciskeleton/lang-czech
+[submodule "packages/languages/english"]
+	path = packages/languages/english
+	url = https://github.com/ciskeleton/lang-english
+[submodule "packages/languages/french"]
+	path = packages/languages/french
+	url = https://github.com/ciskeleton/lang-french
+[submodule "packages/languages/german"]
+	path = packages/languages/german
+	url = https://github.com/ciskeleton/lang-german
+[submodule "packages/languages/hindi"]
+	path = packages/languages/hindi
+	url = https://github.com/ciskeleton/lang-hindi
+[submodule "packages/languages/indonesian"]
+	path = packages/languages/indonesian
+	url = https://github.com/ciskeleton/lang-indonesian
+[submodule "packages/languages/italian"]
+	path = packages/languages/italian
+	url = https://github.com/ciskeleton/lang-italian
+[submodule "packages/languages/japanese"]
+	path = packages/languages/japanese
+	url = https://github.com/ciskeleton/lang-japanese
+[submodule "packages/languages/korean"]
+	path = packages/languages/korean
+	url = https://github.com/ciskeleton/lang-korean
+[submodule "packages/languages/persian"]
+	path = packages/languages/persian
+	url = https://github.com/ciskeleton/lang-persian
+[submodule "packages/languages/polish"]
+	path = packages/languages/polish
+	url = https://github.com/ciskeleton/lang-polish
+[submodule "packages/languages/portuguese"]
+	path = packages/languages/portuguese
+	url = https://github.com/ciskeleton/lang-portuguese
+[submodule "packages/languages/russian"]
+	path = packages/languages/russian
+	url = https://github.com/ciskeleton/lang-russian
+[submodule "packages/languages/spanish"]
+	path = packages/languages/spanish
+	url = https://github.com/ciskeleton/lang-spanish
+[submodule "packages/languages/taiwanese"]
+	path = packages/languages/taiwanese
+	url = https://github.com/ciskeleton/lang-taiwanese
+[submodule "packages/languages/turkish"]
+	path = packages/languages/turkish
+	url = https://github.com/ciskeleton/lang-turkish
+[submodule "packages/languages/vietnamese"]
+	path = packages/languages/vietnamese
+	url = https://github.com/ciskeleton/lang-vietnamese
+[submodule "packages/languages/dutch"]
+	path = packages/languages/dutch
+	url = https://github.com/ciskeleton/lang-dutch
+[submodule "packages/languages/thai"]
+	path = packages/languages/thai
+	url = https://github.com/ciskeleton/lang-thai
+[submodule "packages/languages/romanian"]
+	path = packages/languages/romanian
+	url = https://github.com/ciskeleton/lang-romanian
+[submodule "packages/languages/hungarian"]
+	path = packages/languages/hungarian
+	url = https://github.com/ciskeleton/lang-hungarian
+[submodule "packages/languages/greek"]
+	path = packages/languages/greek
+	url = https://github.com/ciskeleton/lang-greek
+[submodule "packages/languages/serbian"]
+	path = packages/languages/serbian
+	url = https://github.com/ciskeleton/lang-serbian
+[submodule "packages/languages/ukrainian"]
+	path = packages/languages/ukrainian
+	url = https://github.com/ciskeleton/lang-ukrainian
+[submodule "packages/languages/croatian"]
+	path = packages/languages/croatian
+	url = https://github.com/ciskeleton/lang-croatian
+[submodule "packages/languages/slovak"]
+	path = packages/languages/slovak
+	url = https://github.com/ciskeleton/lang-slovak
+[submodule "packages/languages/danish"]
+	path = packages/languages/danish
+	url = https://github.com/ciskeleton/lang-danish
+[submodule "packages/languages/finnish"]
+	path = packages/languages/finnish
+	url = https://github.com/ciskeleton/lang-finnish
+[submodule "packages/languages/latvian"]
+	path = packages/languages/latvian
+	url = https://github.com/ciskeleton/lang-latvian
+[submodule "packages/languages/lithuanian"]
+	path = packages/languages/lithuanian
+	url = https://github.com/ciskeleton/lang-lithuanian
+[submodule "packages/languages/norwegian"]
+	path = packages/languages/norwegian
+	url = https://github.com/ciskeleton/lang-norwegian
+[submodule "packages/languages/slovenian"]
+	path = packages/languages/slovenian
+	url = https://github.com/ciskeleton/lang-slovenian
+[submodule "packages/languages/catalan"]
+	path = packages/languages/catalan
+	url = https://github.com/ciskeleton/lang-catalan
+[submodule "packages/languages/bengali"]
+	path = packages/languages/bengali
+	url = https://github.com/ciskeleton/lang-bengali
+[submodule "packages/languages/filipino"]
+	path = packages/languages/filipino
+	url = https://github.com/ciskeleton/lang-filipino
+[submodule "packages/languages/swedish"]
+	path = packages/languages/swedish
+	url = https://github.com/ciskeleton/lang-swedish
+[submodule "packages/languages/malay"]
+	path = packages/languages/malay
+	url = https://github.com/ciskeleton/lang-malay
+[submodule "packages/languages/tamil"]
+	path = packages/languages/tamil
+	url = https://github.com/ciskeleton/lang-tamil
+[submodule "packages/languages/urdu"]
+	path = packages/languages/urdu
+	url = https://github.com/ciskeleton/lang-urdu
+[submodule "packages/languages/swahili"]
+	path = packages/languages/swahili
+	url = https://github.com/ciskeleton/lang-swahili
+[submodule "packages/languages/estonian"]
+	path = packages/languages/estonian
+	url = https://github.com/ciskeleton/lang-estonian
+[submodule "packages/languages/georgian"]
+	path = packages/languages/georgian
+	url = https://github.com/ciskeleton/lang-georgian
+[submodule "packages/languages/armenian"]
+	path = packages/languages/armenian
+	url = https://github.com/ciskeleton/lang-armenian
+[submodule "packages/languages/marathi"]
+	path = packages/languages/marathi
+	url = https://github.com/ciskeleton/lang-marathi
+[submodule "packages/languages/khmer"]
+	path = packages/languages/khmer
+	url = https://github.com/ciskeleton/lang-khmer
+[submodule "packages/languages/azerbaijani"]
+	path = packages/languages/azerbaijani
+	url = https://github.com/ciskeleton/lang-azerbaijani

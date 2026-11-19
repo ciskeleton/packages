@@ -1,0 +1,279 @@
+{
+  "type": "module",
+  "name": "pages",
+  "title": "Pages",
+  "description": "Create and manage static pages for your {platform_name} application.",
+  "details": "Pages provides a simple interface for creating, editing, and publishing static pages within your {platform_name} application.",
+  "tags": [
+    "pages",
+    "static",
+    "content",
+    "cms"
+  ],
+  "icon": "file",
+  "icon_fg": "#ffffff",
+  "icon_bg": "#b497d6",
+  "preview": "https://raw.githubusercontent.com/ciskeleton/module-pages/refs/heads/main/main/preview.png",
+  "screenshots": [
+    "https://raw.githubusercontent.com/ciskeleton/module-pages/refs/heads/main/main/screenshots/list.png",
+    "https://raw.githubusercontent.com/ciskeleton/module-pages/refs/heads/main/main/screenshots/editor.png",
+    "https://raw.githubusercontent.com/ciskeleton/module-pages/refs/heads/main/main/screenshots/frontend.png"
+  ],
+  "author": {
+    "name": "CiSkeleton Team",
+    "url": "https://github.com/ciskeleton",
+    "email": "csk@ianhub.net"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/license/mit"
+  },
+  "repository": "https://github.com/ciskeleton/module-pages",
+  "translations": {
+    "arabic": {
+      "name": "الصفحات",
+      "description": "إنشاء وإدارة الصفحات الثابتة لتطبيق {platform_name} الخاص بك.",
+      "details": "توفر وحدة الصفحات واجهة بسيطة لإنشاء وتحرير ونشر الصفحات الثابتة داخل تطبيق {platform_name} الخاص بك."
+    },
+    "armenian": {
+      "name": "Էջեր",
+      "description": "Ստեղծեք և կառավարեք ստատիկ էջեր ձեր {platform_name} հավելվածի համար։",
+      "details": "Pages մոդուլը տրամադրում է պարզ ինտերֆեյս ձեր {platform_name} հավելվածում ստատիկ էջեր ստեղծելու, խմբագրելու և հրապարակելու համար։"
+    },
+    "azerbaijani": {
+      "name": "Səhifələr",
+      "description": "Tətbiqiniz {platform_name} üçün statik səhifələr yaradın və idarə edin.",
+      "details": "Pages modulu {platform_name} tətbiqiniz daxilində statik səhifələr yaratmaq, redaktə etmək və dərc etmək üçün sadə interfeys təqdim edir."
+    },
+    "bengali": {
+      "name": "পৃষ্ঠা",
+      "description": "আপনার {platform_name} অ্যাপ্লিকেশনের জন্য স্ট্যাটিক পেজ তৈরি ও পরিচালনা করুন।",
+      "details": "Pages মডিউলটি আপনার {platform_name} অ্যাপ্লিকেশনের মধ্যে স্ট্যাটিক পেজ তৈরি, সম্পাদনা এবং প্রকাশ করার জন্য একটি সহজ ইন্টারফেস প্রদান করে।"
+    },
+    "brazilian": {
+      "name": "Páginas",
+      "description": "Crie e gerencie páginas estáticas para sua aplicação {platform_name}.",
+      "details": "O módulo Pages oferece uma interface simples para criar, editar e publicar páginas estáticas dentro da sua aplicação {platform_name}."
+    },
+    "bulgarian": {
+      "name": "Страници",
+      "description": "Създавайте и управлявайте статични страници за вашето приложение {platform_name}.",
+      "details": "Модулът Pages предоставя лесен интерфейс за създаване, редактиране и публикуване на статични страници във вашето приложение {platform_name}."
+    },
+    "catalan": {
+      "name": "Pàgines",
+      "description": "Creeu i gestioneu pàgines estàtiques per a la vostra aplicació {platform_name}.",
+      "details": "El mòdul Pages ofereix una interfície senzilla per crear, editar i publicar pàgines estàtiques dins de la vostra aplicació {platform_name}."
+    },
+    "chinese": {
+      "name": "页面",
+      "description": "为您的 {platform_name} 应用程序创建和管理静态页面。",
+      "details": "Pages 模块提供了一个简单的界面，用于在您的 {platform_name} 应用程序中创建、编辑和发布静态页面。"
+    },
+    "croatian": {
+      "name": "Stranice",
+      "description": "Izradite i upravljajte statičkim stranicama za svoju {platform_name} aplikaciju.",
+      "details": "Modul Pages pruža jednostavno sučelje za izradu, uređivanje i objavljivanje statičkih stranica unutar vaše {platform_name} aplikacije."
+    },
+    "czech": {
+      "name": "Stránky",
+      "description": "Vytvářejte a spravujte statické stránky pro vaši aplikaci {platform_name}.",
+      "details": "Modul Pages poskytuje jednoduché rozhraní pro vytváření, úpravy a publikování statických stránek ve vaší aplikaci {platform_name}."
+    },
+    "danish": {
+      "name": "Sider",
+      "description": "Opret og administrer statiske sider til din {platform_name}-applikation.",
+      "details": "Pages-modulet giver en enkel grænseflade til at oprette, redigere og udgive statiske sider i din {platform_name}-applikation."
+    },
+    "dutch": {
+      "name": "Pagina’s",
+      "description": "Maak en beheer statische pagina’s voor uw {platform_name}-applicatie.",
+      "details": "De Pages-module biedt een eenvoudige interface voor het maken, bewerken en publiceren van statische pagina’s binnen uw {platform_name}-applicatie."
+    },
+    "estonian": {
+      "name": "Leheküljed",
+      "description": "Looge ja hallake staatilisi lehti oma {platform_name} rakenduse jaoks.",
+      "details": "Moodul Pages pakub lihtsat liidest staatiliste lehtede loomiseks, muutmiseks ja avaldamiseks teie {platform_name} rakenduses."
+    },
+    "filipino": {
+      "name": "Mga Pahina",
+      "description": "Gumawa at mamahala ng mga static page para sa iyong {platform_name} application.",
+      "details": "Ang Pages module ay nagbibigay ng simpleng interface para sa paggawa, pag-edit, at paglalathala ng mga static page sa loob ng iyong {platform_name} application."
+    },
+    "finnish": {
+      "name": "Sivut",
+      "description": "Luo ja hallitse staattisia sivuja {platform_name}-sovellustasi varten.",
+      "details": "Pages-moduuli tarjoaa yksinkertaisen käyttöliittymän staattisten sivujen luomiseen, muokkaamiseen ja julkaisemiseen {platform_name}-sovelluksessasi."
+    },
+    "french": {
+      "name": "Pages",
+      "description": "Créez et gérez des pages statiques pour votre application {platform_name}.",
+      "details": "Le module Pages offre une interface simple pour créer, modifier et publier des pages statiques au sein de votre application {platform_name}."
+    },
+    "georgian": {
+      "name": "გვერდები",
+      "description": "შექმენით და მართეთ სტატიკური გვერდები თქვენი {platform_name} აპლიკაციისთვის.",
+      "details": "მოდული Pages გთავაზობთ მარტივ ინტერფეისს თქვენს {platform_name} აპლიკაციაში სტატიკური გვერდების შესაქმნელად, სარედაქტირებლად და გამოსაქვეყნებლად."
+    },
+    "german": {
+      "name": "Seiten",
+      "description": "Erstellen und verwalten Sie statische Seiten für Ihre {platform_name}-Anwendung.",
+      "details": "Das Pages-Modul bietet eine einfache Oberfläche zum Erstellen, Bearbeiten und Veröffentlichen statischer Seiten innerhalb Ihrer {platform_name}-Anwendung."
+    },
+    "greek": {
+      "name": "Σελίδες",
+      "description": "Δημιουργήστε και διαχειριστείτε στατικές σελίδες για την εφαρμογή {platform_name}.",
+      "details": "Η ενότητα Pages παρέχει μια απλή διεπαφή για τη δημιουργία, επεξεργασία και δημοσίευση στατικών σελίδων εντός της εφαρμογής {platform_name}."
+    },
+    "hindi": {
+      "name": "पृष्ठ",
+      "description": "अपने {platform_name} एप्लिकेशन के लिए स्टैटिक पेज बनाएं और प्रबंधित करें।",
+      "details": "Pages मॉड्यूल आपके {platform_name} एप्लिकेशन के भीतर स्टैटिक पेज बनाने, संपादित करने और प्रकाशित करने के लिए एक सरल इंटरफ़ेस प्रदान करता है।"
+    },
+    "hungarian": {
+      "name": "Oldalak",
+      "description": "Hozzon létre és kezeljen statikus oldalakat {platform_name} alkalmazásához.",
+      "details": "A Pages modul egyszerű felületet biztosít statikus oldalak létrehozásához, szerkesztéséhez és közzétételéhez a {platform_name} alkalmazáson belül."
+    },
+    "indonesian": {
+      "name": "Halaman",
+      "description": "Buat dan kelola halaman statis untuk aplikasi {platform_name} Anda.",
+      "details": "Modul Pages menyediakan antarmuka sederhana untuk membuat, mengedit, dan mempublikasikan halaman statis dalam aplikasi {platform_name} Anda."
+    },
+    "italian": {
+      "name": "Pagine",
+      "description": "Crea e gestisci pagine statiche per la tua applicazione {platform_name}.",
+      "details": "Il modulo Pages offre un’interfaccia semplice per creare, modificare e pubblicare pagine statiche all’interno della tua applicazione {platform_name}."
+    },
+    "japanese": {
+      "name": "ページ",
+      "description": "あなたの {platform_name} アプリケーション用の静的ページを作成・管理します。",
+      "details": "Pages モジュールは、{platform_name} アプリケーション内で静的ページを作成、編集、公開するためのシンプルなインターフェースを提供します。"
+    },
+    "khmer": {
+      "name": "ទំព័រ (Pages)",
+      "description": "បង្កើត និងគ្រប់គ្រងទំព័រឋិតិវន្ត (static pages) សម្រាប់កម្មវិធី {platform_name} របស់អ្នក។",
+      "details": "មុខងារ Pages ផ្តល់នូវចំណុចប្រទាក់ដ៏សាមញ្ញមួយសម្រាប់ការបង្កើត កែសម្រួល និងផ្សព្វផ្សាយទំព័រឋិតិវន្តនៅក្នុងកម្មវិធី {platform_name} របស់អ្នក។"
+    },
+    "korean": {
+      "name": "페이지",
+      "description": "{platform_name} 애플리케이션을 위한 정적 페이지를 생성하고 관리합니다.",
+      "details": "Pages 모듈은 {platform_name} 애플리케이션 내에서 정적 페이지를 생성, 편집, 게시할 수 있는 간단한 인터페이스를 제공합니다."
+    },
+    "latvian": {
+      "name": "Lapas",
+      "description": "Izveidojiet un pārvaldiet statiskās lapas savai {platform_name} lietotnei.",
+      "details": "Modulis Pages nodrošina vienkāršu saskarni statisko lapu izveidei, rediģēšanai un publicēšanai jūsu {platform_name} lietotnē."
+    },
+    "lithuanian": {
+      "name": "Puslapiai",
+      "description": "Kurkite ir tvarkykite statinius puslapius savo {platform_name} programai.",
+      "details": "Modulis Pages suteikia paprastą sąsają statiniams puslapiams kurti, redaguoti ir skelbti jūsų {platform_name} programoje."
+    },
+    "malay": {
+      "name": "Halaman",
+      "description": "Cipta dan urus halaman statik untuk aplikasi {platform_name} anda.",
+      "details": "Modul Pages menyediakan antara muka mudah untuk mencipta, mengedit, dan menerbitkan halaman statik dalam aplikasi {platform_name} anda."
+    },
+    "marathi": {
+      "name": "पृष्ठे",
+      "description": "तुमच्या {platform_name} अॅप्लिकेशनसाठी स्थिर पृष्ठे तयार करा आणि व्यवस्थापित करा.",
+      "details": "Pages मॉड्यूल तुमच्या {platform_name} अॅप्लिकेशनमध्ये स्थिर पृष्ठे तयार करणे, संपादित करणे आणि प्रकाशित करण्यासाठी एक सोपे इंटरफेस पुरवते."
+    },
+    "norwegian": {
+      "name": "Sider",
+      "description": "Opprett og administrer statiske sider for {platform_name}-applikasjonen din.",
+      "details": "Pages-modulen tilbyr et enkelt grensesnitt for å opprette, redigere og publisere statiske sider i {platform_name}-applikasjonen din."
+    },
+    "persian": {
+      "name": "صفحات",
+      "description": "صفحات ثابت را برای برنامه {platform_name} خود ایجاد و مدیریت کنید.",
+      "details": "ماژول Pages یک رابط ساده برای ایجاد، ویرایش و انتشار صفحات ثابت در برنامه {platform_name} شما ارائه می‌دهد."
+    },
+    "polish": {
+      "name": "Strony",
+      "description": "Twórz i zarządzaj statycznymi stronami dla swojej aplikacji {platform_name}.",
+      "details": "Moduł Pages zapewnia prosty interfejs do tworzenia, edytowania i publikowania statycznych stron w aplikacji {platform_name}."
+    },
+    "portuguese": {
+      "name": "Páginas",
+      "description": "Crie e faça a gestão de páginas estáticas para a sua aplicação {platform_name}.",
+      "details": "O módulo Pages disponibiliza uma interface simples para criar, editar e publicar páginas estáticas na sua aplicação {platform_name}."
+    },
+    "romanian": {
+      "name": "Pagini",
+      "description": "Creați și gestionați pagini statice pentru aplicația dvs. {platform_name}.",
+      "details": "Modulul Pages oferă o interfață simplă pentru crearea, editarea și publicarea paginilor statice în cadrul aplicației dvs. {platform_name}."
+    },
+    "russian": {
+      "name": "Страницы",
+      "description": "Создавайте статические страницы для вашего приложения {platform_name} и управляйте ими.",
+      "details": "Модуль Pages предоставляет простой интерфейс для создания, редактирования и публикации статических страниц в вашем приложении {platform_name}."
+    },
+    "serbian": {
+      "name": "Stranice",
+      "description": "Kreirajte i upravljajte statičkim stranicama za vašu {platform_name} aplikaciju.",
+      "details": "Modul Pages pruža jednostavan interfejs za kreiranje, uređivanje i objavljivanje statičkih stranica unutar vaše {platform_name} aplikacije."
+    },
+    "slovak": {
+      "name": "Stránky",
+      "description": "Vytvárajte a spravujte statické stránky pre svoju aplikáciu {platform_name}.",
+      "details": "Modul Pages poskytuje jednoduché rozhranie na vytváranie, úpravu a publikovanie statických stránok vo vašej aplikácii {platform_name}."
+    },
+    "slovenian": {
+      "name": "Strani",
+      "description": "Ustvarjajte in upravljajte statične strani za svojo aplikacijo {platform_name}.",
+      "details": "Modul Pages ponuja preprost vmesnik za ustvarjanje, urejanje in objavljanje statičnih strani znotraj vaše aplikacije {platform_name}."
+    },
+    "spanish": {
+      "name": "Páginas",
+      "description": "Crea y gestiona páginas estáticas para tu aplicación {platform_name}.",
+      "details": "El módulo Pages ofrece una interfaz sencilla para crear, editar y publicar páginas estáticas dentro de tu aplicación {platform_name}."
+    },
+    "swahili": {
+      "name": "Kurasa",
+      "description": "Unda na dhibiti kurasa tuli za programu yako ya {platform_name}.",
+      "details": "Moduli ya Pages inatoa kiolesura rahisi cha kuunda, kuhariri, na kuchapisha kurasa tuli ndani ya programu yako ya {platform_name}."
+    },
+    "swedish": {
+      "name": "Sidor",
+      "description": "Skapa och hantera statiska sidor för din {platform_name}-applikation.",
+      "details": "Pages-modulen erbjuder ett enkelt gränssnitt för att skapa, redigera och publicera statiska sidor inom din {platform_name}-applikation."
+    },
+    "taiwanese": {
+      "name": "頁面",
+      "description": "為您的 {platform_name} 應用程式建立及管理靜態頁面。",
+      "details": "Pages 模組提供簡單的介面，用於在您的 {platform_name} 應用程式中建立、編輯及發佈靜態頁面。"
+    },
+    "tamil": {
+      "name": "பக்கங்கள்",
+      "description": "உங்கள் {platform_name} பயன்பாட்டிற்கான நிலையான பக்கங்களை உருவாக்கி நிர்வகிக்கவும்.",
+      "details": "Pages தொகுதி உங்கள் {platform_name} பயன்பாட்டிற்குள் நிலையான பக்கங்களை உருவாக்க, திருத்த மற்றும் வெளியிட எளிய இடைமுகத்தை வழங்குகிறது."
+    },
+    "thai": {
+      "name": "เพจ",
+      "description": "สร้างและจัดการหน้าเว็บแบบคงที่สำหรับแอปพลิเคชัน {platform_name} ของคุณ",
+      "details": "โมดูล Pages มอบอินเทอร์เฟซที่เรียบง่ายสำหรับสร้าง แก้ไข และเผยแพร่หน้าเว็บแบบคงที่ภายในแอปพลิเคชัน {platform_name} ของคุณ"
+    },
+    "turkish": {
+      "name": "Sayfalar",
+      "description": "{platform_name} uygulamanız için statik sayfalar oluşturun ve yönetin.",
+      "details": "Pages modülü, {platform_name} uygulamanız içinde statik sayfalar oluşturmak, düzenlemek ve yayınlamak için basit bir arayüz sunar."
+    },
+    "ukrainian": {
+      "name": "Сторінки",
+      "description": "Створюйте статичні сторінки для вашого застосунку {platform_name} та керуйте ними.",
+      "details": "Модуль Pages надає простий інтерфейс для створення, редагування та публікації статичних сторінок у вашому застосунку {platform_name}."
+    },
+    "urdu": {
+      "name": "صفحات",
+      "description": "اپنے {platform_name} ایپلیکیشن کے لیے سٹیٹک صفحات بنائیں اور ان کا نظم کریں۔",
+      "details": "Pages ماڈیول آپ کے {platform_name} ایپلیکیشن کے اندر سٹیٹک صفحات بنانے، ترمیم کرنے اور شائع کرنے کے لیے ایک آسان انٹرفیس فراہم کرتا ہے۔"
+    },
+    "vietnamese": {
+      "name": "Trang",
+      "description": "Tạo và quản lý các trang tĩnh cho ứng dụng {platform_name} của bạn.",
+      "details": "Mô-đun Pages cung cấp giao diện đơn giản để tạo, chỉnh sửa và xuất bản các trang tĩnh trong ứng dụng {platform_name} của bạn."
+    }
+  }
+}
