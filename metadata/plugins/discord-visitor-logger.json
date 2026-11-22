@@ -1,0 +1,276 @@
+{
+  "type": "plugin",
+  "name": "discord-visitor-logger",
+  "title": "Discord Visitor Logger",
+  "description": "Receive Discord notifications when new visitors access your {platform_name} application.",
+  "details": "Discord Visitor Logger tracks previously unseen visitor IP addresses and sends an embedded notification to a configured Discord webhook. Notifications can include the visitor's IP address, approximate geolocation, requested URL, user agent, and network classification. Visitor information is cached to avoid repeatedly notifying Discord about the same IP address.",
+  "tags": [
+    "discord",
+    "analytics",
+    "visitors",
+    "logging",
+    "notifications",
+    "geolocation"
+  ],
+  "preview": "https://raw.githubusercontent.com/ciskeleton/plugin-discord-visitor-logger/main/main/preview.jpg",
+  "icon": "eye",
+  "icon_fg": "#ffffff",
+  "icon_bg": "#5865f2",
+  "author": {
+    "name": "CiSkeleton Team",
+    "url": "https://github.com/ciskeleton",
+    "email": "csk@ianhub.net"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/license/mit"
+  },
+  "repository": "https://github.com/ciskeleton/plugin-discord-visitor-logger",
+  "translations": {
+    "arabic": {
+      "title": "مسجّل زوار ديسكورد",
+      "description": "احصل على إشعارات عبر ديسكورد عند دخول زوار جدد إلى تطبيق {platform_name} الخاص بك.",
+      "details": "يراقب مسجّل زوار ديسكورد عناوين IP الخاصة بالزوار الذين لم يُرصدوا من قبل، ويرسل إشعارًا مُضمَّنًا إلى ويب هوك ديسكورد الذي تم إعداده. يمكن أن تتضمن الإشعارات عنوان IP الخاص بالزائر، وموقعه الجغرافي التقريبي، والرابط المطلوب، ووكيل المستخدم، وتصنيف الشبكة. يتم تخزين معلومات الزوار مؤقتًا لتجنب إرسال إشعارات متكررة إلى ديسكورد حول نفس عنوان IP."
+    },
+    "armenian": {
+      "title": "Դիսքորդ այցելուների գրանցող",
+      "description": "Ստացեք Դիսքորդ ծանուցումներ, երբ նոր այցելուներ մուտք են գործում ձեր {platform_name} հավելվածում։",
+      "details": "Դիսքորդ այցելուների գրանցողը հետևում է նախկինում չնկատված այցելուների IP հասցեներին և ուղարկում է ներկառուցված ծանուցում կարգավորված Դիսքորդ webhook-ին։ Ծանուցումները կարող են ներառել այցելուի IP հասցեն, մոտավոր աշխարհագրական դիրքը, հարցված URL-ը, user agent-ը և ցանցի դասակարգումը։ Այցելուների տվյալները քեշավորվում են՝ կանխելու նույն IP հասցեի մասին կրկնվող ծանուցումները Դիսքորդ-ին։"
+    },
+    "azerbaijani": {
+      "title": "Discord Ziyarətçi Qeydiyyatçısı",
+      "description": "{platform_name} tətbiqinizə yeni ziyarətçilər daxil olduqda Discord bildirişləri alın.",
+      "details": "Discord Ziyarətçi Qeydiyyatçısı əvvəllər görünməmiş ziyarətçi IP ünvanlarını izləyir və konfiqurasiya edilmiş Discord webhook-una gömülmüş bildiriş göndərir. Bildirişlərə ziyarətçinin IP ünvanı, təxmini coğrafi məkanı, sorğu edilən URL, istifadəçi agenti və şəbəkə təsnifatı daxil ola bilər. Eyni IP ünvanı haqqında Discord-a təkrar bildiriş göndərilməsinin qarşısını almaq üçün ziyarətçi məlumatları keşlənir."
+    },
+    "bengali": {
+      "title": "ডিসকর্ড ভিজিটর লগার",
+      "description": "আপনার {platform_name} অ্যাপ্লিকেশনে নতুন ভিজিটর প্রবেশ করলে ডিসকর্ড নোটিফিকেশন পান।",
+      "details": "ডিসকর্ড ভিজিটর লগার পূর্বে অদেখা ভিজিটরের আইপি ঠিকানা ট্র্যাক করে এবং কনফিগার করা ডিসকর্ড ওয়েবহুকে একটি এমবেডেড নোটিফিকেশন পাঠায়। নোটিফিকেশনে ভিজিটরের আইপি ঠিকানা, আনুমানিক ভৌগোলিক অবস্থান, অনুরোধকৃত URL, ইউজার এজেন্ট এবং নেটওয়ার্ক শ্রেণীবিভাগ অন্তর্ভুক্ত থাকতে পারে। একই আইপি ঠিকানা সম্পর্কে বারবার ডিসকর্ডে নোটিফিকেশন পাঠানো এড়াতে ভিজিটরের তথ্য ক্যাশে করা হয়।"
+    },
+    "brazilian": {
+      "title": "Registrador de Visitantes do Discord",
+      "description": "Receba notificações do Discord quando novos visitantes acessarem sua aplicação {platform_name}.",
+      "details": "O Registrador de Visitantes do Discord rastreia endereços IP de visitantes nunca vistos antes e envia uma notificação incorporada para um webhook configurado do Discord. As notificações podem incluir o endereço IP do visitante, geolocalização aproximada, URL solicitada, user agent e classificação de rede. As informações dos visitantes são armazenadas em cache para evitar notificar repetidamente o Discord sobre o mesmo endereço IP."
+    },
+    "bulgarian": {
+      "title": "Дискорд Регистратор на посетители",
+      "description": "Получавайте известия в Дискорд, когато нови посетители влязат в приложението ви {platform_name}.",
+      "details": "Дискорд Регистраторът на посетители проследява непознати досега IP адреси на посетители и изпраща вградено известие до конфигуриран Дискорд webhook. Известията могат да включват IP адреса на посетителя, приблизителното геолокация, заявения URL адрес, потребителския агент и класификацията на мрежата. Информацията за посетителите се кешира, за да се избегне повтарящо се известяване на Дискорд за един и същ IP адрес."
+    },
+    "catalan": {
+      "title": "Registrador de Visitants de Discord",
+      "description": "Rebeu notificacions de Discord quan nous visitants accedeixin a la vostra aplicació {platform_name}.",
+      "details": "El Registrador de Visitants de Discord fa un seguiment de les adreces IP de visitants no vistes anteriorment i envia una notificació incrustada a un webhook de Discord configurat. Les notificacions poden incloure l’adreça IP del visitant, la geolocalització aproximada, l’URL sol·licitat, l’agent d’usuari i la classificació de la xarxa. La informació dels visitants es guarda en memòria cau per evitar notificar repetidament a Discord sobre la mateixa adreça IP."
+    },
+    "chinese": {
+      "title": "Discord 访客记录器",
+      "description": "当新访客访问您的 {platform_name} 应用程序时，接收 Discord 通知。",
+      "details": "Discord 访客记录器会追踪此前未出现过的访客 IP 地址，并向配置好的 Discord Webhook 发送嵌入式通知。通知内容可包含访客的 IP 地址、大致地理位置、请求的 URL、用户代理以及网络分类。访客信息会被缓存，以避免针对同一 IP 地址重复向 Discord 发送通知。"
+    },
+    "croatian": {
+      "title": "Discord zapisnik posjetitelja",
+      "description": "Primajte Discord obavijesti kada novi posjetitelji pristupe vašoj aplikaciji {platform_name}.",
+      "details": "Discord zapisnik posjetitelja prati prethodno neviđene IP adrese posjetitelja i šalje ugrađenu obavijest na konfigurirani Discord webhook. Obavijesti mogu uključivati IP adresu posjetitelja, približnu geolokaciju, zatraženi URL, korisnički agent i klasifikaciju mreže. Podaci o posjetiteljima se pohranjuju u predmemoriju kako bi se izbjeglo ponovljeno obavještavanje Discorda o istoj IP adresi."
+    },
+    "czech": {
+      "title": "Záznamník návštěvníků Discord",
+      "description": "Dostávejte oznámení na Discordu, když do vaší aplikace {platform_name} vstoupí noví návštěvníci.",
+      "details": "Záznamník návštěvníků Discord sleduje dosud neviděné IP adresy návštěvníků a odesílá vložené oznámení na nakonfigurovaný Discord webhook. Oznámení mohou obsahovat IP adresu návštěvníka, přibližnou geolokaci, požadovanou adresu URL, user agenta a klasifikaci sítě. Informace o návštěvnících se ukládají do mezipaměti, aby se zabránilo opakovanému oznamování Discordu o stejné IP adrese."
+    },
+    "danish": {
+      "title": "Discord Besøgslogger",
+      "description": "Modtag Discord-notifikationer, når nye besøgende tilgår din {platform_name}-applikation.",
+      "details": "Discord Besøgslogger sporer tidligere usete IP-adresser fra besøgende og sender en indlejret notifikation til et konfigureret Discord-webhook. Notifikationer kan indeholde den besøgendes IP-adresse, omtrentlig geolokation, den anmodede URL, user agent og netværksklassificering. Besøgendes oplysninger caches for at undgå gentagne notifikationer til Discord om den samme IP-adresse."
+    },
+    "dutch": {
+      "title": "Discord Bezoekerslogger",
+      "description": "Ontvang Discord-meldingen wanneer nieuwe bezoekers uw {platform_name}-applicatie bezoeken.",
+      "details": "Discord Bezoekerslogger houdt niet eerder geziene IP-adressen van bezoekers bij en stuurt een ingesloten melding naar een geconfigureerde Discord-webhook. Meldingen kunnen het IP-adres van de bezoeker, de geschatte geolocatie, de aangevraagde URL, de user agent en de netwerkclassificatie bevatten. Bezoekersinformatie wordt in de cache opgeslagen om te voorkomen dat Discord herhaaldelijk over hetzelfde IP-adres wordt geïnformeerd."
+    },
+    "estonian": {
+      "title": "Discordi Külastajate Logija",
+      "description": "Saage Discordi teavitusi, kui uued külastajad kasutavad teie {platform_name} rakendust.",
+      "details": "Discordi Külastajate Logija jälgib varem nägemata külastajate IP-aadresse ja saadab manustatud teavituse seadistatud Discordi veebikonksule (webhook). Teavitused võivad sisaldada külastaja IP-aadressi, ligikaudset asukohta, taotletud URL-i, kasutajaagenti ja võrgu klassifikatsiooni. Külastajate teave salvestatakse vahemällu, et vältida sama IP-aadressi kohta korduvate teavituste saatmist Discordile."
+    },
+    "filipino": {
+      "title": "Tagatala ng Bisita ng Discord",
+      "description": "Tumanggap ng mga abiso sa Discord kapag may bagong bisita na nag-a-access sa iyong {platform_name} application.",
+      "details": "Sinusubaybayan ng Tagatala ng Bisita ng Discord ang mga hindi pa nakikitang IP address ng mga bisita at nagpapadala ng embedded na abiso sa isang naka-configure na Discord webhook. Maaaring kasama sa mga abiso ang IP address ng bisita, tinatayang geolocation, hiniling na URL, user agent, at klasipikasyon ng network. Ang impormasyon ng bisita ay naka-cache upang maiwasan ang paulit-ulit na pag-aabiso sa Discord tungkol sa parehong IP address."
+    },
+    "finnish": {
+      "title": "Discord-kävijälokittaja",
+      "description": "Vastaanota Discord-ilmoituksia, kun uusia kävijöitä siirtyy {platform_name}-sovellukseesi.",
+      "details": "Discord-kävijälokittaja seuraa aiemmin näkemättömiä kävijöiden IP-osoitteita ja lähettää upotetun ilmoituksen määritettyyn Discord-webhookiin. Ilmoitukset voivat sisältää kävijän IP-osoitteen, likimääräisen sijainnin, pyydetyn URL-osoitteen, käyttäjäagentin ja verkon luokituksen. Kävijätiedot välimuistitetaan, jotta vältytään saman IP-osoitteen toistuvalta ilmoittamiselta Discordiin."
+    },
+    "french": {
+      "title": "Journal des visiteurs Discord",
+      "description": "Recevez des notifications Discord lorsque de nouveaux visiteurs accèdent à votre application {platform_name}.",
+      "details": "Le Journal des visiteurs Discord suit les adresses IP des visiteurs jamais vues auparavant et envoie une notification intégrée à un webhook Discord configuré. Les notifications peuvent inclure l’adresse IP du visiteur, sa géolocalisation approximative, l’URL demandée, le user agent et la classification réseau. Les informations des visiteurs sont mises en cache afin d’éviter de notifier Discord de manière répétée pour la même adresse IP."
+    },
+    "georgian": {
+      "title": "დისკორდის ვიზიტორთა ჟურნალი",
+      "description": "მიიღეთ დისკორდის შეტყობინებები, როდესაც ახალი ვიზიტორები შედიან თქვენს {platform_name} აპლიკაციაში.",
+      "details": "დისკორდის ვიზიტორთა ჟურნალი თვალყურს ადევნებს ადრე უცნობ ვიზიტორთა IP მისამართებს და აგზავნის ჩაშენებულ შეტყობინებას კონფიგურირებულ დისკორდის webhook-ზე. შეტყობინებები შეიძლება მოიცავდეს ვიზიტორის IP მისამართს, სავარაუდო გეოლოკაციას, მოთხოვნილ URL-ს, user agent-ს და ქსელის კლასიფიკაციას. ვიზიტორთა ინფორმაცია ინახება ქეშში, რათა თავიდან იქნას აცილებული დისკორდისთვის ერთი და იმავე IP მისამართის შესახებ განმეორებითი შეტყობინებების გაგზავნა."
+    },
+    "german": {
+      "title": "Discord-Besucherprotokollierung",
+      "description": "Erhalten Sie Discord-Benachrichtigungen, wenn neue Besucher auf Ihre {platform_name}-Anwendung zugreifen.",
+      "details": "Die Discord-Besucherprotokollierung verfolgt bisher unbekannte IP-Adressen von Besuchern und sendet eine eingebettete Benachrichtigung an einen konfigurierten Discord-Webhook. Benachrichtigungen können die IP-Adresse des Besuchers, die ungefähre Geolokation, die angeforderte URL, den User-Agent und die Netzwerkklassifizierung enthalten. Besucherinformationen werden zwischengespeichert, um wiederholte Benachrichtigungen an Discord zur selben IP-Adresse zu vermeiden."
+    },
+    "greek": {
+      "title": "Καταγραφέας Επισκεπτών Ντίσκορντ",
+      "description": "Λάβετε ειδοποιήσεις Ντίσκορντ όταν νέοι επισκέπτες έχουν πρόσβαση στην εφαρμογή σας {platform_name}.",
+      "details": "Ο Καταγραφέας Επισκεπτών Ντίσκορντ παρακολουθεί διευθύνσεις IP επισκεπτών που δεν έχουν ξαναπαρατηρηθεί και στέλνει μια ενσωματωμένη ειδοποίηση σε ένα διαμορφωμένο webhook του Ντίσκορντ. Οι ειδοποιήσεις μπορούν να περιλαμβάνουν τη διεύθυνση IP του επισκέπτη, την κατά προσέγγιση γεωτοποθεσία, το αιτούμενο URL, τον user agent και την ταξινόμηση δικτύου. Οι πληροφορίες των επισκεπτών αποθηκεύονται προσωρινά για να αποφευχθεί η επανειλημμένη ειδοποίηση του Ντίσκορντ για την ίδια διεύθυνση IP."
+    },
+    "hindi": {
+      "title": "डिस्कॉर्ड विज़िटर लॉगर",
+      "description": "जब नए विज़िटर आपके {platform_name} एप्लिकेशन तक पहुँचते हैं, तो डिस्कॉर्ड सूचनाएं प्राप्त करें।",
+      "details": "डिस्कॉर्ड विज़िटर लॉगर पहले न देखे गए विज़िटर के IP पतों को ट्रैक करता है और एक कॉन्फ़िगर किए गए डिस्कॉर्ड वेबहुक को एम्बेडेड सूचना भेजता है। सूचनाओं में विज़िटर का IP पता, अनुमानित जियोलोकेशन, अनुरोधित URL, यूज़र एजेंट, और नेटवर्क वर्गीकरण शामिल हो सकता है। एक ही IP पते के बारे में डिस्कॉर्ड को बार-बार सूचना भेजने से बचने के लिए विज़िटर की जानकारी कैश की जाती है।"
+    },
+    "hungarian": {
+      "title": "Discord Látogatónapló",
+      "description": "Kapjon Discord-értesítéseket, amikor új látogatók lépnek be a(z) {platform_name} alkalmazásába.",
+      "details": "A Discord Látogatónapló nyomon követi a korábban nem látott látogatói IP-címeket, és beágyazott értesítést küld egy beállított Discord webhookra. Az értesítések tartalmazhatják a látogató IP-címét, a hozzávetőleges helymeghatározást, a kért URL-t, a user agentet és a hálózati besorolást. A látogatói adatok gyorsítótárazva vannak, hogy elkerüljék az ugyanarról az IP-címről érkező ismételt értesítéseket a Discord felé."
+    },
+    "indonesian": {
+      "title": "Pencatat Pengunjung Discord",
+      "description": "Terima notifikasi Discord saat pengunjung baru mengakses aplikasi {platform_name} Anda.",
+      "details": "Pencatat Pengunjung Discord melacak alamat IP pengunjung yang sebelumnya belum pernah terlihat dan mengirimkan notifikasi tertanam ke webhook Discord yang telah dikonfigurasi. Notifikasi dapat mencakup alamat IP pengunjung, perkiraan geolokasi, URL yang diminta, user agent, dan klasifikasi jaringan. Informasi pengunjung disimpan dalam cache untuk menghindari pemberitahuan berulang ke Discord mengenai alamat IP yang sama."
+    },
+    "italian": {
+      "title": "Registro Visitatori Discord",
+      "description": "Ricevi notifiche Discord quando nuovi visitatori accedono alla tua applicazione {platform_name}.",
+      "details": "Registro Visitatori Discord tiene traccia degli indirizzi IP dei visitatori non ancora rilevati e invia una notifica incorporata a un webhook Discord configurato. Le notifiche possono includere l’indirizzo IP del visitatore, la geolocalizzazione approssimativa, l’URL richiesto, lo user agent e la classificazione di rete. Le informazioni sui visitatori vengono memorizzate nella cache per evitare di notificare ripetutamente a Discord lo stesso indirizzo IP."
+    },
+    "japanese": {
+      "title": "ディスコード訪問者ロガー",
+      "description": "新しい訪問者があなたの {platform_name} アプリケーションにアクセスすると、ディスコード通知を受け取れます。",
+      "details": "ディスコード訪問者ロガーは、これまで見られなかった訪問者の IP アドレスを追跡し、設定済みの ディスコードWebhook に埋め込み通知を送信します。通知には、訪問者の IP アドレス、おおよその位置情報、リクエストされた URL、ユーザーエージェント、ネットワーク分類が含まれる場合があります。訪問者情報はキャッシュされ、同じ IP アドレスについて ディスコードへ繰り返し通知するのを防ぎます。"
+    },
+    "khmer": {
+      "title": "កម្មវិធីកត់ត្រាអ្នកចូលមើល Discord",
+      "description": "ទទួលការជូនដំណឹងតាម Discord នៅពេលអ្នកចូលមើលថ្មីចូលប្រើកម្មវិធី {platform_name} របស់អ្នក។",
+      "details": "កម្មវិធីកត់ត្រាអ្នកចូលមើល Discord តាមដានអាសយដ្ឋាន IP របស់អ្នកចូលមើលដែលមិនធ្លាប់ឃើញពីមុន ហើយផ្ញើការជូនដំណឹងបង្កប់ទៅកាន់ Discord webhook ដែលបានកំណត់រចនាសម្ព័ន្ធ។ ការជូនដំណឹងអាចរួមបញ្ចូលអាសយដ្ឋាន IP របស់អ្នកចូលមើល ទីតាំងភូមិសាស្ត្រប្រហាក់ប្រហែល URL ដែលបានស្នើសុំ user agent និងការចាត់ថ្នាក់បណ្តាញ។ ព័ត៌មានអ្នកចូលមើលត្រូវបានរក្សាទុកក្នុងឃ្លាំងសម្ងាត់ (cache) ដើម្បីជៀសវាងការជូនដំណឹងទៅ Discord ម្តងហើយម្តងទៀតអំពីអាសយដ្ឋាន IP ដូចគ្នា។"
+    },
+    "korean": {
+      "title": "디스코드 방문자 로거",
+      "description": "새로운 방문자가 {platform_name} 애플리케이션에 접속하면 디스코드 알림을 받습니다.",
+      "details": "디스코드 방문자 로거는 이전에 확인되지 않은 방문자의 IP 주소를 추적하고 설정된 디스코드 웹훅으로 임베드된 알림을 전송합니다. 알림에는 방문자의 IP 주소, 대략적인 위치 정보, 요청된 URL, 사용자 에이전트 및 네트워크 분류가 포함될 수 있습니다. 동일한 IP 주소에 대해 디스코드에 반복적으로 알림을 보내지 않도록 방문자 정보는 캐시됩니다."
+    },
+    "latvian": {
+      "title": "Discord Apmeklētāju Žurnāls",
+      "description": "Saņemiet Discord paziņojumus, kad jūsu {platform_name} lietotnei piekļūst jauni apmeklētāji.",
+      "details": "Discord Apmeklētāju Žurnāls izseko iepriekš neredzētas apmeklētāju IP adreses un nosūta iegultu paziņojumu uz konfigurētu Discord webhook. Paziņojumos var būt iekļauta apmeklētāja IP adrese, aptuvenā ģeogrāfiskā atrašanās vieta, pieprasītais URL, lietotāja aģents un tīkla klasifikācija. Apmeklētāju informācija tiek saglabāta kešatmiņā, lai izvairītos no atkārtotas paziņošanas Discord par to pašu IP adresi."
+    },
+    "lithuanian": {
+      "title": "Discord lankytojų registratorius",
+      "description": "Gaukite „Discord“ pranešimus, kai nauji lankytojai pasiekia jūsų {platform_name} programą.",
+      "details": "Discord lankytojų registratorius seka anksčiau nematytus lankytojų IP adresus ir siunčia įterptą pranešimą į sukonfigūruotą „Discord“ webhook. Pranešimuose gali būti lankytojo IP adresas, apytikslė geografinė vieta, prašomas URL, naudotojo agentas ir tinklo klasifikacija. Lankytojų informacija talpinama talpykloje, kad būtų išvengta pakartotinio pranešimo „Discord“ apie tą patį IP adresą."
+    },
+    "malay": {
+      "title": "Pencatat Pelawat Discord",
+      "description": "Terima pemberitahuan Discord apabila pelawat baharu mengakses aplikasi {platform_name} anda.",
+      "details": "Pencatat Pelawat Discord menjejaki alamat IP pelawat yang belum pernah dilihat sebelum ini dan menghantar pemberitahuan terbenam ke webhook Discord yang dikonfigurasikan. Pemberitahuan boleh termasuk alamat IP pelawat, anggaran geolokasi, URL yang diminta, ejen pengguna, dan klasifikasi rangkaian. Maklumat pelawat disimpan dalam cache untuk mengelakkan pemberitahuan berulang kepada Discord mengenai alamat IP yang sama."
+    },
+    "marathi": {
+      "title": "डिस्कॉर्ड व्हिजिटर लॉगर",
+      "description": "जेव्हा नवीन अभ्यागत तुमच्या {platform_name} अ‍ॅप्लिकेशनमध्ये प्रवेश करतात, तेव्हा डिस्कॉर्ड सूचना प्राप्त करा.",
+      "details": "डिस्कॉर्ड व्हिजिटर लॉगर यापूर्वी न दिसलेल्या अभ्यागतांचे IP पत्ते ट्रॅक करतो आणि कॉन्फिगर केलेल्या डिस्कॉर्ड वेबहुकवर एम्बेडेड सूचना पाठवतो. सूचनांमध्ये अभ्यागताचा IP पत्ता, अंदाजे भौगोलिक स्थान, विनंती केलेली URL, युजर एजंट आणि नेटवर्क वर्गीकरण यांचा समावेश असू शकतो. एकाच IP पत्त्याबद्दल डिस्कॉर्डला वारंवार सूचना पाठवणे टाळण्यासाठी अभ्यागतांची माहिती कॅशे केली जाते."
+    },
+    "norwegian": {
+      "title": "Discord Besøkslogger",
+      "description": "Motta Discord-varsler når nye besøkende får tilgang til {platform_name}-applikasjonen din.",
+      "details": "Discord Besøkslogger sporer tidligere usette IP-adresser til besøkende og sender et innebygd varsel til en konfigurert Discord-webhook. Varsler kan inkludere den besøkendes IP-adresse, omtrentlig geolokasjon, forespurt URL, brukeragent og nettverksklassifisering. Besøksinformasjon mellomlagres for å unngå gjentatte varsler til Discord om samme IP-adresse."
+    },
+    "persian": {
+      "title": "ثبت‌کننده بازدیدکنندگان دیسکورد",
+      "description": "هنگامی که بازدیدکنندگان جدید به برنامه {platform_name} شما دسترسی پیدا می‌کنند، اعلان‌های دیسکورد دریافت کنید.",
+      "details": "ثبت‌کننده بازدیدکنندگان دیسکورد آدرس‌های IP بازدیدکنندگانی که قبلاً مشاهده نشده‌اند را ردیابی می‌کند و یک اعلان جاسازی‌شده به وب‌هوک دیسکورد پیکربندی‌شده ارسال می‌کند. اعلان‌ها می‌توانند شامل آدرس IP بازدیدکننده، موقعیت جغرافیایی تقریبی، آدرس URL درخواست‌شده، عامل کاربر و طبقه‌بندی شبکه باشند. اطلاعات بازدیدکنندگان ذخیره موقت (کش) می‌شود تا از ارسال مکرر اعلان به دیسکورد درباره یک آدرس IP یکسان جلوگیری شود."
+    },
+    "polish": {
+      "title": "Rejestrator Odwiedzających Discord",
+      "description": "Otrzymuj powiadomienia Discord, gdy nowi odwiedzający uzyskają dostęp do Twojej aplikacji {platform_name}.",
+      "details": "Rejestrator Odwiedzających Discord śledzi wcześniej niewidziane adresy IP odwiedzających i wysyła osadzone powiadomienie do skonfigurowanego webhooka Discord. Powiadomienia mogą zawierać adres IP odwiedzającego, przybliżoną geolokalizację, żądany adres URL, user agenta oraz klasyfikację sieci. Informacje o odwiedzających są buforowane, aby uniknąć wielokrotnego powiadamiania Discord o tym samym adresie IP."
+    },
+    "portuguese": {
+      "title": "Registador de Visitantes do Discord",
+      "description": "Receba notificações do Discord quando novos visitantes acederem à sua aplicação {platform_name}.",
+      "details": "O Registador de Visitantes do Discord monitoriza endereços IP de visitantes nunca antes vistos e envia uma notificação incorporada para um webhook do Discord configurado. As notificações podem incluir o endereço IP do visitante, a geolocalização aproximada, o URL solicitado, o user agent e a classificação da rede. A informação dos visitantes é colocada em cache para evitar notificar repetidamente o Discord sobre o mesmo endereço IP."
+    },
+    "romanian": {
+      "title": "Jurnal de Vizitatori Discord",
+      "description": "Primiți notificări Discord atunci când vizitatori noi accesează aplicația dvs. {platform_name}.",
+      "details": "Jurnalul de Vizitatori Discord urmărește adresele IP ale vizitatorilor nevăzuți anterior și trimite o notificare încorporată către un webhook Discord configurat. Notificările pot include adresa IP a vizitatorului, geolocația aproximativă, URL-ul solicitat, user agentul și clasificarea rețelei. Informațiile despre vizitatori sunt stocate în cache pentru a evita notificarea repetată a Discord despre aceeași adresă IP."
+    },
+    "russian": {
+      "title": "Дискорд Регистратор Посетителей",
+      "description": "Получайте уведомления в Дискорд, когда новые посетители заходят в ваше приложение {platform_name}.",
+      "details": "Дискорд Регистратор Посетителей отслеживает ранее неизвестные IP-адреса посетителей и отправляет встроенное уведомление на настроенный вебхук Дискорд. Уведомления могут включать IP-адрес посетителя, приблизительную геолокацию, запрошенный URL, user agent и сетевую классификацию. Информация о посетителях кэшируется, чтобы избежать повторных уведомлений в Дискорд об одном и том же IP-адресе."
+    },
+    "serbian": {
+      "title": "Discord Dnevnik Posetilaca",
+      "description": "Primajte Discord obaveštenja kada novi posetioci pristupe vašoj aplikaciji {platform_name}.",
+      "details": "Discord Dnevnik Posetilaca prati prethodno neviđene IP adrese posetilaca i šalje ugrađeno obaveštenje na konfigurisani Discord webhook. Obaveštenja mogu uključivati IP adresu posetioca, približnu geolokaciju, traženi URL, korisnički agent i klasifikaciju mreže. Podaci o posetiocima se keširaju kako bi se izbeglo ponovljeno obaveštavanje Discorda o istoj IP adresi."
+    },
+    "slovak": {
+      "title": "Discord Záznamník Návštevníkov",
+      "description": "Dostávajte oznámenia na Discorde, keď do vašej aplikácie {platform_name} vstúpia noví návštevníci.",
+      "details": "Discord Záznamník Návštevníkov sleduje doteraz nezaznamenané IP adresy návštevníkov a odosiela vložené oznámenie na nakonfigurovaný Discord webhook. Oznámenia môžu obsahovať IP adresu návštevníka, približnú geolokáciu, požadovanú URL adresu, user agenta a klasifikáciu siete. Informácie o návštevníkoch sa ukladajú do vyrovnávacej pamäte, aby sa predišlo opakovanému oznamovaniu Discordu o rovnakej IP adrese."
+    },
+    "slovenian": {
+      "title": "Discord Beležnik Obiskovalcev",
+      "description": "Prejemajte Discord obvestila, ko novi obiskovalci dostopajo do vaše aplikacije {platform_name}.",
+      "details": "Discord Beležnik Obiskovalcev sledi doslej nezaznanim IP naslovom obiskovalcev in pošilja vgrajeno obvestilo na konfiguriran Discord webhook. Obvestila lahko vključujejo IP naslov obiskovalca, približno geolokacijo, zahtevani URL, uporabniškega agenta in klasifikacijo omrežja. Podatki o obiskovalcih se predpomnijo, da se prepreči ponavljajoče obveščanje Discorda o istem IP naslovu."
+    },
+    "spanish": {
+      "title": "Registrador de Visitantes de Discord",
+      "description": "Recibe notificaciones de Discord cuando nuevos visitantes accedan a tu aplicación {platform_name}.",
+      "details": "El Registrador de Visitantes de Discord rastrea direcciones IP de visitantes nunca antes vistas y envía una notificación incrustada a un webhook de Discord configurado. Las notificaciones pueden incluir la dirección IP del visitante, la geolocalización aproximada, la URL solicitada, el user agent y la clasificación de red. La información de los visitantes se almacena en caché para evitar notificar repetidamente a Discord sobre la misma dirección IP."
+    },
+    "swahili": {
+      "title": "Kisajili cha Wageni cha Discord",
+      "description": "Pokea arifa za Discord wakati wageni wapya wanapofikia programu yako ya {platform_name}.",
+      "details": "Kisajili cha Wageni cha Discord hufuatilia anwani za IP za wageni ambazo hazijawahi kuonekana hapo awali na kutuma arifa iliyopachikwa kwenye Discord webhook iliyosanidiwa. Arifa zinaweza kujumuisha anwani ya IP ya mgeni, mahali pa kijiografia takriban, URL iliyoombwa, user agent, na uainishaji wa mtandao. Taarifa za wageni huhifadhiwa kwenye akiba (cache) ili kuepuka kutuma arifa mara kwa mara kwa Discord kuhusu anwani ya IP sawa."
+    },
+    "swedish": {
+      "title": "Discord Besökarloggare",
+      "description": "Ta emot Discord-aviseringar när nya besökare öppnar din {platform_name}-applikation.",
+      "details": "Discord Besökarloggare spårar tidigare osedda IP-adresser från besökare och skickar en inbäddad avisering till en konfigurerad Discord-webhook. Aviseringar kan innehålla besökarens IP-adress, ungefärlig geografisk plats, begärd URL, user agent och nätverksklassificering. Besökarinformation cachelagras för att undvika upprepade aviseringar till Discord om samma IP-adress."
+    },
+    "taiwanese": {
+      "title": "Discord 訪客記錄器",
+      "description": "當新訪客存取您的 {platform_name} 應用程式時，接收 Discord 通知。",
+      "details": "Discord 訪客記錄器會追蹤先前未出現過的訪客 IP 位址，並向設定好的 Discord Webhook 傳送嵌入式通知。通知內容可能包含訪客的 IP 位址、大致地理位置、請求的 URL、使用者代理及網路分類。訪客資訊會被快取，以避免針對同一 IP 位址重複向 Discord 發送通知。"
+    },
+    "tamil": {
+      "title": "டிஸ்கார்ட் பார்வையாளர் பதிவாளர்",
+      "description": "புதிய பார்வையாளர்கள் உங்கள் {platform_name} பயன்பாட்டை அணுகும்போது டிஸ்கார்ட் அறிவிப்புகளைப் பெறுங்கள்.",
+      "details": "டிஸ்கார்ட் பார்வையாளர் பதிவாளர் முன்பு காணப்படாத பார்வையாளர் IP முகவரிகளைக் கண்காணித்து, கட்டமைக்கப்பட்ட டிஸ்கார்ட் வெப்ஹூக்கிற்கு உட்பொதிக்கப்பட்ட அறிவிப்பை அனுப்புகிறது. அறிவிப்புகளில் பார்வையாளரின் IP முகவரி, தோராயமான புவிஅமைவிடம், கோரப்பட்ட URL, பயனர் முகவர் மற்றும் நெட்வொர்க் வகைப்பாடு ஆகியவை இருக்கலாம். ஒரே IP முகவரியைப் பற்றி மீண்டும் மீண்டும் டிஸ்கார்டிற்கு அறிவிப்பதைத் தவிர்க்க பார்வையாளர் தகவல் தற்காலிகமாக சேமிக்கப்படுகிறது."
+    },
+    "thai": {
+      "title": "ตัวบันทึกผู้เยี่ยมชม ดิสคอร์ด",
+      "description": "รับการแจ้งเตือนทาง ดิสคอร์ด เมื่อผู้เยี่ยมชมรายใหม่เข้าถึงแอปพลิเคชัน {platform_name} ของคุณ",
+      "details": "ตัวบันทึกผู้เยี่ยมชม ดิสคอร์ด จะติดตามที่อยู่ IP ของผู้เยี่ยมชมที่ไม่เคยพบมาก่อน และส่งการแจ้งเตือนแบบฝังไปยัง ดิสคอร์ด webhook ที่ได้กำหนดค่าไว้ การแจ้งเตือนอาจรวมถึงที่อยู่ IP ของผู้เยี่ยมชม ตำแหน่งทางภูมิศาสตร์โดยประมาณ URL ที่ร้องขอ user agent และการจำแนกประเภทเครือข่าย ข้อมูลผู้เยี่ยมชมจะถูกแคชไว้เพื่อหลีกเลี่ยงการแจ้งเตือน ดิสคอร์ด ซ้ำ ๆ เกี่ยวกับที่อยู่ IP เดียวกัน"
+    },
+    "turkish": {
+      "title": "Discord Ziyaretçi Kaydedici",
+      "description": "{platform_name} uygulamanıza yeni ziyaretçiler eriştiğinde Discord bildirimleri alın.",
+      "details": "Discord Ziyaretçi Kaydedici, daha önce görülmemiş ziyaretçi IP adreslerini izler ve yapılandırılmış bir Discord webhook’una gömülü bir bildirim gönderir. Bildirimler; ziyaretçinin IP adresini, yaklaşık coğrafi konumunu, istenen URL’yi, kullanıcı aracısını ve ağ sınıflandırmasını içerebilir. Aynı IP adresi hakkında Discord’a tekrar tekrar bildirim gönderilmesini önlemek için ziyaretçi bilgileri önbelleğe alınır."
+    },
+    "ukrainian": {
+      "title": "Дискорд Реєстратор Відвідувачів",
+      "description": "Отримуйте сповіщення в Дискорд, коли нові відвідувачі заходять у ваш застосунок {platform_name}.",
+      "details": "Дискорд Реєстратор Відвідувачів відстежує раніше невідомі IP-адреси відвідувачів і надсилає вбудоване сповіщення на налаштований вебхук Дискорд. Сповіщення можуть включати IP-адресу відвідувача, приблизну геолокацію, запитаний URL, user agent та класифікацію мережі. Інформація про відвідувачів кешується, щоб уникнути повторних сповіщень Дискорд про ту саму IP-адресу."
+    },
+    "urdu": {
+      "title": "ڈسکارڈ وزیٹر لاگر",
+      "description": "جب نئے وزیٹرز آپ کے {platform_name} ایپلیکیشن تک رسائی حاصل کریں تو ڈسکارڈ اطلاعات حاصل کریں۔",
+      "details": "ڈسکارڈ وزیٹر لاگر پہلے نہ دیکھے گئے وزیٹرز کے IP ایڈریسز کو ٹریک کرتا ہے اور ایک کنفیگر شدہ ڈسکارڈ ویب ہُک کو ایمبیڈڈ اطلاع بھیجتا ہے۔ اطلاعات میں وزیٹر کا IP ایڈریس، تخمینی جغرافیائی مقام، درخواست شدہ URL، یوزر ایجنٹ، اور نیٹ ورک کی درجہ بندی شامل ہو سکتی ہے۔ ایک ہی IP ایڈریس کے بارے میں ڈسکارڈ کو بار بار اطلاع بھیجنے سے بچنے کے لیے وزیٹر کی معلومات کیش کی جاتی ہیں۔"
+    },
+    "vietnamese": {
+      "title": "Trình ghi nhật ký khách truy cập Discord",
+      "description": "Nhận thông báo Discord khi có khách truy cập mới truy cập vào ứng dụng {platform_name} của bạn.",
+      "details": "Trình ghi nhật ký khách truy cập Discord theo dõi các địa chỉ IP của khách truy cập chưa từng thấy trước đó và gửi thông báo nhúng đến một webhook Discord đã được cấu hình. Thông báo có thể bao gồm địa chỉ IP của khách truy cập, vị trí địa lý gần đúng, URL được yêu cầu, user agent và phân loại mạng. Thông tin khách truy cập được lưu vào bộ nhớ đệm để tránh gửi thông báo lặp lại đến Discord về cùng một địa chỉ IP."
+    }
+  }
+}

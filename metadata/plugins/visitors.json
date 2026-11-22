@@ -1,0 +1,221 @@
+{
+  "type": "plugin",
+  "name": "visitors",
+  "title": "Online Visitors",
+  "description": "Displays a live count of online visitors on the dashboard sidebar.",
+  "tags": [
+    "visitors",
+    "tracker"
+  ],
+  "preview": "https://raw.githubusercontent.com/ciskeleton/plugin-visitors/main/main/preview.jpg",
+  "icon": "users-viewfinder",
+  "icon_fg": "#ffffff",
+  "icon_bg": "#2a7fa6",
+  "author": {
+    "name": "CiSkeleton Team",
+    "url": "https://github.com/ciskeleton",
+    "email": "csk@ianhub.net"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/license/mit"
+  },
+  "translations": {
+    "arabic": {
+      "title": "الزوار النشطون",
+      "description": "يعرض عدد الزوار النشطين حاليًا في الشريط الجانبي للوحة التحكم."
+    },
+    "armenian": {
+      "title": "Առցանց այցելուներ",
+      "description": "Ցուցադրում է առցանց այցելուների կենդանի քանակը կառավարման վահանակի կողային գոտում։"
+    },
+    "azerbaijani": {
+      "title": "Onlayn ziyarətçilər",
+      "description": "İdarə panelinin yan panelində onlayn ziyarətçilərin real vaxt rejimində sayını göstərir."
+    },
+    "bengali": {
+      "title": "অনলাইন দর্শক",
+      "description": "ড্যাশবোর্ডের সাইডবারে অনলাইন দর্শকের লাইভ সংখ্যা দেখায়।"
+    },
+    "brazilian": {
+      "title": "Visitantes Online",
+      "description": "Exibe a contagem ao vivo de visitantes online na barra lateral do painel."
+    },
+    "bulgarian": {
+      "title": "Онлайн посетители",
+      "description": "Показва текущия брой онлайн посетители в страничната лента на таблото."
+    },
+    "catalan": {
+      "title": "Visitants en línia",
+      "description": "Mostra el recompte en directe de visitants en línia a la barra lateral del tauler."
+    },
+    "chinese": {
+      "title": "在线访客",
+      "description": "在仪表盘侧边栏显示在线访客的实时数量。"
+    },
+    "croatian": {
+      "title": "Online posjetitelji",
+      "description": "Prikazuje broj online posjetitelja uživo na bočnoj traci nadzorne ploče."
+    },
+    "czech": {
+      "title": "Online návštěvníci",
+      "description": "Zobrazuje aktuální počet online návštěvníků na postranním panelu nástroje."
+    },
+    "danish": {
+      "title": "Onlinebesøgende",
+      "description": "Viser en liveoptælling af onlinebesøgende i dashboardets sidebjælke."
+    },
+    "dutch": {
+      "title": "Online bezoekers",
+      "description": "Geeft een live telling van online bezoekers weer in de zijbalk van het dashboard."
+    },
+    "estonian": {
+      "title": "Veebikülastajad",
+      "description": "Kuvab töölaua külgribal veebikülastajate reaalajas arvu."
+    },
+    "filipino": {
+      "title": "Mga Online na Bisita",
+      "description": "Ipinapakita ang live na bilang ng mga online na bisita sa sidebar ng dashboard."
+    },
+    "finnish": {
+      "title": "Verkkovierailijat",
+      "description": "Näyttää verkkovierailijoiden reaaliaikaisen määrän hallintapaneelin sivupalkissa."
+    },
+    "french": {
+      "title": "Visiteurs en ligne",
+      "description": "Affiche le nombre en direct des visiteurs en ligne dans la barre latérale du tableau de bord."
+    },
+    "georgian": {
+      "title": "ონლაინ ვიზიტორები",
+      "description": "აჩვენებს ონლაინ ვიზიტორების ცოცხალ რაოდენობას მართვის პანელის გვერდით ზოლში."
+    },
+    "german": {
+      "title": "Online-Besucher",
+      "description": "Zeigt die aktuelle Anzahl der Online-Besucher in der Seitenleiste des Dashboards an."
+    },
+    "greek": {
+      "title": "Επισκέπτες σε σύνδεση",
+      "description": "Εμφανίζει ζωντανά τον αριθμό των επισκεπτών σε σύνδεση στην πλαϊνή μπάρα του πίνακα ελέγχου."
+    },
+    "hindi": {
+      "title": "ऑनलाइन आगंतुक",
+      "description": "डैशबोर्ड साइडबार में ऑनलाइन आगंतुकों की लाइव गिनती दिखाता है।"
+    },
+    "hungarian": {
+      "title": "Online látogatók",
+      "description": "Élőben megjeleníti az online látogatók számát az irányítópult oldalsávján."
+    },
+    "indonesian": {
+      "title": "Pengunjung Online",
+      "description": "Menampilkan jumlah pengunjung online secara langsung di sidebar dasbor."
+    },
+    "italian": {
+      "title": "Visitatori Online",
+      "description": "Visualizza il conteggio in tempo reale dei visitatori online nella barra laterale della dashboard."
+    },
+    "japanese": {
+      "title": "オンライン訪問者",
+      "description": "ダッシュボードのサイドバーにオンライン訪問者のライブカウントを表示します。"
+    },
+    "khmer": {
+      "title": "អ្នកទស្សនាអនឡាញ",
+      "description": "បង្ហាញចំនួនអ្នកទស្សនាអនឡាញក្នុងពេលជាក់ស្តែងនៅលើរបារចំហៀងនៃផ្ទាំងគ្រប់គ្រង។"
+    },
+    "korean": {
+      "title": "온라인 방문자",
+      "description": "대시보드 사이드바에 온라인 방문자 수를 실시간으로 표시합니다."
+    },
+    "latvian": {
+      "title": "Tiešsaistes apmeklētāji",
+      "description": "Informācijas paneļa sānjoslā rāda tiešsaistes apmeklētāju skaitu reāllaikā."
+    },
+    "lithuanian": {
+      "title": "Prisijungę lankytojai",
+      "description": "Prietaisų skydelio šoninėje juostoje rodo prisijungusių lankytojų skaičių realiuoju laiku."
+    },
+    "malay": {
+      "title": "Pelawat Dalam Talian",
+      "description": "Memaparkan kiraan langsung pelawat dalam talian pada bar sisi papan pemuka."
+    },
+    "marathi": {
+      "title": "ऑनलाइन अभ्यागत",
+      "description": "डॅशबोर्डच्या साइडबारवर ऑनलाइन अभ्यागतांची थेट संख्या दर्शवते."
+    },
+    "norwegian": {
+      "title": "Besøkende på nett",
+      "description": "Viser live-antall besøkende på nett i sidemenyen på kontrollpanelet."
+    },
+    "persian": {
+      "title": "بازدیدکنندگان آنلاین",
+      "description": "تعداد بازدیدکنندگان آنلاین را به‌صورت زنده در نوار کناری داشبورد نمایش می‌دهد."
+    },
+    "polish": {
+      "title": "Goście online",
+      "description": "Wyświetla na żywo liczbę odwiedzających online w pasku bocznym pulpitu nawigacyjnego."
+    },
+    "portuguese": {
+      "title": "Visitantes Online",
+      "description": "Exibe a contagem ao vivo de visitantes online na barra lateral do painel."
+    },
+    "romanian": {
+      "title": "Vizitatori online",
+      "description": "Afișează în bara laterală a panoului numărul live al vizitatorilor online."
+    },
+    "russian": {
+      "title": "Онлайн посетители",
+      "description": "Отображает текущую статистику онлайн-посетителей в боковой панели панели управления."
+    },
+    "serbian": {
+      "title": "Posetioci na mreži",
+      "description": "Prikazuje uživo broj posetilaca na mreži u bočnoj traci kontrolne table."
+    },
+    "slovak": {
+      "title": "Online návštevníci",
+      "description": "Zobrazuje živý počet online návštevníkov na bočnom paneli nástenky."
+    },
+    "slovenian": {
+      "title": "Spletni obiskovalci",
+      "description": "Prikazuje živo število spletnih obiskovalcev v stranski vrstici nadzorne plošče."
+    },
+    "spanish": {
+      "title": "Visitantes en línea",
+      "description": "Muestra el recuento en vivo de visitantes en línea en la barra lateral del panel de control."
+    },
+    "swahili": {
+      "title": "Wageni Mtandaoni",
+      "description": "Huonyesha idadi ya moja kwa moja ya wageni mtandaoni kwenye upau wa pembeni wa dashibodi."
+    },
+    "swedish": {
+      "title": "Besökare online",
+      "description": "Visar ett liveantal av besökare online i instrumentpanelens sidofält."
+    },
+    "taiwanese": {
+      "title": "線上訪客",
+      "description": "在儀表板側邊欄顯示線上訪客的即時人數。"
+    },
+    "tamil": {
+      "title": "ஆன்லைன் பார்வையாளர்கள்",
+      "description": "டாஷ்போர்டு பக்கப்பட்டியில் ஆன்லைன் பார்வையாளர்களின் நேரடி எண்ணிக்கையை காட்டுகிறது."
+    },
+    "thai": {
+      "title": "ผู้เยี่ยมชมออนไลน์",
+      "description": "แสดงจำนวนผู้เยี่ยมชมออนไลน์แบบเรียลไทม์บนแถบด้านข้างแดชบอร์ด"
+    },
+    "turkish": {
+      "title": "Çevrimiçi Ziyaretçiler",
+      "description": "Kontrol panelinin yan tarafında çevrimiçi ziyaretçilerin canlı sayısını gösterir."
+    },
+    "ukrainian": {
+      "title": "Відвідувачі онлайн",
+      "description": "Показує поточну кількість відвідувачів онлайн на бічній панелі панелі керування."
+    },
+    "urdu": {
+      "title": "آن لائن زائرین",
+      "description": "ڈیش بورڈ سائڈبار پر آن لائن زائرین کی براہ راست تعداد دکھاتا ہے۔"
+    },
+    "vietnamese": {
+      "title": "Khách truy cập trực tuyến",
+      "description": "Hiển thị số lượng khách truy cập trực tuyến trực tiếp trên thanh bên của bảng điều khiển."
+    }
+  }
+}

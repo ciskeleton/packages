@@ -1,0 +1,224 @@
+{
+  "type": "plugin",
+  "name": "oembed",
+  "title": "oEmbed",
+  "description": "Fetch and embed media content from external providers like YouTube, TikTok, and Vimeo using oEmbed protocol.",
+  "tags": [
+    "oembed",
+    "embed",
+    "media",
+    "video",
+    "provider"
+  ],
+  "preview": "https://raw.githubusercontent.com/ciskeleton/plugin-oembed/main/main/preview.jpg",
+  "icon": "code",
+  "icon_fg": "#ffffff",
+  "icon_bg": "#17bebb",
+  "author": {
+    "name": "CiSkeleton Team",
+    "url": "https://github.com/ciskeleton",
+    "email": "csk@ianhub.net"
+  },
+  "license": {
+    "name": "MIT",
+    "url": "https://opensource.org/license/mit"
+  },
+  "translations": {
+    "arabic": {
+      "title": "oEmbed",
+      "description": "جلب وتضمين محتوى الوسائط من موفري خدمات خارجيين مثل يوتيوب و تيك توك و فيميو باستخدام بروتوكول oEmbed."
+    },
+    "armenian": {
+      "title": "oEmbed",
+      "description": "Ստանում և ներդնում է մեդիա բովանդակություն արտաքին մատակարարներից, ինչպիսիք են YouTube, TikTok և Vimeo՝ օգտագործելով oEmbed արձանագրությունը։"
+    },
+    "azerbaijani": {
+      "title": "oEmbed",
+      "description": "oEmbed protokolundan istifadə edərək YouTube, TikTok və Vimeo kimi kənar təchizatçılardan media məzmununu əldə edin və yerləşdirin."
+    },
+    "bengali": {
+      "title": "oEmbed",
+      "description": "oEmbed প্রোটোকল ব্যবহার করে YouTube, TikTok ও Vimeo-এর মতো বাহ্যিক প্রদানকারীদের কাছ থেকে মিডিয়া কনটেন্ট এনে এমবেড করে।"
+    },
+    "brazilian": {
+      "title": "oEmbed",
+      "description": "Busca e incorpora conteúdo de mídia de provedores externos como YouTube, TikTok e Vimeo usando o protocolo oEmbed."
+    },
+    "bulgarian": {
+      "title": "oEmbed",
+      "description": "Извлича и вгражда мултимедийно съдържание от външни доставчици като YouTube, TikTok и Vimeo чрез oEmbed протокол."
+    },
+    "catalan": {
+      "title": "oEmbed",
+      "description": "Recupera i incrusta contingut multimèdia de proveïdors externs com YouTube, TikTok i Vimeo mitjançant el protocol oEmbed."
+    },
+    "chinese": {
+      "title": "oEmbed",
+      "description": "使用 oEmbed 协议从外部提供商（如 YouTube、TikTok 和 Vimeo）获取并嵌入媒体内容。"
+    },
+    "croatian": {
+      "title": "oEmbed",
+      "description": "Dohvaća i ugrađuje medijski sadržaj od vanjskih pružatelja kao što su YouTube, TikTok i Vimeo pomoću oEmbed protokola."
+    },
+    "czech": {
+      "title": "oEmbed",
+      "description": "Načítá a vkládá mediální obsah od externích poskytovatelů jako YouTube, TikTok a Vimeo pomocí protokolu oEmbed."
+    },
+    "danish": {
+      "title": "oEmbed",
+      "description": "Henter og indlejrer medieindhold fra eksterne udbydere som YouTube, TikTok og Vimeo ved hjælp af oEmbed-protokollen."
+    },
+    "dutch": {
+      "title": "oEmbed",
+      "description": "Haalt media-inhoud op van externe providers zoals YouTube, TikTok en Vimeo via het oEmbed-protocol."
+    },
+    "estonian": {
+      "title": "oEmbed",
+      "description": "Toob ja põimib meediasisu välistelt teenusepakkujatelt, nagu YouTube, TikTok ja Vimeo, kasutades oEmbed protokolli."
+    },
+    "filipino": {
+      "title": "oEmbed",
+      "description": "Kinukuha at ini-embed ang media content mula sa mga external provider tulad ng YouTube, TikTok, at Vimeo gamit ang oEmbed protocol."
+    },
+    "finnish": {
+      "title": "oEmbed",
+      "description": "Hakee ja upottaa mediasisältöä ulkoisilta palveluntarjoajilta, kuten YouTube, TikTok ja Vimeo, oEmbed-protokollan avulla."
+    },
+    "french": {
+      "title": "oEmbed",
+      "description": "Récupère et intègre du contenu multimédia à partir de fournisseurs externes comme YouTube, TikTok et Vimeo via le protocole oEmbed."
+    },
+    "georgian": {
+      "title": "oEmbed",
+      "description": "იღებს და ჩაშენებს მედია შინაარსს გარე პროვაიდერებიდან, როგორიცაა YouTube, TikTok და Vimeo, oEmbed პროტოკოლის გამოყენებით."
+    },
+    "german": {
+      "title": "oEmbed",
+      "description": "Ruft Medieninhalte von externen Anbietern wie YouTube, TikTok und Vimeo über das oEmbed-Protokoll ab und bettet sie ein."
+    },
+    "greek": {
+      "title": "oEmbed",
+      "description": "Ανακτά και ενσωματώνει περιεχόμενο πολυμέσων από εξωτερικούς παρόχους όπως YouTube, TikTok και Vimeo χρησιμοποιώντας το πρωτόκολλο oEmbed."
+    },
+    "hindi": {
+      "title": "oEmbed",
+      "description": "oEmbed प्रोटोकॉल का उपयोग करके यूट्यूब, टिकटॉक और वीमियो जैसे बाहरी प्रदाताओं से मीडिया सामग्री प्राप्त करें और एम्बेड करें।"
+    },
+    "hungarian": {
+      "title": "oEmbed",
+      "description": "Médiatartalmat kér le és ágyaz be külső szolgáltatóktól, például YouTube, TikTok és Vimeo, az oEmbed protokoll használatával."
+    },
+    "indonesian": {
+      "title": "oEmbed",
+      "description": "Mengambil dan menyematkan konten media dari penyedia eksternal seperti YouTube, TikTok, dan Vimeo menggunakan protokol oEmbed."
+    },
+    "italian": {
+      "title": "oEmbed",
+      "description": "Recupera e incorpora contenuti multimediali da fornitori esterni come YouTube, TikTok e Vimeo utilizzando il protocollo oEmbed."
+    },
+    "japanese": {
+      "title": "oEmbed",
+      "description": "oEmbed プロトコルを使用して、YouTube、TikTok、Vimeo などの外部プロバイダーからメディア コンテンツを取得して埋め込みます。"
+    },
+    "khmer": {
+      "title": "oEmbed",
+      "description": "ទាញយក និងបង្កប់មាតិកាមេឌៀពីអ្នកផ្តល់សេវាកម្មខាងក្រៅដូចជា YouTube, TikTok និង Vimeo ដោយប្រើប្រាស់ពិធីការ oEmbed។"
+    },
+    "korean": {
+      "title": "oEmbed",
+      "description": "유튜브, 틱톡, 비메오 등의 외부 제공업체에서 oEmbed 프로토콜을 사용하여 미디어 콘텐츠를 가져와 삽입합니다."
+    },
+    "latvian": {
+      "title": "oEmbed",
+      "description": "Iegūst un iegulst multivides saturu no ārējiem pakalpojumu sniedzējiem, piemēram, YouTube, TikTok un Vimeo, izmantojot oEmbed protokolu."
+    },
+    "lithuanian": {
+      "title": "oEmbed",
+      "description": "Gauna ir įterpia medijos turinį iš išorinių teikėjų, tokių kaip YouTube, TikTok ir Vimeo, naudodamas oEmbed protokolą."
+    },
+    "malay": {
+      "title": "oEmbed",
+      "description": "Mengambil dan membenamkan kandungan media daripada penyedia luaran seperti YouTube, TikTok dan Vimeo menggunakan protokol oEmbed."
+    },
+    "marathi": {
+      "title": "oEmbed",
+      "description": "oEmbed प्रोटोकॉलचा वापर करून YouTube, TikTok आणि Vimeo सारख्या बाह्य सेवा पुरवठादारांकडून मीडिया मजकूर मिळवा आणि एम्बेड करा."
+    },
+    "norwegian": {
+      "title": "oEmbed",
+      "description": "Henter og bygger inn medieinnhold fra eksterne leverandører som YouTube, TikTok og Vimeo ved hjelp av oEmbed-protokollen."
+    },
+    "persian": {
+      "title": "oEmbed",
+      "description": "دریافت و جاسازی محتوای رسانه‌ای از ارائه‌دهندگان خارجی مانند یوتیوب، تیک تاک و ویمو با استفاده از پروتکل oEmbed."
+    },
+    "polish": {
+      "title": "oEmbed",
+      "description": "Pobiera i osadza treści multimedialne od zewnętrznych dostawców, takich jak YouTube, TikTok i Vimeo, za pomocą protokołu oEmbed."
+    },
+    "portuguese": {
+      "title": "oEmbed",
+      "description": "Busca e incorpora conteúdo de mídia de provedores externos como YouTube, TikTok e Vimeo usando o protocolo oEmbed."
+    },
+    "romanian": {
+      "title": "oEmbed",
+      "description": "Preia și încorporează conținut media de la furnizori externi precum YouTube, TikTok și Vimeo folosind protocolul oEmbed."
+    },
+    "russian": {
+      "title": "oEmbed",
+      "description": "Извлекает и встраивает медиа-контент от внешних поставщиков, таких как YouTube, TikTok и Vimeo, с использованием протокола oEmbed."
+    },
+    "serbian": {
+      "title": "oEmbed",
+      "description": "Preuzima i ugrađuje medijski sadržaj od spoljnih provajdera kao što su YouTube, TikTok i Vimeo koristeći oEmbed protokol."
+    },
+    "slovak": {
+      "title": "oEmbed",
+      "description": "Načítava a vkladá mediálny obsah od externých poskytovateľov, ako sú YouTube, TikTok a Vimeo, pomocou protokolu oEmbed."
+    },
+    "slovenian": {
+      "title": "oEmbed",
+      "description": "Pridobi in vgradi medijsko vsebino zunanjih ponudnikov, kot so YouTube, TikTok in Vimeo, z uporabo protokola oEmbed."
+    },
+    "spanish": {
+      "title": "oEmbed",
+      "description": "Recupera e incrusta contenido multimedia de proveedores externos como YouTube, TikTok y Vimeo utilizando el protocolo oEmbed."
+    },
+    "swahili": {
+      "title": "oEmbed",
+      "description": "Huchukua na kupachika maudhui ya media kutoka kwa watoa huduma wa nje kama YouTube, TikTok na Vimeo kwa kutumia itifaki ya oEmbed."
+    },
+    "swedish": {
+      "title": "oEmbed",
+      "description": "Hämtar och bäddar in medieinnehåll från externa leverantörer som YouTube, TikTok och Vimeo med oEmbed-protokollet."
+    },
+    "taiwanese": {
+      "title": "oEmbed",
+      "description": "使用 oEmbed 協定從外部提供者（例如 YouTube、TikTok、Vimeo）擷取並嵌入媒體內容。"
+    },
+    "tamil": {
+      "title": "oEmbed",
+      "description": "oEmbed நெறிமுறையைப் பயன்படுத்தி YouTube, TikTok மற்றும் Vimeo போன்ற வெளிப்புற வழங்குநர்களிலிருந்து ஊடக உள்ளடக்கத்தைப் பெற்று உட்பொதிக்கிறது."
+    },
+    "thai": {
+      "title": "oEmbed",
+      "description": "ดึงและฝังเนื้อหามัลติมีเดียจากผู้ให้บริการภายนอก เช่น ยูทูบ, ติ๊กต๊อก และ วีมีโอ โดยใช้โปรโตคอล oEmbed"
+    },
+    "turkish": {
+      "title": "oEmbed",
+      "description": "YouTube, TikTok ve Vimeo gibi harici sağlayıcılardan medya içeriği alır ve oEmbed protokolüyle gömülmesini sağlar."
+    },
+    "ukrainian": {
+      "title": "oEmbed",
+      "description": "Отримує та вбудовує медіавміст від зовнішніх постачальників, таких як YouTube, TikTok і Vimeo, за допомогою протоколу oEmbed."
+    },
+    "urdu": {
+      "title": "oEmbed",
+      "description": "oEmbed پروٹوکول استعمال کرتے ہوئے YouTube، TikTok اور Vimeo جیسے بیرونی فراہم کنندگان سے میڈیا مواد حاصل کر کے ایمبیڈ کرتا ہے۔"
+    },
+    "vietnamese": {
+      "title": "oEmbed",
+      "description": "Truy xuất và nhúng nội dung đa phương tiện từ các nhà cung cấp bên ngoài như YouTube, TikTok và Vimeo bằng giao thức oEmbed."
+    }
+  }
+}
